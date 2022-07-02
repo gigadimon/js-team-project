@@ -1,2 +1,57 @@
-<p>HEADER</p>
-<h1>Hello Filmoteka</h1>
+<header class="header js-header">
+  <div class="header__container container js-header-container">
+    <div class="header__navigation">
+      <a class="header__logo js-logo link" href="./index.html"
+        ><svg width="24" height="24">
+          <use href="../images/svg/sprite.svg"></use>
+        </svg>
+        <span class="header__title">Filmoteka</span>
+      </a>
+      <ul class="header__list list">
+        <li class="header__nav header__nav_mobile-style">
+          <a
+            class="header__link link js-home-page header-nav--pege"
+            href="./index.html"
+            >Home</a
+          >
+        </li>
+        <li class="header__nav header__nav_mobile-style">
+          <a
+            class="header__link link js-library-btn js-backDropLibrary library-displayNone"
+            href="#"
+            >My Library</a
+          >
+        </li>
+        <li class="header__nav header__nav_mobile-style">
+          <a
+            class="header__link link js-loginModal-openBtn js-logOutRef logBtn"
+            href="#"
+            >Sign In</a
+          >
+        </li>
+      </ul>
+    </div>
+    <form class="header__form" action="#">
+      <input
+        class="header__input"
+        type="text"
+        name="searchQuery"
+        autocomplete="off"
+        placeholder="movie search"
+      />
+      <button class="form__btn" type="submit">
+        <svg width="12" height="12">
+          <use href=""></use>
+        </svg>
+      </button>
+    </form>
+    <div class="switcher">
+      <button class="switcher-theme-name">Light</button>
+      <label class="switch">
+        <input type="checkbox" id="theme-switch" />
+        <span class="slider round"></span>
+      </label>
+      <button class="switcher-theme-name">Dark</button>
+    </div>
+  </div>
+</header>
