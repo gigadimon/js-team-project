@@ -2,10 +2,10 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://AntonZenko.github.io/team-project-3-js",
+  "homepage": "https://gigadimon.github.io/js-team-project",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /team-project-3-js/"
+    "build": "parcel build src/*.html --public-url /js-team-project/"
   },
   "repository": {
     "type": "git",
