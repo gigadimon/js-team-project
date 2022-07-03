@@ -43,20 +43,19 @@ li {
 /* Container */
 .container {
   text-align: center;
-  align-content: center;
-  align-items: center;
+
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
   @media (min-width: $min-mobile) {
     max-width: 480px;
-    min-width: 320px;
   }
-  @media (min-width: $max-mobile) {
-    max-width: 768px;
+  @media (min-width: $min-tablet) {
+    max-width: 1023px;
   }
-  @media (min-width: $max-tablet) {
-    max-width: 1024px;
+  @media (min-width: $min-desktop) {
+    min-width: 1024px;
+    max-width: 1280px;
   }
 }
 

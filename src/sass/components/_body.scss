@@ -1,54 +1,57 @@
 .body-container {
   padding-top: 20px;
-  @media (min-width: $max-mobile) {
+  padding-right: 20px;
+  padding-left: 20px;
+  @media (min-width: $min-tablet) {
+    padding-left: 32px;
+    padding-right: 32px;
     display: flex;
     flex-wrap: wrap;
-    padding-top: 59px;
-  }
-  @media (min-width: 1280px) {
     padding-top: 60px;
-    max-width: 1280px;
   }
 }
 
 .film__wrap {
-  width: 280px;
-  margin: 0 auto 20px auto;
+  margin-bottom: 20px;
   overflow: hidden;
   text-align: start;
-  @media (min-width: $max-mobile) {
+  cursor: pointer;
+  @media (min-width: $min-tablet) {
+    width: calc(49% - 15px);
     margin: 0 32px 32px 0;
-    width: 336px;
   }
-  @media (min-width: 1280px) {
-    margin: 0 16px 32px 0;
+  @media (min-width: $min-desktop) {
+    margin-right: 15px;
+    width: 32%;
   }
-}
-.film__wrap:nth-child(2n) {
-  @media (min-width: $max-mobile) and (max-width: 1280px) {
-    margin: 0 0 32px 0;
+  &:nth-child(2n) {
+    @media (min-width: $min-tablet) and (max-width: $min-desktop) {
+      margin: 0 0 32px 0;
+    }
+  }
+  &:nth-child(3n) {
+    @media (min-width: $min-desktop) {
+      margin: 0 0 32px 0;
+    }
+  }
+  &:hover {
+    transform: scale(1.01);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: $transition;
+    text-align: center;
   }
 }
 
-.film__wrap:nth-child(3n) {
-  @media (min-width: 1280px) {
-    margin: 0 0 32px 0;
-  }
-}
 .film__img {
-  width: 280px;
-  height: 402px;
   border-radius: 5px;
   margin-bottom: 10px;
-  background-color: aqua;
-  @media (min-width: $max-mobile) {
-    width: 336px;
-    height: 455px;
+  object-fit: cover;
+  @media (min-width: $min-tablet) {
     margin-bottom: 8px;
   }
-  @media (min-width: $max-tablet) {
-    width: 394px;
-    height: 574px;
+  @media (min-width: $min-desktop) {
+    max-height: 574px;
     margin-bottom: 12px;
   }
 }
@@ -58,7 +61,7 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
-  @media (min-width: $max-tablet) {
+  @media (min-width: $min-desktop) {
     font-size: 20px;
     line-height: 1.2;
   }
