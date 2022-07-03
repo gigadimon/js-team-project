@@ -86,6 +86,25 @@
   text-align: center;
 }
 
+.logo__icon {
+  // animation logo
+  animation: scale-logo 2000ms infinite linear;
+
+  @keyframes scale-logo {
+    0% {
+      transform: scale(0.75) rotate(180deg);
+    }
+
+    50% {
+      transform: scale(1.25);
+    }
+
+    100% {
+      transform: scale(0.75) rotate(360deg);
+    }
+  }
+}
+
 .header__title {
   display: none;
   @media screen and (min-width: $min-tablet) {
