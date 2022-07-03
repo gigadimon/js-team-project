@@ -5,7 +5,7 @@ import makeMovieTrandingCards from './makeMovieTrandingCards';
 const API_KEY = 'ffda232ba1095b2db867c38e7745d8d7';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
-async function fetchGetTrending(pageValue) {
+export default async function fetchGetTrending(pageValue) {
   const { data } = await axios.get(
     `/trending/all/day?api_key=${API_KEY}&page=${pageValue}`
   );
@@ -26,7 +26,7 @@ fetchGetTrending(1).then(({ results, dataGenres }) =>
   })
 );
 
-async function getGenresList() {
+export default async function getGenresList() {
   const response = await axios.get(`/genre/movie/list?api_key=${API_KEY}`);
   return response.data.genres;
 }

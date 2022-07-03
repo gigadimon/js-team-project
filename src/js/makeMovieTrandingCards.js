@@ -17,7 +17,7 @@ export default function makeMovieTrandingCards(
   } = movie,
   filmGenres
 ) {
-  console.log(vote_average);
+  // console.log(vote_average);
   return `
   <li class="film__wrap">
   <img class="film__img" src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${name}" />
