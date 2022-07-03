@@ -1,5 +1,5 @@
 import axios from 'axios';
-/* testing code */
+import getFilmGenresNameArray from './getFilmGenresNameArray';
 
 const API_KEY = 'ffda232ba1095b2db867c38e7745d8d7';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
@@ -8,17 +8,22 @@ async function fetchGetTrending(pageValue) {
   const { data } = await axios.get(
     `/trending/all/day?api_key=${API_KEY}&page=${pageValue}`
   );
+  const dataGenres = await getGenresList();
   const { results, total_pages, page, total_results } = data;
-  return { results, total_pages, page, total_results };
+  return { results, total_pages, page, total_results, dataGenres };
 }
 
 const cardRef = document.querySelector('.movieCard');
 const cardSection = document.querySelector('.body-container');
 
-fetchGetTrending(1).then(({ results }) =>
-  results.map(movie =>
-    cardSection.insertAdjacentHTML('afterbegin', makeMovieTrandingCards(movie))
-  )
+fetchGetTrending(1).then(({ results, dataGenres }) =>
+  results.map(movie => {
+    const filmGenres = getFilmGenresNameArray(movie, dataGenres);
+    cardSection.insertAdjacentHTML(
+      'afterbegin',
+      makeMovieTrandingCards(movie, filmGenres)
+    );
+  })
 );
 
 async function getGenresList() {
@@ -26,22 +31,25 @@ async function getGenresList() {
   return response.data.genres;
 }
 
-function makeMovieTrandingCards({
-  id,
-  name,
-  title,
-  genre_ids,
-  media_type,
-  original_name,
-  original_title,
-  popularity,
-  release_date,
-  poster_path,
-  first_air_date,
-  overview,
-  vote_average,
-  vote_count,
-}) {
+function makeMovieTrandingCards(
+  {
+    id,
+    name,
+    title,
+    genre_ids,
+    media_type,
+    original_name,
+    original_title,
+    popularity,
+    release_date,
+    poster_path,
+    first_air_date,
+    overview,
+    vote_average,
+    vote_count,
+  } = movie,
+  filmGenres
+) {
   console.log(release_date || first_air_date);
 
   // let date = first_air_date.slice(0, 4);
@@ -65,9 +73,9 @@ function makeMovieTrandingCards({
   <div class="film__wrap">
     <img class="film__img" src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${name}" />
     <h2 class="film__text film__name">${title || name}</h2>
-    <p class="film__text film__description">Genre,genre | ${
-      release_date || first_air_date
-    }</p>
+    <p class="film__text film__description">${
+      filmGenres.length ? filmGenres : 'Other'
+    } | ${release_date || first_air_date}</p>
   </div>
 </div>
   `;
