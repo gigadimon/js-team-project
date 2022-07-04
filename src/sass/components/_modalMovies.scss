@@ -1,0 +1,266 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+  }
+.modal {
+    width: 280px;
+    padding: 48px 20px 40px;
+    
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @media screen and(min-width:768px) {
+        width: 704px;
+        padding: 40px 72px 40px 36px;
+      }
+      @media screen and (min-width: 1024px) {
+        width: 806px;
+        padding: 40px 12px;
+      }
+}
+.modal__card{
+    @media screen and(min-width:768px) {
+        display: flex;
+        
+      }
+      
+}
+.modal__card-box{
+    @media screen and(min-width:768px) {
+        
+        margin-left: 68px;
+      }
+    @media screen and (min-width: 1024px) {
+        margin-left: 16px;
+      }    
+}
+.modal__card-poster {
+    width: 240px;
+    height: 357px;
+    border-radius: 5px;
+    
+    @media screen and(min-width:768px) {
+        width: 264px;
+        height: 373.55px;
+      }
+
+    @media screen and(min-width:1024px) {
+        width: 375px;
+        height: 478px;
+      }
+
+}
+.modal__close {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+}
+.modal__btn-close {
+    width: 30px;
+    height: 30px;
+    border:none;
+    background-color: #fff;
+
+    &:hover,
+    &:focus{
+        cursor: pointer;
+    }
+}
+.modal__card-title{
+    margin-bottom: 20px;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    text-transform: uppercase;
+    
+    color: #000000;
+
+    @media screen and(min-width:768px) {
+        font-size: 20px;
+        line-height: 23px;
+      }
+
+    @media screen and(min-width:1024px) {
+        font-size: 30px;
+        line-height: 35px;
+      }
+}
+.modal__card-list{
+    margin-bottom: 20px;
+}
+.modal__card-discription-title{
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    @media screen and(min-width:768px) {
+        font-size: 12px;
+        line-height: 16px;
+      }
+
+   
+}
+.modal__card-discription{
+    margin-bottom: 20px;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 20px;
+
+    color: #000000;
+
+    @media screen and(min-width:768px) {
+        font-size: 12px;
+        line-height: 20px;
+      }
+
+   
+}
+.modal__card-info{
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    
+    color: #8C8C8C;
+
+   
+}
+
+.modal__card-vote{
+    margin-left: 41px;
+
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+
+    background-color: #F7F7F7;
+    border: none;
+    border-radius: 5px;
+    &:hover,
+    &:focus{
+        cursor: pointer;
+        background-color: #FF6B01;
+        border: none;
+        border-radius: 5px;
+        color:#fff
+    }
+}
+
+.modal__card-votes{
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+
+    background-color: #F7F7F7;
+    border: none;
+    border-radius: 5px;
+
+   &:hover,
+    &:focus{
+        cursor: pointer;
+        background-color: #FF6B01;
+        border: none;
+        border-radius: 5px;
+        color:#fff
+    }
+}
+
+.modal__card-popularity{
+    margin-left: 53px;
+
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+}
+.modal__card-original-title{
+    margin-left: 39px;
+    
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    text-transform: uppercase;
+}
+.modal__card-genre{
+    margin-left: 76px;
+    
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+}
+.btn__modal-add{
+    display: flex;
+}
+.btn__modal-watched {
+    margin-right: 20px;
+    width: 110px;
+    height: 44px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #000000;
+
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    &:hover,
+    &:focus{
+        cursor: pointer;
+        background-color: #FF6B01;
+        border: none;
+        color:#fff
+    }
+
+    @media screen and(min-width:768px) {
+        width: 125px;
+        margin-right: 15px;
+    
+      }
+
+    @media screen and(min-width:1024px) {
+        width: 136px;
+        
+      }
+}
+
+.btn__modal-queue {
+    width: 110px;
+    height: 44px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #000000;
+
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    &:hover,
+    &:focus{
+        cursor: pointer;
+        background-color: #FF6B01;
+        border: none;
+        color:#fff
+    }
+
+    @media screen and(min-width:768px) {
+        width: 125px;
+        }
+    @media screen and(min-width:1200px) {
+        width: 136px;
+        }
+}
