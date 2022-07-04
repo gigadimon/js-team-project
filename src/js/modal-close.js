@@ -1,3 +1,4 @@
+
 let backdrop = document.querySelector('.backdrop');
 let modalIconClose = document.querySelector('.modal__btn-close');
 
@@ -29,3 +30,4 @@ function onModalForBtnClose(e){
     e.preventDefault();
     backdrop.classList.add('is-hidden');
 }
+
