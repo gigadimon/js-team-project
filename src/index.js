@@ -1,2 +1,5 @@
-import fetfetchTrendingFilms from './js/fetchTrendingFilms';
-import searchFilms from './js/searchFilms';
+import fetchTrendingFilms from './js/queries/fetchTrendingFilms';
+import searchFilms from './js/film-search/searchFilms';
+import createFilmList from './js/pagination/createFilmList';
+
+createFilmList();
