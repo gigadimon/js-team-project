@@ -19,13 +19,17 @@ function target (e) {
 
 function onModalKeyEsc(e){
     e.preventDefault();
+    console.log(e.code)
     if(backdrop.classList.contains('is-hidden')){
         document.removeEventListener('keyup', onModalKeyEsc);
+        return;
     }
     else if(e.code === 'Escape'){
+        
        backdrop.classList.add('is-hidden');  
     }
 }
+
 function onModalForBtnClose(e){
     e.preventDefault();
     backdrop.classList.add('is-hidden');
