@@ -1,7 +1,7 @@
 import axios from 'axios';
-import getFilmGenresNameArray from './getFilmGenresNameArray';
-import makeMovieTrandingCards from './makeMovieTrandingCards';
-import getGenresList from './fetchTrendingFilms';
+import getFilmGenresNameArray from '../handlers/getFilmGenresNameArray';
+import makeMovieTrandingCards from '../handlers/makeMovieTrandingCards';
+import fetchGenresList from '../queries/fetchGenresList';
 
 const API_KEY = 'ffda232ba1095b2db867c38e7745d8d7';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
@@ -12,7 +12,7 @@ async function fetchGetFilmName(name) {
   const { data } = await axios.get(
     `/search/movie?api_key=${API_KEY}&language=en-US&query=${name}&page=1&include_adult=false`
   );
-  const dataGenres = await getGenresList();
+  const dataGenres = await fetchGenresList();
   const { results, total_pages, page, total_results } = data;
   return { results, total_pages, page, total_results, dataGenres };
 }

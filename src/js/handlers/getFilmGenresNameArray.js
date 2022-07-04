@@ -1,6 +1,6 @@
 export default function getFilmGenresNameArray(movie, dataGenres) {
   return movie.genre_ids
-    .flatMap(genreId => {
+    ?.flatMap(genreId => {
       const genres = dataGenres
         .flatMap(genreEl => genreEl.id === genreId && genreEl.name)
         .filter(genre => genre);
