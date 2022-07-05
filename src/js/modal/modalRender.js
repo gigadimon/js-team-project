@@ -25,7 +25,7 @@ function setDataCard(data){
    refs.original.textContent =`${data.original_title}`
    refs.popularity.textContent = `${data.popularity}`
    refs.discription.textContent = `${data.overview}`
-   
+
    if(data.genres.length > 0){
    let genreFilm = []
 
@@ -41,7 +41,6 @@ function setDataCard(data){
 
 
 let containerCardFilm = document.querySelector('.container');
-
 containerCardFilm.addEventListener('click', onClickImg)
 
 function onClickImg(e){
