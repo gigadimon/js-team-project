@@ -1,7 +1,7 @@
 import axios from 'axios';
 import getFilmGenresNameArray from '../handlers/getFilmGenresNameArray';
 import makeMovieTrandingCards from '../handlers/makeMovieTrandingCards';
-import renderMovieCards from '../handlers/renderMovieCards'
+import renderMovieCards from '../handlers/renderMovieCards';
 import fetchGenresList from '../queries/fetchGenresList';
 import Notiflix from 'notiflix';
 import Pagination from '../pagination/Pagination';
@@ -17,33 +17,36 @@ async function fetchGetFilmName(name, pageValue) {
   );
   const dataGenres = await fetchGenresList();
   const { results, total_pages, page, total_results } = data;
-  saveSearch(name, page)
+  saveSearch(name, page);
   return { results, total_pages, page, total_results, dataGenres };
 }
 
 function totalResultsFilms(results) {
   if (results === 0) {
     Notiflix.Notify.failure('No movie found, change request');
-  } else if (results > 100 ) {
-    Notiflix.Notify.info(`${results} movies found, make a more precise request`);
+  } else if (results > 100) {
+    Notiflix.Notify.info(
+      `${results} movies found, make a more precise request`
+    );
   } else {
     Notiflix.Notify.success(`found ${results} movies`);
   }
 }
 
 export default async function createFilmListSearch(name, p) {
-  const { results, totalPages, page, dataGenres, total_results } = await fetchGetFilmName(name, p)
-  totalResultsFilms(total_results)
-  renderMovieCards({ results, dataGenres })
+  const { results, totalPages, page, dataGenres, total_results } =
+    await fetchGetFilmName(name, p);
+  totalResultsFilms(total_results);
+  renderMovieCards({ results, dataGenres });
 
-  document.querySelector('.pagination').innerHTML = "<ul></ul>"
+  document.querySelector('.pagination').innerHTML = '<ul></ul>';
 
   const paginationSearch = new Pagination({
     el: document.querySelector('.pagination ul'),
     totalPages,
     page,
   });
-  
+
   paginationSearch.onChange(async pageNumber => {
     const data = await fetchGetFilmName(name, pageNumber);
     cardSection.innerHTML = '';
@@ -52,8 +55,8 @@ export default async function createFilmListSearch(name, p) {
 }
 
 function saveSearch(input, page) {
-  const search = JSON.stringify({ input, page })
-  localStorage.setItem("last-search", search)
+  const search = JSON.stringify({ input, page });
+  localStorage.setItem('last-search', search);
 }
 
 searchSubmit.addEventListener('submit', e => {
@@ -63,9 +66,6 @@ searchSubmit.addEventListener('submit', e => {
     Notiflix.Notify.warning('An empty string cannot be a query');
   } else {
     cardSection.innerHTML = '';
-    createFilmListSearch(name, 1)
+    createFilmListSearch(name, 1);
   }
 });
-
-
-
