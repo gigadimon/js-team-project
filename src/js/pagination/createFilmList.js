@@ -3,6 +3,7 @@ import fetchGetTrending from '../queries/fetchTrendingFilms';
 import Pagination from './Pagination';
 
 const cardSection = document.querySelector('.body-container');
+const INITIAL_PAGE_NUMBER = 1;
 
 export default async function createFilmList() {
   const { results, totalPages, page, dataGenres } = await fetchGetTrending(1);
