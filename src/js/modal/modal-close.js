@@ -1,4 +1,4 @@
-
+export {backdrop};
 let backdrop = document.querySelector('.backdrop');
 let modalIconClose = document.querySelector('.modal__btn-close');
 
@@ -19,13 +19,17 @@ function target (e) {
 
 function onModalKeyEsc(e){
     e.preventDefault();
+    
     if(backdrop.classList.contains('is-hidden')){
         document.removeEventListener('keyup', onModalKeyEsc);
+        return;
     }
     else if(e.code === 'Escape'){
+        
        backdrop.classList.add('is-hidden');  
     }
 }
+
 function onModalForBtnClose(e){
     e.preventDefault();
     backdrop.classList.add('is-hidden');

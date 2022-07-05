@@ -20,7 +20,7 @@ export default function makeMovieTrandingCards(
   // console.log(vote_average);
   return `
   <li class="film__wrap">
-  <img class="film__img" src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${name}" style="height: 500px"/>
+  <img class="film__img" src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${name}" data-id='${id}'style="height: 500px"/>
   <h2 class="film__text film__name">${title || name} | ${
     first_air_date ? first_air_date?.slice(0, 4) : release_date?.slice(0, 4)
   }</h2>
