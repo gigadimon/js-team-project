@@ -1,6 +1,4 @@
 import axios from 'axios';
-import getFilmGenresNameArray from '../handlers/getFilmGenresNameArray';
-import makeMovieTrandingCards from '../handlers/makeMovieTrandingCards';
 import renderMovieCards from '../handlers/renderMovieCards';
 import fetchGenresList from '../queries/fetchGenresList';
 import Notiflix from 'notiflix';
@@ -13,7 +11,7 @@ const searchSubmit = document.querySelector('.header__form');
 
 async function fetchGetFilmName(name, pageValue) {
   const { data } = await axios.get(
-    `/search/movie?api_key=${API_KEY}&language=en-US&query=${name}&page=1&include_adult=false&page=${pageValue}`
+    `/search/movie?api_key=${API_KEY}&language=en-US&query=${name}&include_adult=false&page=${pageValue}`
   );
   const dataGenres = await fetchGenresList();
   const { results, total_pages, page, total_results } = data;
@@ -34,8 +32,13 @@ function totalResultsFilms(results) {
 }
 
 export default async function createFilmListSearch(name, p) {
-  const { results, totalPages, page, dataGenres, total_results } =
-    await fetchGetFilmName(name, p);
+  const {
+    results,
+    total_pages: totalPages,
+    page,
+    dataGenres,
+    total_results,
+  } = await fetchGetFilmName(name, p);
   totalResultsFilms(total_results);
   renderMovieCards({ results, dataGenres });
 
