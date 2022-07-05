@@ -3,20 +3,28 @@ import fetchGetTrending from '../queries/fetchTrendingFilms';
 import Pagination from './Pagination';
 
 const cardSection = document.querySelector('.body-container');
+const logo = document.querySelector(".header__logo")
 
-export default async function createFilmList() {
+export default async function createFilmListTrending() {
+  if (localStorage.getItem("last-search")) {
+    localStorage.removeItem("last-search")
+  }
   const { results, totalPages, page, dataGenres } = await fetchGetTrending(1);
   renderMovieCards({ results, dataGenres });
-  const pagination = new Pagination({
+
+  document.querySelector('.pagination').innerHTML = "<ul></ul>"
+
+  const paginationTrend = new Pagination({
     el: document.querySelector('.pagination ul'),
     totalPages,
     page,
   });
 
-  pagination.onChange(async pageNumber => {
+  paginationTrend.onChange(async pageNumber => {
     const data = await fetchGetTrending(pageNumber);
     cardSection.innerHTML = '';
     renderMovieCards(data);
-    console.dir(document.documentElement);
   });
 }
+
+logo.addEventListener("click", createFilmListTrending)
