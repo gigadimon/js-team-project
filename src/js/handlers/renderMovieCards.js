@@ -7,7 +7,7 @@ export default function renderMovieCards({ results, dataGenres }) {
   results.map(movie => {
     const filmGenres = getFilmGenresNameArray(movie, dataGenres);
     cardSection.insertAdjacentHTML(
-      'afterbegin',
+      'beforeend',
       makeMovieTrandingCards(movie, filmGenres)
     );
   });
