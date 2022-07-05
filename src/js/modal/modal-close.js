@@ -19,7 +19,7 @@ function target (e) {
 
 function onModalKeyEsc(e){
     e.preventDefault();
-    console.log(e.code)
+    
     if(backdrop.classList.contains('is-hidden')){
         document.removeEventListener('keyup', onModalKeyEsc);
         return;
