@@ -1,4 +1,6 @@
 import { backdrop, closeModal } from './modal-close';
+import { Notify } from 'notiflix';
+import { load, save, remove } from '../current-session/localStorageService';
 
 import axios from 'axios';
 
@@ -17,6 +19,7 @@ const refs = {
 };
 
 function setDataCard(data) {
+  
   refs.poster.setAttribute(
     'src',
     `${
@@ -54,16 +57,52 @@ function onClickImg(e) {
   document.addEventListener('keydown', closeModal);
   let movieId = e.target.getAttribute('data-id');
   renderModalCard(movieId);
-  
-  
+  backdrop.classList.remove('is-hidden');
 }
+
+
 
 async function fetchGetMovieId(MOVIE_ID) {
   const { data } = await axios.get(`/movie/${MOVIE_ID}?api_key=${API_KEY}`);
+  save ('openFilm', data);
   return data;
 }
 
+
+
 function renderModalCard(ID) {
-  fetchGetMovieId(ID).then(data => setDataCard(data));
-  backdrop.classList.remove('is-hidden');
+  return fetchGetMovieId(ID).then(data => setDataCard(data)
+  )
 }
+
+// saving movies to local storage
+const addToWatchedBtn = document.querySelector('.btn__modal-watched');
+const addToQueueBtn = document.querySelector('.btn__modal-queue');
+
+addToWatchedBtn.addEventListener('click', addToWatched);
+function addToWatched() {
+  let openFilm = load('openFilm');
+  let watchedList = JSON.parse(localStorage.getItem('watchedList'));
+  if (!watchedList) {
+    watchedList = [];
+  }
+    watchedList.push(openFilm);
+    localStorage.setItem('watchedList', JSON.stringify(watchedList));
+    Notify.info('Movie added to Watched');
+  }
+
+
+addToQueueBtn.addEventListener('click', addToQueue);
+function addToQueue() {
+  let openFilm = load('openFilm');
+  let queueList = JSON.parse(localStorage.getItem('queueList'));
+  if (!queueList) {
+    queueList = [];
+  }
+    queueList.push(openFilm);
+    localStorage.setItem('queueList', JSON.stringify(queueList));
+    Notify.info('Movie added to Queue');
+}
+
+
+  
