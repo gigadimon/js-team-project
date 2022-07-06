@@ -3,6 +3,7 @@ import renderMovieCards from '../handlers/renderMovieCards';
 import fetchGenresList from '../queries/fetchGenresList';
 import Notiflix from 'notiflix';
 import Pagination from '../pagination/Pagination';
+import { loaderOn } from '../loader/loader';
 
 const API_KEY = 'ffda232ba1095b2db867c38e7745d8d7';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
@@ -10,6 +11,7 @@ const cardSection = document.querySelector('.body-container');
 const searchSubmit = document.querySelector('.header__form');
 
 async function fetchGetFilmName(name, pageValue) {
+  loaderOn()
   const { data } = await axios.get(
     `/search/movie?api_key=${API_KEY}&language=en-US&query=${name}&include_adult=false&page=${pageValue}`
   );
