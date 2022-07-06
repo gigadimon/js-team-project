@@ -55,9 +55,7 @@ function onClickImg(e) {
   let movieId = e.target.getAttribute('data-id');
   renderModalCard(movieId);
   
-  setTimeout(() => {
-    backdrop.classList.remove('is-hidden');
-  }, 500);
+  
 }
 
 async function fetchGetMovieId(MOVIE_ID) {
@@ -67,4 +65,5 @@ async function fetchGetMovieId(MOVIE_ID) {
 
 function renderModalCard(ID) {
   fetchGetMovieId(ID).then(data => setDataCard(data));
+  backdrop.classList.remove('is-hidden');
 }
