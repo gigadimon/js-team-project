@@ -18,7 +18,6 @@ export default function makeMovieTrandingCards(
   } = movie,
   filmGenres
 ) {
-  // console.log(vote_average);
   return `
   <li class="film__wrap">
   <img class="film__img" src="${
@@ -34,15 +33,4 @@ export default function makeMovieTrandingCards(
   }</p>
   </li>
   `;
-  // return `
-  // <li class="film__wrap">
-  // <img class="film__img" src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${name}" />
-  // <h2 class="film__text film__name">${title || name}</h2>
-  // <p class="film__text film__description">${
-  //   filmGenres.length ? filmGenres : 'Other'
-  // } | ${
-  //   first_air_date ? first_air_date.slice(0, 4) : release_date.slice(0, 4)
-  // }</p>
-  // </li>
-  // `;
 }
