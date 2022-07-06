@@ -1,38 +1,41 @@
 <header class="header">
-  <div class="conteiner header__container">
+  <div class="header__container">
+    <!-- <div class="container header__container"> -->
     <div class="header__navigation">
-      <a class="link header__logo" href="./index.html">
+      <a class="header__logo" href="./index.html">
         <svg class="logo__icon" width="24" height="24">
           <use href="./images/svg/header-icon.svg#icon-film"></use>
         </svg>
         <span class="header__title">Filmoteka</span>
       </a>
-      <ul class="list header__list">
+      <ul class="header__list">
         <li class="header__nav">
-          <a class="link header__link header-nav--page" href="./index.html"
-            >Home</a
-          >
+          <button type="submit" class="header__btn home current">Home</button>
         </li>
         <li class="header__nav">
-          <a class="link header__link header-nav--page" href="./index.html"
-            >My library</a
-          >
+          <button type="submit" class="header__btn library">My library</button>
         </li>
       </ul>
     </div>
-    <form class="header__form" action="#">
-      <input
-        class="header__input"
-        type="text"
-        placeholder="Movie search"
-        name="searchQuery"
-        autocomplete="off"
-      />
-      <button class="form__btn" type="submit">
-        <svg width="12" height="12">
-          <use href="./images/svg/header-icon.svg#icon-search"></use>
-        </svg>
-      </button>
-    </form>
+    <div class="header__box">
+      <form class="header__form" action="#">
+        <input
+          class="header__input"
+          type="text"
+          placeholder="Movie search"
+          name="searchQuery"
+          autocomplete="off"
+        />
+        <button class="form__btn" type="submit">
+          <svg class="form__icon" width="12" height="12">
+            <use href="./images/svg/header-icon.svg#icon-search"></use>
+          </svg>
+        </button>
+      </form>
+    </div>
+    <div class="header__buttons visually-hidden">
+      <button class="lib__btn watchedBtn current__libBtn">watched</button>
+      <button class="lib__btn queueBtn">queue</button>
+    </div>
   </div>
 </header>
