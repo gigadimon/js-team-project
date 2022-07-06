@@ -54,7 +54,10 @@ function onClickImg(e) {
   document.addEventListener('keydown', closeModal);
   let movieId = e.target.getAttribute('data-id');
   renderModalCard(movieId);
-  backdrop.classList.remove('is-hidden');
+  
+  setTimeout(() => {
+    backdrop.classList.remove('is-hidden');
+  }, 500);
 }
 
 async function fetchGetMovieId(MOVIE_ID) {
