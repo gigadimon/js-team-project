@@ -1,44 +1,157 @@
-.footer-container {
-    padding: 29px 0 29px 0; 
-    height: 100px;
-    @media (min-width: $max-mobile) {
-        display: flex;
-        padding: 30px 0;
-        height: 79px;
-      }
-    @media (min-width: $max-tablet) {
-        padding: 30px 0 29px 0;
-        height: 77px;
-    }
-  }
-  
+// .footer-container {
+//   padding: 29px 0 29px 0;
+//   height: 100px;
+//   @media (min-width: $max-mobile) {
+//     display: flex;
+//     padding: 30px 0;
+//     height: 79px;
+//   }
+//   @media (min-width: $max-tablet) {
+//     padding: 30px 0 29px 0;
+//     height: 77px;
+//   }
+// }
+
 .footer {
-    background-color: $footer-background-color;
+  background-color: $footer-background-color;
+
+  padding: 30px 0 30px 0;
+  height: 100px;
+  text-align: center;
+
+  font-family: var(--fonts);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: $footer-text-color;
+  @media (min-width: $max-mobile) {
+    display: flex;
+    padding: 30px 0;
+    height: 80px;
+    justify-content: center;
+    align-items: baseline;
+  }
+  @media (min-width: $max-tablet) {
+    padding: 30px 0 29px 0;
+    height: 80px;
+  }
 }
 
-.footer__text {
-font-family: var(--fonts);
-font-weight: 400;
-font-size: 14px;
-line-height: 16px;
-color: $footer-text-color;
-}
-.footer__text--prt1 {
-    margin-bottom: 10px;
-    @media (min-width: $max-mobile) {
-        margin-bottom: 0px;
-        margin-right: 3px;
-      }
+footer > div:not(:last-child) {
+  margin-bottom: 10px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+  }
 }
 
-.footer__icon {
-height: 12.880000114440918px;
-width: 14px;
-margin: 0 10px;
-}
-.footer__link{
-    color: $footer-text-color;
-    text-decoration: underline;
+.icon-heart {
+  width: 14px;
+  height: 13px;
+  margin: 0 10px;
 }
 
+.footer-modal-btn {
+  padding: 0;
+  border: none;
 
+  color: $footer-text-color;
+  background-color: $footer-background-color;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 200ms linear;
+
+  &:hover,
+  &:focus {
+    color: $orange-color;
+  }
+}
+
+// .footer__text {
+//   font-family: var(--fonts);
+//   font-weight: 400;
+//   font-size: 14px;
+//   line-height: 16px;
+//   color: $footer-text-color;
+// }
+// .footer__text--prt1 {
+//   margin-bottom: 10px;
+//   @media (min-width: $max-mobile) {
+//     margin-bottom: 0px;
+//     margin-right: 3px;
+//   }
+// }
+
+// .footer__icon {
+//   height: 13px;
+//   width: 14px;
+//   margin: 0 10px;
+// }
+// .footer__link {
+//   color: $footer-text-color;
+//   text-decoration: underline;
+// }
+
+.heart {
+  display: inline-block;
+  position: relative;
+  width: 24px;
+  height: 11px;
+  transform: rotate(45deg);
+  // transform-origin: 10px 10px;
+}
+
+.heart div {
+  top: 2px;
+  left: 10px;
+  position: relative;
+  width: 7px;
+  height: 7px;
+  background: #ff6b01;
+  animation: heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.heart div:after,
+.heart div:before {
+  content: ' ';
+  position: absolute;
+  display: block;
+  width: 7px;
+  height: 7px;
+  background: #ff6b01;
+}
+
+.heart div:before {
+  left: -6px;
+  border-radius: 50% 0 0 50%;
+}
+
+.heart div:after {
+  top: -6px;
+  border-radius: 50% 50% 0 0;
+}
+
+@keyframes heart {
+  0% {
+    transform: scale(0.95);
+  }
+
+  5% {
+    transform: scale(1.1);
+  }
+
+  39% {
+    transform: scale(0.85);
+  }
+
+  45% {
+    transform: scale(1);
+  }
+
+  60% {
+    transform: scale(0.95);
+  }
+
+  100% {
+    transform: scale(0.9);
+  }
+}
