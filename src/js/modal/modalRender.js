@@ -17,6 +17,7 @@ const refs = {
   genre: document.querySelector('.modal__card-genre'),
   discription: document.querySelector('.modal__card-discription'),
 };
+let watchedList = JSON.parse(localStorage.getItem('watchedList'));
 
 function setDataCard(data) {
   
@@ -54,10 +55,13 @@ function onClickImg(e) {
   if (e.target.nodeName !== 'IMG') {
     return;
   }
-  document.addEventListener('keydown', closeModal);
+  // document.addEventListener('keydown', closeModal);
   let movieId = e.target.getAttribute('data-id');
   renderModalCard(movieId);
-  backdrop.classList.remove('is-hidden');
+  backdrop.classList.remove('is-hidden')
+
+  
+  
 }
 
 
@@ -71,9 +75,29 @@ async function fetchGetMovieId(MOVIE_ID) {
 
 
 function renderModalCard(ID) {
-  return fetchGetMovieId(ID).then(data => setDataCard(data)
-  )
+  fetchGetMovieId(ID).then(data => setDataCard(data))
+
+  let watchedList = load('watchedList');
+  let queueList = load('queueList');
+  let num = Number(ID)
+  
+if (watchedList)  {
+    if (watchedList.some(item => item.id === num)) {
+      addToWatchedBtn.disabled = true;
+      addToWatchedBtn.textContent = 'Added';
+    }
 }
+
+if (queueList) {
+  if (queueList.some(item => item.id === num)) {
+    addToQueueBtn.disabled = true;
+    addToQueueBtn.textContent = 'Added';
+  }
+}
+}
+  
+    
+ 
 
 // saving movies to local storage
 const addToWatchedBtn = document.querySelector('.btn__modal-watched');
@@ -81,14 +105,17 @@ const addToQueueBtn = document.querySelector('.btn__modal-queue');
 
 addToWatchedBtn.addEventListener('click', addToWatched);
 function addToWatched() {
-  let openFilm = load('openFilm');
   let watchedList = JSON.parse(localStorage.getItem('watchedList'));
+let openFilm = load('openFilm');
+  
   if (!watchedList) {
     watchedList = [];
   }
     watchedList.push(openFilm);
     localStorage.setItem('watchedList', JSON.stringify(watchedList));
     Notify.info('Movie added to Watched');
+    addToWatchedBtn.disabled = true;
+    addToWatchedBtn.textContent = 'Added';
   }
 
 
@@ -102,6 +129,8 @@ function addToQueue() {
     queueList.push(openFilm);
     localStorage.setItem('queueList', JSON.stringify(queueList));
     Notify.info('Movie added to Queue');
+    addToQueueBtn.disabled = true;
+    addToQueueBtn.textContent = 'Added';
 }
 
 
