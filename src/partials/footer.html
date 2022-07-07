@@ -1,25 +1,282 @@
-<!-- <footer class="footer">
-  <div class="footer-container container"></div>
-  <p class="footer__text footer__text--prt1">© 2022 | All Rights Reserved |</p>
-  <p class="footer__text footer__text--prt2">
-    Developed with<svg class="footer__icon" wight="14" height="13">
-      <use href="./images/svg/sprite.svg#icon-svg-heart"></use></svg
-    >by <a class="footer__link" href="#">GoIT Students</a>
-  </p>
-</footer> -->
-
-<footer class="footer">
+<footer class="footer container">
   <div>&copy; 2022 | All Rights Reserved |&nbsp;</div>
   <div>
     Developed with
-    <button type="button" class="footer-modal-btn">
+    <button type="button" class="footer__modal-btn" data-modal-open>
       <div id="heart" class="heart">
         <div></div>
       </div>
     </button>
     by
-    <button type="button" class="footer-modal-btn" data-modal-opens>
+    <button type="button" class="footer__modal-btn" data-modal-open>
       GoIT Students
     </button>
+  </div>
+
+  <!--------------------- Footer Modal  ------------------------>
+
+  <div class="footer__backdrop is-hidden">
+    <div class="footer__modal">
+      <h2 class="footer__modal-title">Team GoIT Students</h2>
+      <button type="button" class="footer__close-btn" data-modal-close>
+        <svg class="modal__close-icon" width="20px" height="20px">
+          <use href="./images/svg/sprite.svg#icon-close"></use>
+        </svg>
+      </button>
+      <ul class="team__list">
+        <li class="team__item">
+          <div class="photo__card">
+            <img
+              class="team__img"
+              src="./images/img/team/00.jpg"
+              alt="Student GoIT"
+            />
+            <h4 class="team__title">
+              Name
+              <svg class="ukraine__icon" width="15px" height="15px">
+                <use
+                  href="./images/svg/footer-icon.svg#icon-flag_ukraine"
+                ></use>
+              </svg>
+            </h4>
+            <p class="team__text" lang="en">Developer</p>
+            <ul class="social">
+              <li class="social__link">
+                <a href="https://github.com/">
+                  <svg class="social__icon" width="15px" height="15px">
+                    <use href="./images/svg/footer-icon.svg#icon-github"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="social__link">
+                <a href="https://www.linkedin.com/">
+                  <svg class="social__icon" width="15px" height="15px">
+                    <use
+                      href="./images/svg/footer-icon.svg#icon-linkedin"
+                    ></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="team__item">
+          <div class="photo__card">
+            <img
+              class="team__img"
+              src="./images/img/team/kilivnik-yulia.jpg"
+              alt="Student GoIT"
+            />
+            <h4 class="team__title">
+              Yulia
+              <svg class="ukraine__icon" width="15px" height="15px">
+                <use
+                  href="./images/svg/footer-icon.svg#icon-flag_ukraine"
+                ></use>
+              </svg>
+            </h4>
+            <p class="team__text" lang="en">Scrum Master</p>
+            <ul class="social">
+              <li class="social__link">
+                <a href="https://github.com/Kilivnik">
+                  <svg class="social__icon" width="17px" height="17px">
+                    <use href="./images/svg/footer-icon.svg#icon-github"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="social__link">
+                <a href="https://www.linkedin.com/in/yulia-kilivnik/">
+                  <svg class="social__icon" width="17px" height="17px">
+                    <use
+                      href="./images/svg/footer-icon.svg#icon-linkedin"
+                    ></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="team__item">
+          <div class="photo__card">
+            <img
+              class="team__img"
+              src="./images/img/team/vladyslav-komar.jpg"
+              alt="Student GoIT"
+            />
+            <h4 class="team__title">
+              Vladyslav
+              <svg class="ukraine__icon" width="15px" height="15px">
+                <use
+                  href="./images/svg/footer-icon.svg#icon-flag_ukraine"
+                ></use>
+              </svg>
+            </h4>
+            <p class="team__text" lang="en">Developer</p>
+            <ul class="social">
+              <li class="social__link">
+                <a href="https://github.com/1stPowerLifter">
+                  <svg class="social__icon" width="17px" height="17px">
+                    <use href="./images/svg/footer-icon.svg#icon-github"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="social__link">
+                <a href="https://www.linkedin.com/in/vladyslavkomar/">
+                  <svg class="social__icon" width="17px" height="17px">
+                    <use
+                      href="./images/svg/footer-icon.svg#icon-linkedin"
+                    ></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="team__item">
+          <div class="photo__card">
+            <img
+              class="team__img"
+              src="./images/img/team/volodymyr-yaroschchuk.jpg"
+              alt="Student GoIT"
+            />
+            <h4 class="team__title">
+              Volodymyr
+              <svg class="ukraine__icon" width="15px" height="15px">
+                <use
+                  href="./images/svg/footer-icon.svg#icon-flag_ukraine"
+                ></use>
+              </svg>
+            </h4>
+            <p class="team__text" lang="en">Developer</p>
+            <ul class="social">
+              <li class="social__link">
+                <a href="https://github.com/VovaYaroshchuk">
+                  <svg class="social__icon" width="17px" height="17px">
+                    <use href="./images/svg/footer-icon.svg#icon-github"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="social__link">
+                <a href="https://www.linkedin.com/in/volodymyr-yaroschchuk/">
+                  <svg class="social__icon" width="17px" height="17px">
+                    <use
+                      href="./images/svg/footer-icon.svg#icon-linkedin"
+                    ></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="team__item">
+          <div class="photo__card">
+            <img
+              class="team__img"
+              src="./images/img/team/00.jpg"
+              alt="Student GoIT"
+            />
+            <h4 class="team__title">
+              Name
+              <svg class="ukraine__icon" width="15px" height="15px">
+                <use
+                  href="./images/svg/footer-icon.svg#icon-flag_ukraine"
+                ></use>
+              </svg>
+            </h4>
+            <p class="team__text" lang="en">Developer</p>
+            <ul class="social">
+              <li class="social__link">
+                <a href="https://github.com/">
+                  <svg class="social__icon" width="17px" height="17px">
+                    <use href="./images/svg/footer-icon.svg#icon-github"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="social__link">
+                <a href="https://www.linkedin.com/">
+                  <svg class="social__icon" width="17px" height="17px">
+                    <use
+                      href="./images/svg/footer-icon.svg#icon-linkedin"
+                    ></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="team__item">
+          <div class="photo__card">
+            <img
+              class="team__img"
+              src="./images/img/team/00.jpg"
+              alt="Student GoIT"
+            />
+            <h4 class="team__title">
+              Name
+              <svg class="ukraine__icon" width="15px" height="15px">
+                <use
+                  href="./images/svg/footer-icon.svg#icon-flag_ukraine"
+                ></use>
+              </svg>
+            </h4>
+            <p class="team__text" lang="en">Developer</p>
+            <ul class="social">
+              <li class="social__link">
+                <a href="https://github.com/">
+                  <svg class="social__icon" width="17px" height="17px">
+                    <use href="./images/svg/footer-icon.svg#icon-github"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="social__link">
+                <a href="https://www.linkedin.com/">
+                  <svg class="social__icon" width="17px" height="17px">
+                    <use
+                      href="./images/svg/footer-icon.svg#icon-linkedin"
+                    ></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="team__item">
+          <div class="photo__card">
+            <img
+              class="team__img"
+              src="./images/img/team/00.jpg"
+              alt="Student GoIT"
+            />
+            <h4 class="team__title">
+              Name
+              <svg class="ukraine__icon" width="15px" height="15px">
+                <use
+                  href="./images/svg/footer-icon.svg#icon-flag_ukraine"
+                ></use>
+              </svg>
+            </h4>
+            <p class="team__text" lang="en">Developer</p>
+            <ul class="social">
+              <li class="social__link">
+                <a href="https://github.com/">
+                  <svg class="social__icon" width="17px" height="17px">
+                    <use href="./images/svg/footer-icon.svg#icon-github"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="social__link">
+                <a href="https://www.linkedin.com/">
+                  <svg class="social__icon" width="17px" height="17px">
+                    <use
+                      href="./images/svg/footer-icon.svg#icon-linkedin"
+                    ></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </footer>
