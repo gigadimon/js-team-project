@@ -1,4 +1,6 @@
 import { backdrop, closeModal } from './modal-close';
+import { Notify } from 'notiflix';
+import { load, save, remove } from '../current-session/localStorageService';
 
 import axios from 'axios';
 
@@ -17,12 +19,13 @@ const refs = {
 };
 
 function setDataCard(data) {
+  
   refs.poster.setAttribute(
     'src',
     `${
       data.poster_path
         ? `https://image.tmdb.org/t/p/w500/${data.poster_path}`
-        : 'https://pixabay.com/get/g25c1e797fdbd407eaad39a6e81eeab52bd5393c20eee7b6ca96c90ee34bf0c5afe9249dc64d37d9295f0188ce5b48ade5c2a580852f67af1ceec8032389f9e39_640.jpg'
+        : 'https://st.depositphotos.com/1653909/4590/i/600/depositphotos_45905265-stock-photo-movie-clapper.jpg'
     }`
   ),
     (refs.title.textContent = `${data.title}`),
@@ -54,16 +57,52 @@ function onClickImg(e) {
   document.addEventListener('keydown', closeModal);
   let movieId = e.target.getAttribute('data-id');
   renderModalCard(movieId);
-  
-  
+  backdrop.classList.remove('is-hidden');
 }
+
+
 
 async function fetchGetMovieId(MOVIE_ID) {
   const { data } = await axios.get(`/movie/${MOVIE_ID}?api_key=${API_KEY}`);
+  save ('openFilm', data);
   return data;
 }
 
+
+
 function renderModalCard(ID) {
-  fetchGetMovieId(ID).then(data => setDataCard(data));
-  backdrop.classList.remove('is-hidden');
+  return fetchGetMovieId(ID).then(data => setDataCard(data)
+  )
 }
+
+// saving movies to local storage
+const addToWatchedBtn = document.querySelector('.btn__modal-watched');
+const addToQueueBtn = document.querySelector('.btn__modal-queue');
+
+addToWatchedBtn.addEventListener('click', addToWatched);
+function addToWatched() {
+  let openFilm = load('openFilm');
+  let watchedList = JSON.parse(localStorage.getItem('watchedList'));
+  if (!watchedList) {
+    watchedList = [];
+  }
+    watchedList.push(openFilm);
+    localStorage.setItem('watchedList', JSON.stringify(watchedList));
+    Notify.info('Movie added to Watched');
+  }
+
+
+addToQueueBtn.addEventListener('click', addToQueue);
+function addToQueue() {
+  let openFilm = load('openFilm');
+  let queueList = JSON.parse(localStorage.getItem('queueList'));
+  if (!queueList) {
+    queueList = [];
+  }
+    queueList.push(openFilm);
+    localStorage.setItem('queueList', JSON.stringify(queueList));
+    Notify.info('Movie added to Queue');
+}
+
+
+  

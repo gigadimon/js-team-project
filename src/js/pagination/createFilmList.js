@@ -3,21 +3,25 @@ import fetchGetTrending from '../queries/fetchTrendingFilms';
 import Pagination from './Pagination';
 
 const cardSection = document.querySelector('.body-container');
+<<<<<<< HEAD
 const logo = document.querySelector(".header__logo")
 const INITIAL_PAGE_NUMBER = 1;
+=======
+const logo = document.querySelector('.header__logo');
+>>>>>>> origin
 
 export default async function createFilmListTrending() {
-  if (localStorage.getItem("last-search")) {
-    localStorage.removeItem("last-search")
+  if (localStorage.getItem('last-search')) {
+    localStorage.removeItem('last-search');
   }
   const { results, totalPages, page, dataGenres } = await fetchGetTrending(1);
   renderMovieCards({ results, dataGenres });
 
-  document.querySelector('.pagination').innerHTML = "<ul></ul>"
+  document.querySelector('.pagination').innerHTML = '<ul></ul>';
 
   const paginationTrend = new Pagination({
     el: document.querySelector('.pagination ul'),
-    totalPages,
+    totalPages: totalPages > 500 ? 500 : totalPages,
     page,
   });
 
@@ -28,4 +32,4 @@ export default async function createFilmListTrending() {
   });
 }
 
-logo.addEventListener("click", createFilmListTrending)
+logo.addEventListener('click', createFilmListTrending);

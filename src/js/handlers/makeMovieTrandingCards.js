@@ -23,8 +23,8 @@ export default function makeMovieTrandingCards(
   <img class="film__img" src="${
     poster_path
       ? `https://image.tmdb.org/t/p/w500${poster_path}`
-      : 'https://pixabay.com/get/g25c1e797fdbd407eaad39a6e81eeab52bd5393c20eee7b6ca96c90ee34bf0c5afe9249dc64d37d9295f0188ce5b48ade5c2a580852f67af1ceec8032389f9e39_640.jpg'
-  }" alt="${name}" data-id='${id}' />
+      : 'https://st.depositphotos.com/1653909/4590/i/600/depositphotos_45905265-stock-photo-movie-clapper.jpg'
+  }" alt="${name}" data-id='${id}' style="height: 600px"/>
   <h2 class="film__text film__name">${title || name} | ${
     first_air_date ? first_air_date?.slice(0, 4) : release_date?.slice(0, 4)
   }</h2>

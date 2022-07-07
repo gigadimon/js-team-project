@@ -7,7 +7,9 @@
   background-position: center;
   background-size: cover;
 
-  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
     background-image: url(../images/img/mob/header-bg-lines-mob-2x.png),
       linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
   }
@@ -19,7 +21,9 @@
     background-position: center;
     background-size: cover;
 
-    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
       background-image: url(../images/img/tab/header-bg-lines-tab-2x.png),
         linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
     }
@@ -31,7 +35,9 @@
     background-position: center;
     background-size: cover;
 
-    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
       background-image: url(../images/img/desktop/header-bg-lines-desk-2x.png),
         linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
     }
@@ -44,7 +50,9 @@
   background-position: center;
   background-size: cover;
 
-  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/img/mob/header-bg-seats-mob-2x.png);
   }
@@ -55,8 +63,13 @@
     background-position: center;
     background-size: cover;
 
-    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
         url(../images/img/tab/header-bg-seats-tab-2x.png);
     }
   }
@@ -67,8 +80,13 @@
     background-position: center;
     background-size: cover;
 
-    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
         url(../images/img/desktop/header-bg-seats-desk-2x.png);
     }
   }
@@ -112,7 +130,7 @@
 
 .logo__icon {
   // animation logo
-  animation: scale-logo 2000ms infinite linear;
+  animation: scale-logo 5000ms infinite linear;
 
   @keyframes scale-logo {
     0% {
@@ -162,7 +180,7 @@
 
 .current::after {
   bottom: -3px;
-  content: "";
+  content: '';
   display: block;
   width: 100%;
   height: 4px;
@@ -226,9 +244,10 @@
   line-height: 16px;
 
   cursor: pointer;
-  color: $white-color;
+  color: $orange-color;
   background-color: transparent;
-  border: 1px solid #ffffff;
+  border: 1px solid #ff6b08;
+  transition: 0.2s;
   @media (min-width: $min-tablet) {
     width: 152px;
     margin-top: 40px;
@@ -238,6 +257,12 @@
     margin-top: 40px;
   }
 }
+
+.lib__btn:hover {
+  color: $white-color;
+  border: 0;
+}
+
 .queueBtn {
   margin-left: 20px;
   @media (min-width: $min-tablet) {
@@ -247,9 +272,16 @@
     margin-left: 16px;
   }
 }
-.current__libBtn {
-  background: $orange-color;
-  border: none;
-  box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
-  border-radius: 5px;
+
+// .current__libBtn {
+//   background: $orange-color;
+//   border: none;
+//   box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+//   border-radius: 5px;
+// }
+
+.neon:hover {
+  background-color: #ff6b08;
+  // box-shadow: 10px 10px 100px 6px rgba(255, 3, 3, 1);
+  box-shadow: 10px 10px 100px 20px rgb(229, 80, 50, 1);
 }
