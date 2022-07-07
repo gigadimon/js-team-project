@@ -1,6 +1,7 @@
 import { backdrop, closeModal } from './modal-close';
 import { Notify } from 'notiflix';
 import { load, save, remove } from '../current-session/localStorageService';
+import { loaderOn, loaderOff } from '../loader/loader';
 
 import axios from 'axios';
 
@@ -8,6 +9,7 @@ const API_KEY = 'ffda232ba1095b2db867c38e7745d8d7';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
 const refs = {
+  loader: document.querySelector('.lader_backdrop'),
   poster: document.querySelector('.modal__card-poster'),
   title: document.querySelector('.modal__card-title'),
   vote: document.querySelector('.modal__card-vote'),
@@ -17,62 +19,91 @@ const refs = {
   genre: document.querySelector('.modal__card-genre'),
   discription: document.querySelector('.modal__card-discription'),
 };
+let watchedList = JSON.parse(localStorage.getItem('watchedList'));
 
-function setDataCard(data) {
-  
+function setDataCard({
+  title,
+  vote_average,
+  vote_count,
+  original_title,
+  popularity,
+  overview,
+  poster_path,
+  genres,
+}) {
   refs.poster.setAttribute(
     'src',
     `${
-      data.poster_path
-        ? `https://image.tmdb.org/t/p/w500/${data.poster_path}`
+      poster_path
+        ? `https://image.tmdb.org/t/p/w500/${poster_path}`
         : 'https://st.depositphotos.com/1653909/4590/i/600/depositphotos_45905265-stock-photo-movie-clapper.jpg'
     }`
   ),
-    (refs.title.textContent = `${data.title}`),
-    (refs.vote.textContent = `${data.vote_average}`),
-    (refs.votes.textContent = `${data.vote_count}`);
-  refs.original.textContent = `${data.original_title}`;
-  refs.popularity.textContent = `${data.popularity}`;
-  refs.discription.textContent = `${data.overview}`;
+    (refs.title.textContent = title),
+    (refs.vote.textContent = vote_average),
+    (refs.votes.textContent = vote_count);
+  refs.original.textContent = original_title;
+  refs.popularity.textContent = popularity;
+  refs.discription.textContent = overview;
 
-  if (data.genres.length > 0) {
+  if (genres.length > 0) {
     let genreFilm = [];
-
-    for (let i = 0; i < data.genres.length; i += 1) {
-      genreFilm.push(data.genres[i].name);
+    let i = 0;
+    for (let i = 0; i < genres.length; i += 1) {
+      genreFilm.push(genres[i].name);
     }
 
-    refs.genre.textContent = `${genreFilm.join()}`;
+    refs.genre.textContent = `${genreFilm.join(' ')}`;
   }
 }
 
-let containerCardFilm = document.querySelector('.container');
+let containerCardFilm = document.querySelector('.body-container');
 containerCardFilm.addEventListener('click', onClickImg);
 
-function onClickImg(e) {
+async function onClickImg(e) {
   e.preventDefault();
   if (e.target.nodeName !== 'IMG') {
     return;
   }
   document.addEventListener('keydown', closeModal);
   let movieId = e.target.getAttribute('data-id');
-  renderModalCard(movieId);
-  backdrop.classList.remove('is-hidden');
+  await renderModalCard(movieId);
+  setTimeout(() => {
+    if (refs.loader.classList.contains('is-hidden')) {
+      backdrop.classList.remove('is-hidden');
+    }
+  }, 250);
 }
 
-
-
 async function fetchGetMovieId(MOVIE_ID) {
+  loaderOn();
   const { data } = await axios.get(`/movie/${MOVIE_ID}?api_key=${API_KEY}`);
-  save ('openFilm', data);
+  save('openFilm', data);
   return data;
 }
 
-
-
 function renderModalCard(ID) {
-  return fetchGetMovieId(ID).then(data => setDataCard(data)
-  )
+  let watchedList = load('watchedList');
+  let queueList = load('queueList');
+  let num = Number(ID);
+
+  if (watchedList) {
+    if (watchedList.some(item => item.id === num)) {
+      addToWatchedBtn.disabled = true;
+      addToWatchedBtn.textContent = 'Added';
+    }
+  }
+
+  if (queueList) {
+    if (queueList.some(item => item.id === num)) {
+      addToQueueBtn.disabled = true;
+      addToQueueBtn.textContent = 'Added';
+    }
+  }
+
+  return fetchGetMovieId(ID)
+    .then(data => setDataCard(data))
+    .finally(() => loaderOff());
 }
 
 // saving movies to local storage
@@ -81,16 +112,18 @@ const addToQueueBtn = document.querySelector('.btn__modal-queue');
 
 addToWatchedBtn.addEventListener('click', addToWatched);
 function addToWatched() {
-  let openFilm = load('openFilm');
   let watchedList = JSON.parse(localStorage.getItem('watchedList'));
+  let openFilm = load('openFilm');
+
   if (!watchedList) {
     watchedList = [];
   }
-    watchedList.push(openFilm);
-    localStorage.setItem('watchedList', JSON.stringify(watchedList));
-    Notify.info('Movie added to Watched');
-  }
-
+  watchedList.push(openFilm);
+  localStorage.setItem('watchedList', JSON.stringify(watchedList));
+  Notify.info('Movie added to Watched');
+  addToWatchedBtn.disabled = true;
+  addToWatchedBtn.textContent = 'Added';
+}
 
 addToQueueBtn.addEventListener('click', addToQueue);
 function addToQueue() {
@@ -99,10 +132,9 @@ function addToQueue() {
   if (!queueList) {
     queueList = [];
   }
-    queueList.push(openFilm);
-    localStorage.setItem('queueList', JSON.stringify(queueList));
-    Notify.info('Movie added to Queue');
+  queueList.push(openFilm);
+  localStorage.setItem('queueList', JSON.stringify(queueList));
+  Notify.info('Movie added to Queue');
+  addToQueueBtn.disabled = true;
+  addToQueueBtn.textContent = 'Added';
 }
-
-
-  
