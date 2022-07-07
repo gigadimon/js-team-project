@@ -37,16 +37,17 @@ function setDataCard(data) {
 
   if (data.genres.length > 0) {
     let genreFilm = [];
-
+    let i= 0;
     for (let i = 0; i < data.genres.length; i += 1) {
-      genreFilm.push(data.genres[i].name);
+      genreFilm.push(data.genres[i].name );
+      
     }
-
-    refs.genre.textContent = `${genreFilm.join()}`;
+    
+    refs.genre.textContent = `${genreFilm.join(' ')}`;
   }
 }
 
-let containerCardFilm = document.querySelector('.container');
+let containerCardFilm = document.querySelector('.body-container');
 containerCardFilm.addEventListener('click', onClickImg);
 
 function onClickImg(e) {
@@ -71,6 +72,7 @@ async function fetchGetMovieId(MOVIE_ID) {
 
 
 function renderModalCard(ID) {
+  refs.poster.removeAttribute('src');
   return fetchGetMovieId(ID).then(data => setDataCard(data)
   )
 }
