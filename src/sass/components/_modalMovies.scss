@@ -36,6 +36,9 @@
     display: flex;
   }
 }
+.modal__card-item{
+  display: flex;
+}
 .modal__card-box {
   @media screen and(min-width:768px) {
     margin-left: 68px;
@@ -127,6 +130,7 @@
   }
 }
 .modal__card-info {
+  flex: none;
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
@@ -187,6 +191,12 @@
   font-size: 12px;
   line-height: 16px;
   text-transform: uppercase;
+
+  
+
+  @media screen and(max-width:767px) {
+    flex-basis: min-content;
+  }
 }
 .modal__card-genre {
   margin-left: 76px;
