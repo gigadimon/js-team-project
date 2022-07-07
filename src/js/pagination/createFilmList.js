@@ -7,8 +7,6 @@ const cardSection = document.querySelector('.body-container');
 const logo = document.querySelector(".header__logo");
 const INITIAL_PAGE_NUMBER = 1;
 
-const logo = document.querySelector('.header__logo');
-
 export default async function createFilmListTrending() {
   if (localStorage.getItem('last-search')) {
     localStorage.removeItem('last-search');
