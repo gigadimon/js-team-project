@@ -4,7 +4,7 @@ import Pagination from './Pagination';
 
 const cardSection = document.querySelector('.body-container');
 <<<<<<< HEAD
-const logo = document.querySelector(".header__logo")
+const logo = document.querySelector(".header__logo");
 const INITIAL_PAGE_NUMBER = 1;
 =======
 const logo = document.querySelector('.header__logo');
