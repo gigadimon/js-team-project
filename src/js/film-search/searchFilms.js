@@ -46,7 +46,7 @@ export default async function createFilmListSearch(name, p) {
   renderMovieCards({ results, dataGenres });
 
   document.querySelector('.pagination').innerHTML = '<ul></ul>';
-  if (totalPages === 1) {
+  if (totalPages === 1 || !totalPages) {
     return;
   }
   const paginationSearch = new Pagination({
