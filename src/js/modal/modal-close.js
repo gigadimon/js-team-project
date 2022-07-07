@@ -1,3 +1,5 @@
+import { remove } from "../current-session/localStorageService";
+
 export { backdrop, closeModal };
 let backdrop = document.querySelector('.backdrop');
 let modalIconClose = document.querySelector('.modal__btn-close');
@@ -15,4 +17,5 @@ function closeModal(e) {
     backdrop.classList.add('is-hidden');
     document.removeEventListener('keydown', closeModal);
   }
+  remove ('openFilm');
 }
