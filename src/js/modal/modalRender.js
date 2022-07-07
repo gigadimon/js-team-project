@@ -22,7 +22,7 @@ function setDataCard(data) {
     `${
       data.poster_path
         ? `https://image.tmdb.org/t/p/w500/${data.poster_path}`
-        : 'https://pixabay.com/get/g25c1e797fdbd407eaad39a6e81eeab52bd5393c20eee7b6ca96c90ee34bf0c5afe9249dc64d37d9295f0188ce5b48ade5c2a580852f67af1ceec8032389f9e39_640.jpg'
+        : 'https://st.depositphotos.com/1653909/4590/i/600/depositphotos_45905265-stock-photo-movie-clapper.jpg'
     }`
   ),
     (refs.title.textContent = `${data.title}`),
@@ -54,8 +54,6 @@ function onClickImg(e) {
   document.addEventListener('keydown', closeModal);
   let movieId = e.target.getAttribute('data-id');
   renderModalCard(movieId);
-  
-  
 }
 
 async function fetchGetMovieId(MOVIE_ID) {

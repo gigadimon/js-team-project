@@ -11,13 +11,14 @@ const cardSection = document.querySelector('.body-container');
 const searchSubmit = document.querySelector('.header__form');
 
 async function fetchGetFilmName(name, pageValue) {
-  loaderOn()
+  loaderOn();
   const { data } = await axios.get(
     `/search/movie?api_key=${API_KEY}&language=en-US&query=${name}&include_adult=false&page=${pageValue}`
   );
   const dataGenres = await fetchGenresList();
   const { results, total_pages, page, total_results } = data;
   saveSearch(name, page);
+
   return { results, total_pages, page, total_results, dataGenres };
 }
 
@@ -45,10 +46,12 @@ export default async function createFilmListSearch(name, p) {
   renderMovieCards({ results, dataGenres });
 
   document.querySelector('.pagination').innerHTML = '<ul></ul>';
-
+  if (totalPages === 1) {
+    return;
+  }
   const paginationSearch = new Pagination({
     el: document.querySelector('.pagination ul'),
-    totalPages,
+    totalPages: totalPages > 500 ? 500 : totalPages,
     page,
   });
 
