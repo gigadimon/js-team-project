@@ -1,6 +1,7 @@
 import { backdrop, closeModal } from './modal-close';
 import { Notify } from 'notiflix';
 import { load, save, remove } from '../current-session/localStorageService';
+import { loaderOn, loaderOff } from '../loader/loader';
 
 import axios from 'axios';
 
@@ -8,6 +9,7 @@ const API_KEY = 'ffda232ba1095b2db867c38e7745d8d7';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
 const refs = {
+  loader: document.querySelector('.lader_backdrop'),
   poster: document.querySelector('.modal__card-poster'),
   title: document.querySelector('.modal__card-title'),
   vote: document.querySelector('.modal__card-vote'),
@@ -53,15 +55,6 @@ function setDataCard({
 
     refs.genre.textContent = `${genreFilm.join(' ')}`;
   }
-  return (
-    refs.poster.src === `https://image.tmdb.org/t/p/w500/${poster_path}` &&
-    refs.title.textContent === title &&
-    refs.vote.textContent === String(vote_average) &&
-    refs.votes.textContent === String(vote_count) &&
-    refs.original.textContent === original_title &&
-    refs.popularity.textContent === String(popularity) &&
-    refs.discription.textContent === overview
-  );
 }
 
 let containerCardFilm = document.querySelector('.body-container');
@@ -74,15 +67,16 @@ async function onClickImg(e) {
   }
   document.addEventListener('keydown', closeModal);
   let movieId = e.target.getAttribute('data-id');
-  const data = await renderModalCard(movieId);
-  if (data) {
-    setTimeout(() => {
+  await renderModalCard(movieId);
+  setTimeout(() => {
+    if (refs.loader.classList.contains('is-hidden')) {
       backdrop.classList.remove('is-hidden');
-    }, 100);
-  }
+    }
+  }, 250);
 }
 
 async function fetchGetMovieId(MOVIE_ID) {
+  loaderOn();
   const { data } = await axios.get(`/movie/${MOVIE_ID}?api_key=${API_KEY}`);
   save('openFilm', data);
   return data;
@@ -107,7 +101,9 @@ function renderModalCard(ID) {
     }
   }
 
-  return fetchGetMovieId(ID).then(data => setDataCard(data));
+  return fetchGetMovieId(ID)
+    .then(data => setDataCard(data))
+    .finally(() => loaderOff());
 }
 
 // saving movies to local storage
