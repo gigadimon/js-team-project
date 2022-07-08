@@ -22,6 +22,7 @@ function closeModal(e) {
     e.code === 'Escape'
   ) {
     poster.src = 'https://viyar.ua/store/Items/photos/ph67137.jpg';
+    document.body.style.overflow = 'visible';
     backdrop.classList.add('is-hidden');
     document.removeEventListener('keydown', closeModal);
     remove('openFilm');
