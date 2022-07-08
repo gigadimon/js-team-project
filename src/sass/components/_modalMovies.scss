@@ -12,8 +12,9 @@
   visibility: hidden;
 }
 .modal {
+  
   width: 280px;
-  padding: 48px 20px 40px;
+  padding: 40px 20px 20px;
 
   border-radius: 5px;
   background-color: #fff;
@@ -21,6 +22,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  
 
   @media screen and(min-width:768px) {
     width: 704px;
@@ -31,6 +33,15 @@
     padding: 40px 12px;
   }
 }
+.video-treiler{
+  background-color: #000000;
+  width:560px;
+  height:315px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} 
 .modal__card {
   @media screen and(min-width:768px) {
     display: flex;
@@ -48,10 +59,11 @@
   }
 }
 .modal__card-poster {
+  position: relative;
   width: 240px;
-  height: 357px;
-  border-radius: 5px;
+  height: 40vh;
   object-fit: cover;
+  border-radius: 5px;
 
   @media screen and(min-width:768px) {
     width: 264px;
@@ -62,6 +74,18 @@
     width: 375px;
     height: 478px;
   }
+}
+.btn__trailer{
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  top: 40px;
+  color:#fff
+}
+.modal__btn-youTube-icon:hover{
+  width:80px;
+  height: 60px;
+  cursor: pointer;
 }
 .modal__close {
   position: absolute;
@@ -116,7 +140,8 @@
 }
 .modal__card-discription {
   margin-bottom: 20px;
-
+  overflow: auto;
+  height: 40px;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -125,6 +150,7 @@
   color: #000000;
 
   @media screen and(min-width:768px) {
+    height: auto;
     font-size: 12px;
     line-height: 20px;
   }
@@ -192,11 +218,6 @@
   line-height: 16px;
   text-transform: uppercase;
 
-  
-
-  @media screen and(max-width:767px) {
-    flex-basis: min-content;
-  }
 }
 .modal__card-genre {
   margin-left: 76px;
