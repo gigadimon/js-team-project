@@ -2,6 +2,7 @@ import { backdrop, closeModal } from './modal-close';
 import { Notify } from 'notiflix';
 import { load, save, remove } from '../current-session/localStorageService';
 import { loaderOn, loaderOff } from '../loader/loader';
+import treiler from './treiler';
 
 import axios from 'axios';
 
@@ -30,7 +31,7 @@ function setDataCard({
   overview,
   poster_path,
   genres,
-}) {
+}) { 
   refs.poster.setAttribute(
     'src',
     `${
@@ -70,19 +71,11 @@ async function onClickImg(e) {
   await renderModalCard(movieId);
   setTimeout(() => {
     if (refs.loader.classList.contains('is-hidden')) {
+      document.body.style.overflow = 'hidden';
       backdrop.classList.remove('is-hidden');
     }
   }, 250);
-}
 
-async function fetchGetMovieId(MOVIE_ID) {
-  loaderOn();
-  const { data } = await axios.get(`/movie/${MOVIE_ID}?api_key=${API_KEY}`);
-  save('openFilm', data);
-  return data;
-}
-
-function renderModalCard(ID) {
   let watchedList = load('watchedList');
   let queueList = load('queueList');
   let num = Number(ID);
@@ -100,6 +93,17 @@ function renderModalCard(ID) {
       addToQueueBtn.textContent = 'Added';
     }
   }
+}
+
+async function fetchGetMovieId(MOVIE_ID) {
+  loaderOn();
+  const { data } = await axios.get(`/movie/${MOVIE_ID}?api_key=${API_KEY}`);
+  save('openFilm', data);
+  return data;
+}
+
+function renderModalCard(ID) {
+
 
   return fetchGetMovieId(ID)
     .then(data => setDataCard(data))
