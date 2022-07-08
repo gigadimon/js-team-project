@@ -12,7 +12,6 @@ export default async function fetchGetTrending(pageValue) {
   );
   const dataGenres = await fetchGenresList();
   const { results, total_pages, page, total_results } = data;
-  console.log(data);
   return {
     results,
     totalPages: total_pages,

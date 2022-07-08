@@ -4,8 +4,6 @@ import Pagination from './Pagination';
 
 const cardSection = document.querySelector('.body-container');
 
-const logo = document.querySelector(".header__logo");
-const INITIAL_PAGE_NUMBER = 1;
 
 export default async function createFilmListTrending() {
   if (localStorage.getItem('last-search')) {
@@ -28,5 +26,3 @@ export default async function createFilmListTrending() {
     renderMovieCards(data);
   });
 }
-
-logo.addEventListener('click', createFilmListTrending);

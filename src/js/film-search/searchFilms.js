@@ -15,6 +15,7 @@ async function fetchGetFilmName(name, pageValue) {
   const { data } = await axios.get(
     `/search/movie?api_key=${API_KEY}&language=en-US&query=${name}&include_adult=false&page=${pageValue}`
   );
+  console.log(data)
   const dataGenres = await fetchGenresList();
   const { results, total_pages, page, total_results } = data;
   saveSearch(name, page);
@@ -46,7 +47,7 @@ export default async function createFilmListSearch(name, p) {
   renderMovieCards({ results, dataGenres });
 
   document.querySelector('.pagination').innerHTML = '<ul></ul>';
-  if (totalPages === 1) {
+  if (totalPages === 1 || !totalPages) {
     return;
   }
   const paginationSearch = new Pagination({
