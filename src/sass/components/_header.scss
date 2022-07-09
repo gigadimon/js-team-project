@@ -2,92 +2,93 @@
   height: 230px;
   // background-color: #545454;
   background-image: url(../images/img/mob/header-bg-lines-mob-1x.png),
-    linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
+  linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 
   @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
     background-image: url(../images/img/mob/header-bg-lines-mob-2x.png),
-      linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
+    linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
   }
   @media screen and (min-width: $min-tablet) {
     height: 216px;
     background-image: url(../images/img/tab/header-bg-lines-tab-1x.png),
-      linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
+    linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 
     @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
       background-image: url(../images/img/tab/header-bg-lines-tab-2x.png),
-        linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
+      linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
     }
   }
   @media screen and (min-width: $min-desktop) {
     background-image: url(../images/img/desktop/header-bg-lines-desk-1x.png),
-      linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
+    linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 
     @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
       background-image: url(../images/img/desktop/header-bg-lines-desk-2x.png),
-        linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
+      linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
     }
   }
 }
+
 .header__library {
   background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-    url(../images/img/mob/header-bg-seats-mob-1x.png);
+  url(../images/img/mob/header-bg-seats-mob-1x.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 
   @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-      url(../images/img/mob/header-bg-seats-mob-2x.png);
+    url(../images/img/mob/header-bg-seats-mob-2x.png);
   }
   @media screen and (min-width: $min-tablet) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-      url(../images/img/tab/header-bg-seats-tab-1x.png);
+    url(../images/img/tab/header-bg-seats-tab-1x.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 
     @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
       background-image: linear-gradient(
           rgba(0, 0, 0, 0.56),
           rgba(0, 0, 0, 0.56)
-        ),
-        url(../images/img/tab/header-bg-seats-tab-2x.png);
+      ),
+      url(../images/img/tab/header-bg-seats-tab-2x.png);
     }
   }
   @media screen and (min-width: $min-desktop) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-      url(../images/img/desktop/header-bg-seats-desk-1x.png);
+    url(../images/img/desktop/header-bg-seats-desk-1x.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 
     @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
       background-image: linear-gradient(
           rgba(0, 0, 0, 0.56),
           rgba(0, 0, 0, 0.56)
-        ),
-        url(../images/img/desktop/header-bg-seats-desk-2x.png);
+      ),
+      url(../images/img/desktop/header-bg-seats-desk-2x.png);
     }
   }
 }
@@ -173,6 +174,7 @@
   letter-spacing: 0.03em;
   cursor: pointer;
   text-transform: uppercase;
+
   &:hover {
     color: $red-color;
   }
@@ -293,26 +295,23 @@
   box-shadow: 10px 10px 100px 20px rgb(229, 80, 50, 1);
 }
 
-.currentMyLib{
+.currentMyLib {
   background-color: #ff6b08;
   box-shadow: 10px 10px 100px 20px rgb(229, 80, 50, 1);
   color: $white-color;
 }
 
-
-.tumbler__wrapper {
-  width: 48px;
-  height: 30px;
-  background-color: #000;
-  border: #1d92b2;
-  border-radius: 30px;
+.theme-switch-wrapper {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0 6px;
-  cursor: pointer;
-  display: flex;
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 34px;
   position: relative;
+  width: 60px;
+
   &:before, &:after {
     content: "";
     display: block;
@@ -321,35 +320,70 @@
     height: 15px;
     width: 15px;
     position: absolute;
+    z-index: 1;
+    cursor: pointer;
   }
+
   &:before {
     background-image: url(../images/svg/sun.svg);
     background-size: 15px 15px;
     background-repeat: no-repeat;
     left: 6px;
   }
+
   &:after {
     background-image: url(../images/svg/moon.svg);
     background-size: 15px 15px;
     background-repeat: no-repeat;
     right: 6px;
   }
-  .tumbler {
-    position: absolute;
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    background-color: #fff;
-    transition: transform .5s,background-color .5s;
-    will-change: transform;
-    z-index: 2;
-  }
 }
 
-body {
-  &.dark-theme {
-    .tumbler {
-      transform: translateX(calc(100% - 2px));
-    }
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  background-color: #000;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 26px;
+  z-index: 2;
+}
+
+input:checked + .slider {
+  background-color: #000;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+[data-theme="dark"] {
+  body {
+    background-color: #000;
   }
 }
