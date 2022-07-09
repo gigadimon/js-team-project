@@ -1,11 +1,17 @@
 import { remove } from '../current-session/localStorageService';
 import { load, save, remove } from '../current-session/localStorageService';
 export { backdrop, closeModal };
+
+
 let backdrop = document.querySelector('.backdrop');
+let modal =document.querySelector('.modal');
 let modalIconClose = document.querySelector('.modal__btn-close');
 const addToWatchedBtn = document.querySelector('.btn__modal-watched');
 const addToQueueBtn = document.querySelector('.btn__modal-queue');
 const poster = document.querySelector('.modal__card-poster');
+const treiler = document.querySelector('.video-treiler');
+const iframe =document.querySelector('iframe');
+
 
 backdrop.addEventListener('click', closeModal);
 modalIconClose.addEventListener('click', closeModal);
@@ -13,13 +19,23 @@ modalIconClose.addEventListener('click', closeModal);
 
 function closeModal(e) {
   e.preventDefault();
-
-  if (
+  if(modal.classList.contains('is-hidden')){
+    if(e.target === backdrop||
+      e.code === 'Escape'){
+        
+        
+        treiler.classList.add('is-hidden')
+        modal.classList.remove('is-hidden')
+      }    
+  }
+  
+  else if (
     e.target === backdrop ||
     e.currentTarget === modalIconClose ||
     e.code === 'Escape'
   ) {
     poster.src = 'https://viyar.ua/store/Items/photos/ph67137.jpg';
+    document.body.style.overflow = 'visible';
     backdrop.classList.add('is-hidden');
     document.removeEventListener('keydown', closeModal);
     remove('openFilm');

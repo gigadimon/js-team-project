@@ -2,6 +2,7 @@ import { backdrop, closeModal } from './modal-close';
 import { Notify } from 'notiflix';
 import { load, save, remove } from '../current-session/localStorageService';
 import { loaderOn, loaderOff } from '../loader/loader';
+import treiler from './treiler';
 
 import axios from 'axios';
 
@@ -30,7 +31,7 @@ function setDataCard({
   overview,
   poster_path,
   genres,
-}) {
+}) { 
   refs.poster.setAttribute(
     'src',
     `${
@@ -65,14 +66,19 @@ async function onClickImg(e) {
   if (e.target.nodeName !== 'IMG') {
     return;
   }
+
   document.addEventListener('keydown', closeModal);
   let movieId = e.target.getAttribute('data-id');
   await renderModalCard(movieId);
   setTimeout(() => {
     if (refs.loader.classList.contains('is-hidden')) {
+      document.body.style.overflow = 'hidden';
       backdrop.classList.remove('is-hidden');
+      backdrop.classList.add('is-hidden-off')
     }
   }, 250);
+
+ 
 }
 
 async function fetchGetMovieId(MOVIE_ID) {
@@ -83,23 +89,7 @@ async function fetchGetMovieId(MOVIE_ID) {
 }
 
 function renderModalCard(ID) {
-  let watchedList = load('watchedList');
-  let queueList = load('queueList');
-  let num = Number(ID);
-
-  if (watchedList) {
-    if (watchedList.some(item => item.id === num)) {
-      addToWatchedBtn.disabled = true;
-      addToWatchedBtn.textContent = 'Added';
-    }
-  }
-
-  if (queueList) {
-    if (queueList.some(item => item.id === num)) {
-      addToQueueBtn.disabled = true;
-      addToQueueBtn.textContent = 'Added';
-    }
-  }
+  
 
   return fetchGetMovieId(ID)
     .then(data => setDataCard(data))
