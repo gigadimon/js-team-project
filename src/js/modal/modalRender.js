@@ -66,6 +66,7 @@ async function onClickImg(e) {
   if (e.target.nodeName !== 'IMG') {
     return;
   }
+
   document.addEventListener('keydown', closeModal);
   let movieId = e.target.getAttribute('data-id');
   await renderModalCard(movieId);
@@ -73,26 +74,11 @@ async function onClickImg(e) {
     if (refs.loader.classList.contains('is-hidden')) {
       document.body.style.overflow = 'hidden';
       backdrop.classList.remove('is-hidden');
+      backdrop.classList.add('is-hidden-off')
     }
   }, 250);
 
-  let watchedList = load('watchedList');
-  let queueList = load('queueList');
-  let num = Number(ID);
-
-  if (watchedList) {
-    if (watchedList.some(item => item.id === num)) {
-      addToWatchedBtn.disabled = true;
-      addToWatchedBtn.textContent = 'Added';
-    }
-  }
-
-  if (queueList) {
-    if (queueList.some(item => item.id === num)) {
-      addToQueueBtn.disabled = true;
-      addToQueueBtn.textContent = 'Added';
-    }
-  }
+ 
 }
 
 async function fetchGetMovieId(MOVIE_ID) {
