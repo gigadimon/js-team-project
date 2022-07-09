@@ -1,4 +1,5 @@
 .header {
+  position: relative;
   height: 230px;
   // background-color: #545454;
   background-image: url(../images/img/mob/header-bg-lines-mob-1x.png),
@@ -293,7 +294,7 @@
   box-shadow: 10px 10px 100px 20px rgb(229, 80, 50, 1);
 }
 
-.currentMyLib{
+.currentMyLib {
   background-color: #ff6b08;
   box-shadow: 10px 10px 100px 20px rgb(229, 80, 50, 1);
   color: $white-color;

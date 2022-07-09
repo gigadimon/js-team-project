@@ -1,0 +1,38 @@
+<div class="auth-overlay visually-hidden">
+  <div class="auth-modal">
+    <button class="auth-modal__btn-close">
+      <svg class="modal__btn-close-icon" width="14" height="14">
+        <use href="./images/svg/sprite.svg#icon-close"></use>
+      </svg>
+    </button>
+    <div class="reg-form">
+      <form id="reg-form">
+        <div class="reg-form__login">
+          <label for="login">Введите email: </label>
+          <input type="email" name="login" id="login" />
+        </div>
+        <div class="reg-form__password">
+          <label for="password">Введите пароль: </label>
+          <input type="password" name="password" id="password" />
+        </div>
+
+        <button type="submit">Зарегистрироваться</button>
+      </form>
+      <button class="already-reg">У меня уже есть аккаунт</button>
+    </div>
+    <div class="auth-form visually-hidden">
+      <form id="auth-form">
+        <div class="auth-form__login">
+          <label for="auth-login">Введите email: </label>
+          <input type="email" name="login" id="auth-login" />
+        </div>
+        <div class="auth-form__password">
+          <label for="auth-password">Введите пароль: </label>
+          <input type="password" name="password" id="auth-password" />
+        </div>
+        <button type="submit">Войти</button>
+      </form>
+      <button class="anyway-reg">Зарегистрировать новый аккаунт</button>
+    </div>
+  </div>
+</div>

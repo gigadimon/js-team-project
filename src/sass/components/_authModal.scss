@@ -1,0 +1,51 @@
+.auth-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.auth-modal {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: max-content;
+  height: max-content;
+  padding: 40px;
+
+  background-color: #fff;
+  color: #000000;
+}
+
+.auth-modal__btn-close {
+  position: absolute;
+  top: 10;
+  right: 10;
+
+  width: max-content;
+  height: 14px;
+  padding: 0;
+
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.auth-info-container {
+  position: absolute;
+  right: 40px;
+  bottom: 80px;
+  display: inline-block;
+
+  text-align: right;
+}
+
+.login {
+  display: block;
+  color: #fff;
+}
