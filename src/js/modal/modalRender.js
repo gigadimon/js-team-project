@@ -89,7 +89,7 @@ async function fetchGetMovieId(MOVIE_ID) {
 }
 
 function renderModalCard(ID) {
-
+  
 
   return fetchGetMovieId(ID)
     .then(data => setDataCard(data))
