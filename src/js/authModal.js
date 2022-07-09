@@ -1,11 +1,12 @@
 import './authentication';
 import './registration';
+import switchToLibrary, { switchToHome } from './header/header';
 
 const overlay = document.querySelector('.auth-overlay');
 const authBtn = document.querySelector('.auth-btn__enter');
 const closeBtn = document.querySelector('.auth-modal__btn-close');
 
-authBtn.addEventListener('click', openModal);
+authBtn.addEventListener('click', openAuthModal);
 closeBtn.addEventListener('click', closeModal);
 overlay.addEventListener('click', event => {
   if (event.target !== overlay) {
@@ -20,7 +21,7 @@ export function closeModal() {
   document.removeEventListener('keydown', handleKeyListener);
 }
 
-export function openModal() {
+export function openAuthModal() {
   overlay.classList.remove('visually-hidden');
 
   document.addEventListener('keydown', handleKeyListener);

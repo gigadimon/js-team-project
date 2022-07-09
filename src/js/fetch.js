@@ -1,3 +1,5 @@
+import Notiflix, { Notify } from 'notiflix';
+
 export default class Fetch {
   static API_KEY = 'AIzaSyBsgyw5msQwc2HX8RiFdzRf-qSWVnfNLJA';
   static create(data) {
@@ -30,6 +32,9 @@ export default class Fetch {
     )
       .then(res => res.json())
       .then(data => {
+        if (data.error) {
+          handleError(data);
+        }
         return data;
       });
   }
@@ -45,6 +50,9 @@ export default class Fetch {
     )
       .then(res => res.json())
       .then(data => {
+        if (data.error) {
+          handleError(data);
+        }
         return data;
       });
   }
@@ -55,4 +63,11 @@ function addToLocalStorage(data) {
   users
     ? localStorage.setItem('user', JSON.stringify([...JSON.parse(users), data]))
     : localStorage.setItem('user', JSON.stringify([data]));
+}
+
+function handleError(data) {
+  const failure = [...data.error.message.split('_').join(' ')]
+    .map((el, i) => (i === 0 ? el : el.toLowerCase()))
+    .join('');
+  Notify.failure(`${failure}. Please enter correct data`);
 }

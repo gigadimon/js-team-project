@@ -1,0 +1,44 @@
+import Notiflix, { Notify } from 'notiflix';
+import { closeModal } from './authModal';
+import switchToLibrary, { switchToHome } from './header/header';
+
+const form = document.getElementById('auth-form');
+const loginInput = form.querySelector('#auth-login');
+const passwordInput = form.querySelector('#auth-password');
+const authBtn = document.querySelector('.auth-btn__enter');
+const leaveBtn = document.querySelector('.auth-btn__leave');
+const loginName = document.querySelector('.login');
+
+window.addEventListener('load', () => {
+  if (localStorage.getItem('userEmail')) {
+    loginName.innerHTML = localStorage.getItem('userEmail');
+    leaveBtn.classList.remove('visually-hidden');
+    authBtn.classList.add('visually-hidden');
+    if (sessionStorage.getItem('my-lib')) {
+      switchToLibrary();
+    }
+  }
+});
+
+leaveBtn.addEventListener('click', handleLeaveFromAccount);
+
+export function enterToAccount(userData) {
+  Notify.success('Вы успешно вошли в аккаунт');
+  loginName.innerHTML = userData.email;
+  localStorage.setItem('userEmail', userData.email);
+  leaveBtn.classList.remove('visually-hidden');
+  authBtn.classList.add('visually-hidden');
+  closeModal();
+  loginInput.value = '';
+  passwordInput.value = '';
+}
+
+export function handleLeaveFromAccount() {
+  leaveBtn.classList.add('visually-hidden');
+  loginName.innerHTML = '';
+
+  authBtn.classList.remove('visually-hidden');
+
+  localStorage.removeItem('userEmail');
+  switchToHome();
+}
