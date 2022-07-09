@@ -1,7 +1,9 @@
+html,
 body {
+  height: 100%;
   font-family: $fonts;
   background-color: #ffffff;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 *,
@@ -38,6 +40,16 @@ li {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1 1 auto;
 }
 
 /* Container */
