@@ -311,6 +311,7 @@
   height: 34px;
   position: relative;
   width: 60px;
+  z-index: 0;
 
   &:before, &:after {
     content: "";

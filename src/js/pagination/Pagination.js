@@ -22,6 +22,7 @@ export default class Pagination {
     typeof this.cb === 'function' && this.cb(page);
     this.currentPage = page;
     this.render();
+    scrollUp();
   };
   onChange(cb) {
     this.cb = cb;
@@ -44,7 +45,7 @@ export default class Pagination {
 
     if (this.currentPage > 2) {
       liTag += `<li class="first numb" data-page="1"><span>1</span></li>`;
-      if (this.currentPage > 3) {
+      if (this.currentPage > 4) {
         liTag += `<li class="dots"><span>...</span></li>`;
       }
     }
@@ -96,4 +97,11 @@ export default class Pagination {
     }
     this.el.innerHTML = liTag;
   }
+}
+
+function scrollUp() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
 }
