@@ -295,15 +295,13 @@ footer > div:not(:last-child) {
   }
 }
 
-
 .team__text {
   font-style: italic;
   font-size: 15px;
   color: #e66313;
 }
 
-
-button.back-to-top{
+button.back-to-top {
   margin: 0;
   padding: 0;
   background: #fff;
@@ -325,17 +323,18 @@ button.back-to-top{
   font-size: 0px;
   outline: 0;
   z-index: 99;
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 button.back-to-top:hover,
 button.back-to-top:active,
-button.back-to-top:focus,{
+button.back-to-top:focus {
   outline: 0;
 }
+
 button.back-to-top::before,
 button.back-to-top::after {
-  content: "";
+  content: '';
   display: block;
   vertical-align: middle;
   border-bottom: solid 10px #ff6b08;
@@ -345,17 +344,17 @@ button.back-to-top::after {
   height: 0;
   margin: 18px auto 0;
   width: 0;
-  border-radius:20px;
+  border-radius: 20px;
   visibility: hidden;
 }
 button.back-to-top.show::after,
-button.back-to-top.show::before{
+button.back-to-top.show::before {
   visibility: visible;
 }
 button.back-to-top::after {
-  border-bottom-color:#fff;
+  border-bottom-color: #fff;
   position: relative;
-  top:-24px;
+  top: -24px;
 }
 button.back-to-top.show {
   display: block;
