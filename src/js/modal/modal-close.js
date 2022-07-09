@@ -9,9 +9,7 @@ const poster = document.querySelector('.modal__card-poster');
 
 backdrop.addEventListener('click', closeModal);
 modalIconClose.addEventListener('click', closeModal);
-let openFilm = load('openFilm');
-let watchedList = load('watchedList');
-let queueList = load('queueList');
+
 
 function closeModal(e) {
   e.preventDefault();

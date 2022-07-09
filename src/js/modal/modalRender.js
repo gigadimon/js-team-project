@@ -19,7 +19,7 @@ const refs = {
   genre: document.querySelector('.modal__card-genre'),
   discription: document.querySelector('.modal__card-discription'),
 };
-let watchedList = JSON.parse(localStorage.getItem('watchedList'));
+
 
 function setDataCard({
   title,

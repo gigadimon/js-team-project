@@ -36,5 +36,6 @@ export default function makeMyLibraryCards(
   }</h2>
   <p class="film__text film__description">${genresList}</p>
   </li>
+  <btn class = "film__btn--delete" data-id='${id}'>Delete</btn
   `;
 }
