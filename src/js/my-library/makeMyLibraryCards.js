@@ -1,29 +1,28 @@
-export default function makeMyLibraryCards(
-  {
-    id,
-    title,
-    genres,
-    media_type,
-    original_name,
-    original_title,
-    popularity,
-    release_date,
-    poster_path,
-    first_air_date,
-    backdrop_path,
-    overview,
-    vote_average,
-    vote_count,
-  } = movie,
-) {
-    let genresList;
+export default function makeMyLibraryCards({
+  id,
+  title,
+  genres,
+  media_type,
+  original_name,
+  original_title,
+  popularity,
+  release_date,
+  poster_path,
+  first_air_date,
+  backdrop_path,
+  overview,
+  vote_average,
+  vote_count,
+} = movie) {
+  let genresList;
 
-    if (genres.length > 0) {
-        genresList = genres.reduce((acc, ganre) => acc + "," + ganre.name, "").slice(1)
-        
-    } else {
-        genresList = 'Other'
-    }
+  if (genres.length > 0) {
+    genresList = genres
+      .reduce((acc, ganre) => acc + ',' + ganre.name, '')
+      .slice(1);
+  } else {
+    genresList = 'Other';
+  }
   return `
   <li class="film__wrap">
   <img class="film__img" src="${
@@ -36,5 +35,6 @@ export default function makeMyLibraryCards(
   }</h2>
   <p class="film__text film__description">${genresList}</p>
   </li>
+  <btn class = "film__btn--delete" data-id='${id}' type="button">Delete</btn
   `;
 }

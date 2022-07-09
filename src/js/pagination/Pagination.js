@@ -22,6 +22,7 @@ export default class Pagination {
     typeof this.cb === 'function' && this.cb(page);
     this.currentPage = page;
     this.render();
+    scrollUp();
   };
   onChange(cb) {
     this.cb = cb;
@@ -96,4 +97,11 @@ export default class Pagination {
     }
     this.el.innerHTML = liTag;
   }
+}
+
+function scrollUp() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
 }

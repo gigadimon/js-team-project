@@ -2,6 +2,7 @@ import { backdrop, closeModal } from './modal-close';
 import { Notify } from 'notiflix';
 import { load, save, remove } from '../current-session/localStorageService';
 import { loaderOn, loaderOff } from '../loader/loader';
+import treiler from './treiler';
 
 import axios from 'axios';
 
@@ -19,7 +20,7 @@ const refs = {
   genre: document.querySelector('.modal__card-genre'),
   discription: document.querySelector('.modal__card-discription'),
 };
-let watchedList = JSON.parse(localStorage.getItem('watchedList'));
+const scrollBtn = document.querySelector('.back-to-top');
 
 function setDataCard({
   title,
@@ -65,12 +66,15 @@ async function onClickImg(e) {
   if (e.target.nodeName !== 'IMG') {
     return;
   }
+  scrollBtn.classList.remove('show');
   document.addEventListener('keydown', closeModal);
   let movieId = e.target.getAttribute('data-id');
   await renderModalCard(movieId);
   setTimeout(() => {
     if (refs.loader.classList.contains('is-hidden')) {
+      document.body.style.overflow = 'hidden';
       backdrop.classList.remove('is-hidden');
+      backdrop.classList.add('is-hidden-off');
     }
   }, 250);
 }
@@ -100,7 +104,6 @@ function renderModalCard(ID) {
       addToQueueBtn.textContent = 'Added';
     }
   }
-
   return fetchGetMovieId(ID)
     .then(data => setDataCard(data))
     .finally(() => loaderOff());
