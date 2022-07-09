@@ -22,6 +22,7 @@ export default class Pagination {
     typeof this.cb === 'function' && this.cb(page);
     this.currentPage = page;
     this.render();
+    scrollUp();
   };
   onChange(cb) {
     this.cb = cb;
@@ -31,7 +32,7 @@ export default class Pagination {
     let liTag = '';
     let active;
     let beforePage = this.currentPage - 1;
-    let afterPage = this.currentPage + 1;
+    let afterPage = this.currentPage + 4;
     if (this.currentPage > 1) {
       liTag += `<li class="btn prev" data-page="${
         this.currentPage - 1
@@ -40,11 +41,15 @@ export default class Pagination {
 <path d="M8.00001 12.6668L3.33334 8.00016L8.00001 3.3335" stroke="black" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
  </span></li>`;
+      afterPage = this.currentPage + 3;
     }
 
     if (this.currentPage > 2) {
+      afterPage = this.currentPage + 2;
       liTag += `<li class="first numb" data-page="1"><span>1</span></li>`;
-      if (this.currentPage > 3) {
+      if (this.currentPage > 4) {
+        afterPage = this.currentPage + 2;
+        beforePage = this.currentPage - 2;
         liTag += `<li class="dots"><span>...</span></li>`;
       }
     }
@@ -96,4 +101,11 @@ export default class Pagination {
     }
     this.el.innerHTML = liTag;
   }
+}
+
+function scrollUp() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
 }
