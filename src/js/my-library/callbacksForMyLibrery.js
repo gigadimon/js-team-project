@@ -22,9 +22,9 @@ function watchedBtnCB() {
 
   try {
     const watchedList = JSON.parse(localStorage.getItem('watchedList'));
-    if (watchedList) render(watchedList);
+    render(watchedList);
   } catch {
-    console.log('No watched items');
+    console.log('No watched films');
   }
 }
 
@@ -39,8 +39,8 @@ function queueBtnCB() {
 
   try {
     const queueList = JSON.parse(localStorage.getItem('queueList'));
-    if (queueList) render(queueList);
+    render(queueList);
   } catch {
-    console.log('No queue items');
+    console.log('No films in queue');
   }
 }

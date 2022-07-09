@@ -3,8 +3,9 @@ import { load, save, remove } from '../current-session/localStorageService';
 const cardSection = document.querySelector('.body-container');
 
 export default function renderMyLibrary(results) {
-  if (results === undefined) {
+  if (!results) {
     cardSection.innerHTML = '';
+    return;
   } else {
     results.map(movie => {
       cardSection.insertAdjacentHTML('afterbegin', makeMyLibraryCards(movie));
@@ -18,6 +19,7 @@ let containerCardFilm = document.querySelector('.body-container');
 containerCardFilm.addEventListener('click', deleteFilm);
 const clearBtn = document.querySelector('.clearBtn');
 clearBtn.addEventListener('click', clearMyLibrary);
+
 function clearMyLibrary() {
   if (watchedBtn.classList.contains('currentMyLib')) {
     localStorage.removeItem('watchedList');
@@ -25,7 +27,6 @@ function clearMyLibrary() {
   }
   if (queueBtn.classList.contains('currentMyLib')) {
     localStorage.removeItem('queueList');
-
     renderMyLibrary(load('queueList'));
   }
 }

@@ -87,6 +87,23 @@ async function fetchGetMovieId(MOVIE_ID) {
 }
 
 function renderModalCard(ID) {
+  let watchedList = load('watchedList');
+  let queueList = load('queueList');
+  let num = Number(ID);
+
+  if (watchedList) {
+    if (watchedList.some(item => item.id === num)) {
+      addToWatchedBtn.disabled = true;
+      addToWatchedBtn.textContent = 'Added';
+    }
+  }
+
+  if (queueList) {
+    if (queueList.some(item => item.id === num)) {
+      addToQueueBtn.disabled = true;
+      addToQueueBtn.textContent = 'Added';
+    }
+  }
   return fetchGetMovieId(ID)
     .then(data => setDataCard(data))
     .finally(() => loaderOff());
