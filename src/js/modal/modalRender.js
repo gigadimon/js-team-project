@@ -20,7 +20,7 @@ const refs = {
   genre: document.querySelector('.modal__card-genre'),
   discription: document.querySelector('.modal__card-discription'),
 };
-
+const scrollBtn = document.querySelector('.back-to-top');
 
 function setDataCard({
   title,
@@ -31,7 +31,7 @@ function setDataCard({
   overview,
   poster_path,
   genres,
-}) { 
+}) {
   refs.poster.setAttribute(
     'src',
     `${
@@ -66,7 +66,7 @@ async function onClickImg(e) {
   if (e.target.nodeName !== 'IMG') {
     return;
   }
-
+  scrollBtn.classList.remove('show');
   document.addEventListener('keydown', closeModal);
   let movieId = e.target.getAttribute('data-id');
   await renderModalCard(movieId);
@@ -74,11 +74,9 @@ async function onClickImg(e) {
     if (refs.loader.classList.contains('is-hidden')) {
       document.body.style.overflow = 'hidden';
       backdrop.classList.remove('is-hidden');
-      backdrop.classList.add('is-hidden-off')
+      backdrop.classList.add('is-hidden-off');
     }
   }, 250);
-
- 
 }
 
 async function fetchGetMovieId(MOVIE_ID) {
@@ -89,8 +87,6 @@ async function fetchGetMovieId(MOVIE_ID) {
 }
 
 function renderModalCard(ID) {
-  
-
   return fetchGetMovieId(ID)
     .then(data => setDataCard(data))
     .finally(() => loaderOff());

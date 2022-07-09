@@ -13,7 +13,6 @@
   visibility: hidden;
 }
 .modal {
-  
   width: 280px;
   padding: 40px 20px 20px;
 
@@ -23,7 +22,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  
 
   @media screen and(min-width:768px) {
     width: 704px;
@@ -34,10 +32,10 @@
     padding: 40px 12px;
   }
 }
-iframe{
+iframe {
   width: 300px;
   height: 180px;
-  
+
   position: absolute;
   top: 50%;
   left: 50%;
@@ -45,20 +43,20 @@ iframe{
 
   @media screen and(min-width:768px) {
     width: 500px;
-   height: 260px;
+    height: 260px;
   }
   @media screen and (min-width: 1024px) {
     width: 600px;
     height: 380px;
   }
-} 
- 
+}
+
 .modal__card {
   @media screen and(min-width:768px) {
     display: flex;
   }
 }
-.modal__card-item{
+.modal__card-item {
   display: flex;
 }
 .modal__card-box {
@@ -86,15 +84,15 @@ iframe{
     height: 478px;
   }
 }
-.btn__trailer{
+.btn__trailer {
   position: absolute;
   border: none;
   background-color: transparent;
   top: 40px;
-  color:#fff
+  color: #fff;
 }
-.modal__btn-youTube-icon:hover{
-  width:80px;
+.modal__btn-youTube-icon:hover {
+  width: 80px;
   height: 60px;
   cursor: pointer;
 }
@@ -228,7 +226,6 @@ iframe{
   font-size: 12px;
   line-height: 16px;
   text-transform: uppercase;
-
 }
 .modal__card-genre {
   margin-left: 76px;
@@ -299,4 +296,9 @@ iframe{
   @media screen and(min-width:1200px) {
     width: 136px;
   }
+}
+
+.iframe {
+  width: 60vw;
+  height: 70vh;
 }
