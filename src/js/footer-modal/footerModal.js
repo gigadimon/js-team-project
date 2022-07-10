@@ -13,12 +13,14 @@ function onOpenFooterModal(event) {
   event.preventDefault();
   scrollOnModal.classList.add('scroll-hidden');
   footerBackdrop.classList.remove('is-hidden');
+  footerBackdrop.addEventListener('click', onClickFooterBackdrop);
   window.addEventListener('keydown', onEscPress);
 }
 
 function onCloseFooterModal(event) {
   footerBackdrop.classList.add('is-hidden');
   window.removeEventListener('keydown', onEscPress);
+  footerBackdrop.removeEventListener('click', onClickFooterBackdrop);
   scrollOnModal.classList.remove('scroll-hidden');
 }
 
