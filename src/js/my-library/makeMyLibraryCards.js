@@ -18,13 +18,15 @@ export default function makeMyLibraryCards({
 
   if (genres.length > 0) {
     genresList = genres
-      .reduce((acc, ganre) => acc + ',' + ganre.name, '')
+      .reduce((acc, ganre) => acc + ', ' + ganre.name, '')
       .slice(1);
   } else {
     genresList = 'Other';
   }
   return `
   <li class="film__wrap">
+  <button type="button" class="film__btn--delete" data-id="${id}">
+  </button>
   <img class="film__img" src="${
     poster_path
       ? `https://image.tmdb.org/t/p/w500${poster_path}`
@@ -35,6 +37,6 @@ export default function makeMyLibraryCards({
   }</h2>
   <p class="film__text film__description">${genresList}</p>
   </li>
-  <btn class = "film__btn--delete" data-id='${id}' type="button">Delete</btn
+  
   `;
 }
