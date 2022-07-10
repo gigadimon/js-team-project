@@ -6,7 +6,6 @@ function inputSever(e) {
     ifLastSearch()
     const value = e.target.value
     sessionStorage.setItem('input-value', value.trim());
-    console.log(sessionStorage.getItem('input-value'))
 }
 
 function ifLastSearch() {
