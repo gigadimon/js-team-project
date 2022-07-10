@@ -1,17 +1,17 @@
-import { watchedBtnCB, queueBtnCB } from "../my-library/callbacksForMyLibrery"
-import currentSession from "../current-session/currentSession"
-import currentLibrary from "../current-session/currentLibrary"
+import { watchedBtnCB, queueBtnCB } from '../my-library/callbacksForMyLibrery';
+import currentSession from '../current-session/currentSession';
+import currentLibrary from '../current-session/currentLibrary';
 
 const headerBoxRef = document.querySelector('.header__box');
 const homeBtnRef = document.querySelector('.home');
 const libBtnRef = document.querySelector('.library');
 const headerRef = document.querySelector('.header');
 const headerButtons = document.querySelector('.header__buttons');
-const watchedBtn = document.querySelector(".watchedBtn")
-const queueBtn = document.querySelector(".queueBtn")
+const watchedBtn = document.querySelector('.watchedBtn');
+const queueBtn = document.querySelector('.queueBtn');
 const logo = document.querySelector('.header__logo');
 
-homeBtnRef.addEventListener('click', switchToHome);
+// homeBtnRef.addEventListener('click', switchToHome);
 libBtnRef.addEventListener('click', switchToLibrary);
 
 function switchHeaderBgImage() {
@@ -28,12 +28,12 @@ export default function switchToLibrary() {
   headerButtons.classList.remove('visually-hidden');
   headerBoxRef.classList.add('visually-hidden');
 
-  currentLibrary()
+  currentLibrary();
 
-  watchedBtn.addEventListener("click", watchedBtnCB)
-  queueBtn.addEventListener("click", queueBtnCB)
+  watchedBtn.addEventListener('click', watchedBtnCB);
+  queueBtn.addEventListener('click', queueBtnCB);
 
-  sessionStorage.setItem('my-lib', 'true')
+  sessionStorage.setItem('my-lib', 'true');
 }
 function switchToHome() {
   libBtnRef.addEventListener('click', switchToLibrary);
@@ -45,17 +45,17 @@ function switchToHome() {
   headerButtons.classList.add('visually-hidden');
   headerBoxRef.classList.remove('visually-hidden');
 
-  currentSession()
+  currentSession();
 
-    watchedBtn.removeEventListener("click", watchedBtnCB)
-  queueBtn.removeEventListener("click", queueBtnCB)
+  watchedBtn.removeEventListener('click', watchedBtnCB);
+  queueBtn.removeEventListener('click', queueBtnCB);
 
-  sessionStorage.removeItem('my-lib')
+  sessionStorage.removeItem('my-lib');
 }
 
-logo.addEventListener("click", () => {
+logo.addEventListener('click', () => {
   if (localStorage.getItem('last-search')) {
     localStorage.removeItem('last-search');
   }
-  switchToHome()
-})
+  switchToHome();
+});
