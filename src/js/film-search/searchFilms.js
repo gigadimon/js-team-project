@@ -15,7 +15,6 @@ async function fetchGetFilmName(name, pageValue) {
   const { data } = await axios.get(
     `/search/movie?api_key=${API_KEY}&language=en-US&query=${name}&include_adult=false&page=${pageValue}`
   );
-  console.log(data)
   const dataGenres = await fetchGenresList();
   const { results, total_pages, page, total_results } = data;
   saveSearch(name, page);
