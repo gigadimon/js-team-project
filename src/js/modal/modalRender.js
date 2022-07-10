@@ -62,7 +62,7 @@ function setDataCard({
     url(${
       poster_path
         ? `https://image.tmdb.org/t/p/w500/${poster_path}`
-        : ''
+        : 'https://st.depositphotos.com/1653909/4590/i/600/depositphotos_45905265-stock-photo-movie-clapper.jpg'
     })`
 }
 
