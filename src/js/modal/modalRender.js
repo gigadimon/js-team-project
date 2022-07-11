@@ -19,6 +19,7 @@ const refs = {
   original: document.querySelector('.modal__card-original-title'),
   genre: document.querySelector('.modal__card-genre'),
   discription: document.querySelector('.modal__card-discription'),
+  backdrop: document.querySelector('.backdrop')
 };
 const scrollBtn = document.querySelector('.back-to-top');
 
@@ -56,6 +57,13 @@ function setDataCard({
 
     refs.genre.textContent = `${genreFilm.join(' ')}`;
   }
+
+  refs.backdrop.style.background = `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    url(${
+      poster_path
+        ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+        : 'https://st.depositphotos.com/1653909/4590/i/600/depositphotos_45905265-stock-photo-movie-clapper.jpg'
+    })`
 }
 
 let containerCardFilm = document.querySelector('.body-container');
