@@ -1,6 +1,6 @@
 import { remove } from '../current-session/localStorageService';
 import { load, save, remove } from '../current-session/localStorageService';
-export { backdrop, closeModal };
+export { backdrop };
 let backdrop = document.querySelector('.backdrop');
 let modalIconClose = document.querySelector('.modal__btn-close');
 const addToWatchedBtn = document.querySelector('.btn__modal-watched');
@@ -13,7 +13,7 @@ let openFilm = load('openFilm');
 let watchedList = load('watchedList');
 let queueList = load('queueList');
 
-function closeModal(e) {
+export default function closeModal(e) {
   e.preventDefault();
 
   if (

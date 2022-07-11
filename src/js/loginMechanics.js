@@ -9,6 +9,14 @@ const authBtn = document.querySelector('.auth-btn__enter');
 const leaveBtn = document.querySelector('.auth-btn__leave');
 const loginName = document.querySelector('.login');
 
+const formRegContainer = document.querySelector('.reg-form');
+const formAuthContainer = document.querySelector('.auth-form');
+const alreadyRegBtn = document.querySelector('.already-reg');
+const anywayRegBtn = document.querySelector('.anyway-reg');
+
+alreadyRegBtn.addEventListener('click', switchForm);
+anywayRegBtn.addEventListener('click', switchForm);
+
 window.addEventListener('load', () => {
   if (localStorage.getItem('userEmail')) {
     loginName.innerHTML = localStorage.getItem('userEmail');
@@ -28,9 +36,9 @@ export function enterToAccount(userData) {
   localStorage.setItem('userEmail', userData.email);
   leaveBtn.classList.remove('visually-hidden');
   authBtn.classList.add('visually-hidden');
-  closeModal();
   loginInput.value = '';
   passwordInput.value = '';
+  closeModal();
 }
 
 export function handleLeaveFromAccount() {
@@ -41,4 +49,9 @@ export function handleLeaveFromAccount() {
 
   localStorage.removeItem('userEmail');
   switchToHome();
+}
+
+function switchForm() {
+  formRegContainer.classList.toggle('move');
+  formAuthContainer.classList.toggle('move');
 }

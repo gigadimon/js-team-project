@@ -1,6 +1,7 @@
 import './authentication';
 import './registration';
 import switchToLibrary, { switchToHome } from './header/header';
+import closeFilmModal from './modal/modal-close';
 
 const overlay = document.querySelector('.auth-overlay');
 const authBtn = document.querySelector('.auth-btn__enter');
@@ -16,12 +17,14 @@ overlay.addEventListener('click', event => {
 });
 
 export function closeModal() {
+  document.addEventListener('keydown', closeFilmModal);
   overlay.classList.add('visually-hidden');
 
   document.removeEventListener('keydown', handleKeyListener);
 }
 
 export function openAuthModal() {
+  document.removeEventListener('keydown', closeFilmModal);
   overlay.classList.remove('visually-hidden');
 
   document.addEventListener('keydown', handleKeyListener);

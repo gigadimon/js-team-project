@@ -1,7 +1,8 @@
-import { backdrop, closeModal } from './modal-close';
+import closeModal, { backdrop } from './modal-close';
 import { Notify } from 'notiflix';
 import { load, save, remove } from '../current-session/localStorageService';
 import { loaderOn, loaderOff } from '../loader/loader';
+import { openAuthModal } from '../authModal';
 
 import axios from 'axios';
 
@@ -101,6 +102,13 @@ function renderModalCard(ID) {
     }
   }
 
+  if (!localStorage.getItem('userEmail')) {
+    addToWatchedBtn.textContent = 'Add to Watched';
+    addToWatchedBtn.disabled = false;
+    addToQueueBtn.textContent = 'Add to Queue';
+    addToQueueBtn.disabled = false;
+  }
+
   return fetchGetMovieId(ID)
     .then(data => setDataCard(data))
     .finally(() => loaderOff());
@@ -114,7 +122,10 @@ addToWatchedBtn.addEventListener('click', addToWatched);
 function addToWatched() {
   let watchedList = JSON.parse(localStorage.getItem('watchedList'));
   let openFilm = load('openFilm');
-
+  if (!localStorage.getItem('userEmail')) {
+    openAuthModal();
+    return;
+  }
   if (!watchedList) {
     watchedList = [];
   }
@@ -127,6 +138,10 @@ function addToWatched() {
 
 addToQueueBtn.addEventListener('click', addToQueue);
 function addToQueue() {
+  if (!localStorage.getItem('userEmail')) {
+    openAuthModal();
+    return;
+  }
   let openFilm = load('openFilm');
   let queueList = JSON.parse(localStorage.getItem('queueList'));
   if (!queueList) {
