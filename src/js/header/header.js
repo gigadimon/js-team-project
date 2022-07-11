@@ -57,5 +57,8 @@ logo.addEventListener('click', () => {
   if (localStorage.getItem('last-search')) {
     localStorage.removeItem('last-search');
   }
+  if (sessionStorage.getItem('input-value')) {
+    sessionStorage.removeItem('input-value');
+  }
   switchToHome();
 });
