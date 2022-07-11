@@ -7,7 +7,9 @@
   background-position: center;
   background-size: cover;
 
-  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
     background-image: url(../images/img/mob/header-bg-lines-mob-2x.png),
       linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
   }
@@ -19,7 +21,9 @@
     background-position: center;
     background-size: cover;
 
-    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
       background-image: url(../images/img/tab/header-bg-lines-tab-2x.png),
         linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
     }
@@ -31,7 +35,9 @@
     background-position: center;
     background-size: cover;
 
-    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
       background-image: url(../images/img/desktop/header-bg-lines-desk-2x.png),
         linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
     }
@@ -45,7 +51,9 @@
   background-position: center;
   background-size: cover;
 
-  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/img/mob/header-bg-seats-mob-2x.png);
   }
@@ -56,8 +64,13 @@
     background-position: center;
     background-size: cover;
 
-    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
         url(../images/img/tab/header-bg-seats-tab-2x.png);
     }
   }
@@ -68,8 +81,13 @@
     background-position: center;
     background-size: cover;
 
-    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
         url(../images/img/desktop/header-bg-seats-desk-2x.png);
     }
   }
@@ -176,7 +194,7 @@
 
 .current::after {
   bottom: -3px;
-  content: "";
+  content: '';
   display: block;
   width: 100%;
   height: 4px;
@@ -324,7 +342,7 @@
 
   &:before,
   &:after {
-    content: "";
+    content: '';
     display: block;
     top: 50%;
     margin-top: -7px;
@@ -368,7 +386,7 @@
 .slider:before {
   background-color: #fff;
   bottom: 4px;
-  content: "";
+  content: '';
   height: 26px;
   left: 4px;
   position: absolute;
@@ -391,4 +409,59 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.lang__switch--wrapper {
+  position: absolute;
+  top: 185px;
+  right: 50px;
+  display: flex;
+  align-items: center;
+  &:hover {
+    .slider {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+  @media (min-width: $min-tablet) {
+    top: 160px;
+  }
+}
+
+.lang__switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+  z-index: 0;
+
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    top: 50%;
+    margin-top: -7px;
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  &:before {
+    background-image: url(../images/img/Ukraine.jpg);
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+    left: 6px;
+  }
+
+  &:after {
+    background-image: url(../images/img/England.png);
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+    right: 6px;
+  }
+}
+
+.lang__switch input {
+  display: none;
 }
