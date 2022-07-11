@@ -2,16 +2,27 @@ import makeMyLibraryCards from './makeMyLibraryCards';
 import { load, save, remove } from '../current-session/localStorageService';
 const cardSection = document.querySelector('.body-container');
 
+function noContentMessage() {
+  return (cardSection.innerHTML = `<p class="empty__container">...there is nothing here yet &#129335;</p>`);
+}
+
 export default function renderMyLibrary(results) {
+  if (results === null) {
+    return noContentMessage();
+  }
   if (!results) {
     cardSection.innerHTML = '';
     return;
   } else {
+    if (results.length === 0) {
+      return noContentMessage();
+    }
     results.map(movie => {
       cardSection.insertAdjacentHTML('afterbegin', makeMyLibraryCards(movie));
     });
   }
 }
+
 let myLibraryBtn = document.querySelector('.library');
 let watchedBtn = document.querySelector('.watchedBtn');
 let queueBtn = document.querySelector('.queueBtn');
@@ -29,6 +40,7 @@ function clearMyLibrary() {
     localStorage.removeItem('queueList');
     renderMyLibrary(load('queueList'));
   }
+  noContentMessage();
 }
 
 function deleteFilm(e) {
