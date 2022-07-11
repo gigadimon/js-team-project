@@ -72,7 +72,7 @@ footer > div:not(:last-child) {
 }
 .heart div:after,
 .heart div:before {
-  content: " ";
+  content: ' ';
   position: absolute;
   display: block;
   width: 7px;
@@ -139,7 +139,11 @@ footer > div:not(:last-child) {
 }
 
 .footer__modal {
-  background: radial-gradient(circle, rgba(255, 245, 240, 1) 18%, rgba(144, 165, 187, 0.9192051820728291) 100%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 245, 240, 1) 18%,
+    rgba(144, 165, 187, 0.9192051820728291) 100%
+  );
 
   width: 350px;
   padding: 10px;
@@ -278,6 +282,10 @@ footer > div:not(:last-child) {
   border-radius: 8px;
   margin: 0 auto;
   background-color: none;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .team__title {
@@ -349,9 +357,9 @@ button.back-to-top:focus {
 
 button.back-to-top::before,
 button.back-to-top::after {
-  content: "";
+  content: '';
   display: block;
-  vertical-align: middle;
+  // vertical-align: middle;
   border-bottom: solid 10px #ff6b08;
   border-left: solid 10px transparent;
   line-height: 0;

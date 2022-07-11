@@ -448,14 +448,14 @@ input:checked + .slider:before {
   }
 
   &:before {
-    background-image: url(../images/img/Ukraine.jpg);
+    background-image: url(../images/img/England.png);
     background-size: 15px 15px;
     background-repeat: no-repeat;
     left: 6px;
   }
 
   &:after {
-    background-image: url(../images/img/England.png);
+    background-image: url(../images/img/Ukraine.jpg);
     background-size: 15px 15px;
     background-repeat: no-repeat;
     right: 6px;

@@ -16,21 +16,29 @@
       </div>
       <div class="lang__switch--wrapper">
         <label class="lang__switch" for="lang-checkbox">
-          <input type="checkbox" id="lang-checkbox" />
+          <input type="checkbox" checked id="lang-checkbox" />
           <div class="slider round"></div>
         </label>
       </div>
       <ul class="header__list">
         <li class="header__nav">
-          <button type="button" class="header__btn home current">Home</button>
+          <button
+            type="button"
+            class="header__btn home current"
+            id="lang__home"
+          >
+            Home
+          </button>
         </li>
         <li class="header__nav">
-          <button type="button" class="header__btn library">My library</button>
+          <button type="button" class="header__btn library" id="lang__library">
+            My library
+          </button>
         </li>
       </ul>
     </div>
     <div class="header__box">
-      <form class="header__form" action="#">
+      <form class="header__form" action="#" id="header__form">
         <input
           class="header__input"
           type="text"
@@ -38,6 +46,7 @@
           name="searchQuery"
           autocomplete="off"
         />
+
         <button class="form__btn" type="submit">
           <svg class="form__icon" width="12" height="12">
             <use href="./images/svg/header-icon.svg#icon-search"></use>
@@ -46,10 +55,15 @@
       </form>
     </div>
     <div class="header__buttons visually-hidden">
-      <button class="lib__btn watchedBtn current__libBtn neon">watched</button>
-      <button class="lib__btn queueBtn neon">queue</button>
+      <button
+        class="lib__btn watchedBtn current__libBtn neon"
+        id="lang__watched"
+      >
+        watched
+      </button>
+      <button class="lib__btn queueBtn neon" id="lang__queue">queue</button>
       <br />
-      <button class="lib__btn clearBtn neon">clear</button>
+      <button class="lib__btn clearBtn neon" id="lang__clear">clear</button>
     </div>
   </div>
 </header>
