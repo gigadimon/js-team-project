@@ -21,6 +21,7 @@
   text-align: start;
   cursor: pointer;
   border-radius: 3px;
+  transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   // box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   @media (min-width: $min-tablet) {
     width: calc(49% - 15px);
@@ -44,12 +45,29 @@
     transform: scale(1.01);
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    transition: $transition;
+    transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
     .film__btn--delete {
       display: block;
       opacity: 1;
-      transition: $transition;
+      transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
     }
+  }
+}
+
+.film__btn--delete {
+  display: none;
+  opacity: 0;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 35px;
+  height: 35px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.15);
+    transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
@@ -94,19 +112,6 @@
 
 .film__description {
   color: $orange-color;
-}
-
-.film__btn--delete {
-  display: none;
-  opacity: 0;
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 30px;
-  height: 30px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
 }
 
 .empty__container {

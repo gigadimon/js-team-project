@@ -1,6 +1,7 @@
 import { watchedBtnCB, queueBtnCB } from '../my-library/callbacksForMyLibrery';
 import currentSession from '../current-session/currentSession';
 import currentLibrary from '../current-session/currentLibrary';
+import renderMyLibrary from '../my-library/renderMyLibrary';
 
 const headerBoxRef = document.querySelector('.header__box');
 const homeBtnRef = document.querySelector('.home');
@@ -19,6 +20,7 @@ function switchHeaderBgImage() {
 }
 
 export default function switchToLibrary() {
+  renderMyLibrary();
   homeBtnRef.addEventListener('click', switchToHome);
   homeBtnRef.classList.remove('current');
   libBtnRef.classList.add('current');

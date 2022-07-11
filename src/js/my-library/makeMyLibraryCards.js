@@ -25,8 +25,7 @@ export default function makeMyLibraryCards({
   }
   return `
   <li class="film__wrap">
-  <button type="button" class="film__btn--delete" data-id="${id}">
-  </button>
+  <button type="button" class="film__btn--delete" data-id="${id}"><img class="film__btn--delete" src="https://img.icons8.com/fluency/48/000000/remove-bookmark.png"/></button>
   <img class="film__img" src="${
     poster_path
       ? `https://image.tmdb.org/t/p/w500${poster_path}`

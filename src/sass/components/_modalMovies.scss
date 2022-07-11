@@ -96,12 +96,12 @@ iframe {
   color: #fff;
 }
 .modal__btn-youTube-icon {
-  transition: $transition;
+  // transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal__btn-youTube-icon:hover {
   transform: scale(1.2);
   cursor: pointer;
-  transition: $transition;
+  transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal__close {
   position: absolute;
@@ -113,11 +113,12 @@ iframe {
   height: 30px;
   border: none;
   background-color: transparent;
-
+  // transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover,
   &:focus {
     cursor: pointer;
-    fill: #ff6b01;
+    fill: $orange-color;
+    transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 .modal__card-title {
