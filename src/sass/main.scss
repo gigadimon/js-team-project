@@ -1,7 +1,10 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
-@import './utils/vars';
+
+@import "./utils/vars";
+@import "./utils/darkTheme";
+@import "./utils/scrollBar";
 
 @import './components/common';
 @import './components/header';

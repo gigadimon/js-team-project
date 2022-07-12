@@ -1,7 +1,9 @@
 import { watchedBtnCB, queueBtnCB } from '../my-library/callbacksForMyLibrery';
 import currentSession from '../current-session/currentSession';
 import currentLibrary from '../current-session/currentLibrary';
+
 import { openAuthModal } from '../authModal';
+import renderMyLibrary from '../my-library/renderMyLibrary';
 
 const headerBoxRef = document.querySelector('.header__box');
 const homeBtnRef = document.querySelector('.home');
@@ -12,7 +14,7 @@ const watchedBtn = document.querySelector('.watchedBtn');
 const queueBtn = document.querySelector('.queueBtn');
 const logo = document.querySelector('.header__logo');
 
-homeBtnRef.addEventListener('click', switchToHome);
+// homeBtnRef.addEventListener('click', switchToHome);
 libBtnRef.addEventListener('click', switchToLibrary);
 
 function switchHeaderBgImage() {
@@ -20,10 +22,13 @@ function switchHeaderBgImage() {
 }
 
 export default function switchToLibrary() {
+
   if (!localStorage.getItem('userEmail')) {
     openAuthModal();
     return;
   }
+
+  renderMyLibrary();
   homeBtnRef.addEventListener('click', switchToHome);
   homeBtnRef.classList.remove('current');
   libBtnRef.classList.add('current');
@@ -61,6 +66,9 @@ export function switchToHome() {
 logo.addEventListener('click', () => {
   if (localStorage.getItem('last-search')) {
     localStorage.removeItem('last-search');
+  }
+  if (sessionStorage.getItem('input-value')) {
+    sessionStorage.removeItem('input-value');
   }
   switchToHome();
 });
