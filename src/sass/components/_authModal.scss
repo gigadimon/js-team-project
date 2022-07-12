@@ -158,10 +158,10 @@
   text-align: right;
 }
 
-.login {
-  display: block;
-  color: #fff;
-}
+// .login {
+//   display: block;
+//   color: #fff;
+// }
 .sign-up.neon,
 .already-reg.neon {
   background-color: #fff;
@@ -193,4 +193,13 @@
 
 .form-title {
   margin-bottom: 20px;
+}
+
+.auth-btn__enter {
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+
+  border: none;
+  // border-radius: 16px;
 }

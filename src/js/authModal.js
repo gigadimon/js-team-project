@@ -9,7 +9,7 @@ const closeBtn = document.querySelector('.auth-modal__btn-close');
 
 authBtn.addEventListener('click', openAuthModal);
 closeBtn.addEventListener('click', closeModal);
-overlay.addEventListener('click', event => {
+overlay.addEventListener('mousedown', event => {
   if (event.target !== overlay) {
     return;
   }

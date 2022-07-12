@@ -156,12 +156,33 @@
   }
 }
 
+.nav-wrapper {
+  text-align: right;
+}
+
 .header__list {
   display: flex;
 }
 
 .header__nav:not(:last-child) {
-  margin-right: 40px;
+  margin-right: 20px;
+}
+.header__nav:not(:nth-last-child(2)) {
+  margin-right: 0;
+}
+
+.header__nav:last-child,
+.header__nav:nth-last-child(2) {
+  margin-left: 20px;
+}
+
+.login {
+  display: block;
+  margin-top: 10px;
+  padding: 1px 6px;
+
+  font-size: 12px;
+  color: #fff;
 }
 
 .header__btn {
@@ -177,6 +198,19 @@
   &:hover {
     color: $red-color;
   }
+}
+.auth-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  line-height: 1;
+
+  border: 2px solid #fff;
+  border-radius: 16px;
+}
+.auth-btn:hover {
+  border: 2px solid $red-color;
 }
 
 .current::after {
