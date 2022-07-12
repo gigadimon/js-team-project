@@ -179,6 +179,8 @@ async function renderAuthors(e) {
     showAuthorsModal();
     refs.cardMoveAuthors.innerHTML = renderAuthorsList(cast);
   }
+  window.addEventListener('keydown', closeModalEscKey);
+  refs.backdrop.addEventListener('click', backdropClick);
 }
 
 function renderAuthor({ profile_path, name, id }) {
@@ -202,4 +204,17 @@ function showAuthorsModal() {
 function hideAuthorsModal() {
   refs.cardMoveDetail.classList.remove('hide-detale');
   refs.cardMoveAuthors.classList.remove('show-author');
+}
+
+function closeModalEscKey(evt) {
+  if (evt.code === 'Escape') {
+    hideAuthorsModal();
+    window.removeEventListener('keydown', closeModalEscKey);
+  }
+}
+
+function backdropClick(e) {
+  if (e.currentTarget === e.target) {
+    hideAuthorsModal();
+  }
 }
