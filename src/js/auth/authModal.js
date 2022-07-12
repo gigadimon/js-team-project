@@ -1,7 +1,7 @@
 import './authentication';
 import './registration';
-import switchToLibrary, { switchToHome } from './header/header';
-import closeFilmModal from './modal/modal-close';
+import switchToLibrary, { switchToHome } from '../header/header';
+import closeFilmModal from '../modal/modal-close';
 
 const overlay = document.querySelector('.auth-overlay');
 const authBtn = document.querySelector('.auth-btn__enter');

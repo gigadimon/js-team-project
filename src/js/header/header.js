@@ -2,7 +2,7 @@ import { watchedBtnCB, queueBtnCB } from '../my-library/callbacksForMyLibrery';
 import currentSession from '../current-session/currentSession';
 import currentLibrary from '../current-session/currentLibrary';
 
-import { openAuthModal } from '../authModal';
+import { openAuthModal } from '../auth/authModal';
 import renderMyLibrary from '../my-library/renderMyLibrary';
 
 const headerBoxRef = document.querySelector('.header__box');
@@ -22,7 +22,6 @@ function switchHeaderBgImage() {
 }
 
 export default function switchToLibrary() {
-
   if (!localStorage.getItem('userEmail')) {
     openAuthModal();
     return;

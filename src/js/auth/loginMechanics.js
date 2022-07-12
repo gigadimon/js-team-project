@@ -1,6 +1,6 @@
 import Notiflix, { Notify } from 'notiflix';
 import { closeModal } from './authModal';
-import switchToLibrary, { switchToHome } from './header/header';
+import switchToLibrary, { switchToHome } from '../header/header';
 
 const form = document.getElementById('auth-form');
 const loginInput = form.querySelector('#auth-login');

@@ -1,5 +1,5 @@
 import renderModal from './js/modal/modalRender';
-import './js/authModal';
+import './js/auth/authModal';
 import notiflixOptions from './js/notiflix/notiflixOptions';
 import loadingPage from './js/current-session/loadingPage';
 import currentSession from './js/current-session/currentSession';
@@ -12,4 +12,3 @@ import inputSaver from './js/film-search/inputSaver';
 import language from './js/languages/language';
 
 loadingPage();
-

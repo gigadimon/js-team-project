@@ -2,12 +2,9 @@ import closeModal, { backdrop } from './modal-close';
 import { Notify } from 'notiflix';
 import { load, save, remove } from '../current-session/localStorageService';
 import { loaderOn, loaderOff } from '../loader/loader';
-import { openAuthModal } from '../authModal';
+import { openAuthModal } from '../auth/authModal';
 import treiler from './treiler';
-import {
-  fetchMovieCreditsById,
-  URL_IMG,
-} from '../queries/fetchGenresList';
+import { fetchMovieCreditsById, URL_IMG } from '../queries/fetchGenresList';
 
 import axios from 'axios';
 
@@ -72,7 +69,7 @@ function setDataCard({
       poster_path
         ? `https://image.tmdb.org/t/p/w500/${poster_path}`
         : 'https://st.depositphotos.com/1653909/4590/i/600/depositphotos_45905265-stock-photo-movie-clapper.jpg'
-    })`
+    })`;
   console.log(refs);
 }
 
@@ -187,7 +184,7 @@ refs.cardMoveAuthors.addEventListener('click', e => {
 
 async function renderAuthors(e) {
   if (e.target.id === 'showAuthors') {
-    console.log(true)
+    console.log(true);
     const movieId = e.target.dataset.id;
     const { cast } = await fetchMovieCreditsById(movieId);
     console.log(cast);
