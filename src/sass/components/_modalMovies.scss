@@ -25,10 +25,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-  @media screen and(min-width:550px) {
-    width: 550px;
-    padding: 40px 72px 40px 36px;
-  }
+ 
 
   @media screen and(min-width:768px) {
     width: 704px;
@@ -60,7 +57,7 @@ iframe {
 }
 
 .modal__card {
-  @media screen and(min-width:550px) {
+  @media screen and(min-width:768px) {
     display: flex;
   }
 
@@ -70,9 +67,7 @@ iframe {
   display: flex;
 }
 .modal__card-box {
-  @media screen and(min-width:550px) {
-    margin-left: 50px;
-  }
+ 
 
   @media screen and(min-width:768px) {
     margin-left: 68px;
@@ -89,9 +84,7 @@ iframe {
   object-fit: cover;
   border-radius: 5px;
 
-  @media screen and(min-width:550px) {
-    height: 60vh;
-  }
+  
 
   @media screen and(min-width:768px) {
     width: 264px;
