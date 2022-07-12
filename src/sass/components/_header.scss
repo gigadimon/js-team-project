@@ -100,6 +100,9 @@
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   @media (min-width: $min-mobile) {
     max-width: 480px;
   }
@@ -318,18 +321,12 @@
 }
 
 .theme-switch-wrapper {
-  position: absolute;
-  top: 185px;
-  left: 20px;
   display: flex;
   align-items: center;
   &:hover {
     .slider {
       background-color: rgba(255, 255, 255, 0.2);
     }
-  }
-  @media (min-width: $min-tablet) {
-    top: 160px;
   }
 }
 
@@ -412,18 +409,12 @@ input:checked + .slider:before {
 }
 
 .lang__switch--wrapper {
-  position: absolute;
-  top: 185px;
-  right: 50px;
   display: flex;
   align-items: center;
   &:hover {
     .slider {
       background-color: rgba(255, 255, 255, 0.2);
     }
-  }
-  @media (min-width: $min-tablet) {
-    top: 160px;
   }
 }
 
@@ -448,14 +439,14 @@ input:checked + .slider:before {
   }
 
   &:before {
-    background-image: url(../images/img/Ukraine.jpg);
+    background-image: url(../images/img/England.png);
     background-size: 15px 15px;
     background-repeat: no-repeat;
     left: 6px;
   }
 
   &:after {
-    background-image: url(../images/img/England.png);
+    background-image: url(../images/img/Ukraine.jpg);
     background-size: 15px 15px;
     background-repeat: no-repeat;
     right: 6px;
@@ -517,3 +508,9 @@ input:checked + .slider:before {
       
     }
 }
+
+.checkbox-group-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
