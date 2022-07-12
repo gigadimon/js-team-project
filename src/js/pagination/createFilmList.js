@@ -8,6 +8,8 @@ const cardSection = document.querySelector('.body-container');
 export default async function createFilmListTrending() {
   if (localStorage.getItem('last-search')) {
     localStorage.removeItem('last-search');
+  } else if (localStorage.getItem('last-filter')) {
+    localStorage.removeItem('last-filter');
   }
   const { results, totalPages, page, dataGenres } = await fetchGetTrending(1);
   renderMovieCards({ results, dataGenres });
