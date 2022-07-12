@@ -19,6 +19,7 @@ modalIconClose.addEventListener('click', closeModal);
 
 export default function closeModal(e) {
   e.preventDefault();
+  console.log(e.target);
   if (modal.classList.contains('is-hidden')) {
     if (e.target === backdrop || e.code === 'Escape') {
       treiler.classList.add('is-hidden');
