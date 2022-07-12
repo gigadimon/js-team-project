@@ -1,4 +1,5 @@
 import makeMyLibraryCards from './makeMyLibraryCards';
+
 import { load, save, remove } from '../current-session/localStorageService';
 const cardSection = document.querySelector('.body-container');
 
@@ -17,7 +18,7 @@ export default function renderMyLibrary(results) {
     if (results.length === 0) {
       return noContentMessage();
     }
-    results.map(movie => {
+    results?.map(movie => {
       cardSection.insertAdjacentHTML('afterbegin', makeMyLibraryCards(movie));
     });
   }

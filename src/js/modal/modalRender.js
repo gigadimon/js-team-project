@@ -1,13 +1,10 @@
-import { backdrop, closeModal } from './modal-close';
+import closeModal, { backdrop } from './modal-close';
 import { Notify } from 'notiflix';
 import { load, save, remove } from '../current-session/localStorageService';
 import { loaderOn, loaderOff } from '../loader/loader';
+import { openAuthModal } from '../auth/authModal';
 import treiler from './treiler';
-
-import {
-  fetchMovieCreditsById,
-  URL_IMG,
-} from '../queries/fetchGenresList';
+import { fetchMovieCreditsById, URL_IMG } from '../queries/fetchGenresList';
 
 import axios from 'axios';
 
@@ -72,7 +69,7 @@ function setDataCard({
       poster_path
         ? `https://image.tmdb.org/t/p/w500/${poster_path}`
         : 'https://st.depositphotos.com/1653909/4590/i/600/depositphotos_45905265-stock-photo-movie-clapper.jpg'
-    })`
+    })`;
   console.log(refs);
 }
 
@@ -124,6 +121,14 @@ function renderModalCard(ID) {
       addToQueueBtn.textContent = 'Added';
     }
   }
+
+  if (!localStorage.getItem('userEmail')) {
+    addToWatchedBtn.textContent = 'Add to Watched';
+    addToWatchedBtn.disabled = false;
+    addToQueueBtn.textContent = 'Add to Queue';
+    addToQueueBtn.disabled = false;
+  }
+
   return fetchGetMovieId(ID)
     .then(data => setDataCard(data))
     .finally(() => loaderOff());
@@ -137,7 +142,10 @@ addToWatchedBtn.addEventListener('click', addToWatched);
 function addToWatched() {
   let watchedList = JSON.parse(localStorage.getItem('watchedList'));
   let openFilm = load('openFilm');
-
+  if (!localStorage.getItem('userEmail')) {
+    openAuthModal();
+    return;
+  }
   if (!watchedList) {
     watchedList = [];
   }
@@ -150,6 +158,10 @@ function addToWatched() {
 
 addToQueueBtn.addEventListener('click', addToQueue);
 function addToQueue() {
+  if (!localStorage.getItem('userEmail')) {
+    openAuthModal();
+    return;
+  }
   let openFilm = load('openFilm');
   let queueList = JSON.parse(localStorage.getItem('queueList'));
   if (!queueList) {
@@ -172,7 +184,7 @@ refs.cardMoveAuthors.addEventListener('click', e => {
 
 async function renderAuthors(e) {
   if (e.target.id === 'showAuthors') {
-    console.log(true)
+    console.log(true);
     const movieId = e.target.dataset.id;
     const { cast } = await fetchMovieCreditsById(movieId);
     console.log(cast);

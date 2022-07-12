@@ -1,4 +1,5 @@
 import renderModal from './js/modal/modalRender';
+import './js/auth/authModal';
 import notiflixOptions from './js/notiflix/notiflixOptions';
 import loadingPage from './js/current-session/loadingPage';
 import currentSession from './js/current-session/currentSession';
@@ -7,6 +8,7 @@ import footer from './js/footer-modal/footerModal';
 import makeMyLibraryCards from './js/my-library/makeMyLibraryCards';
 import darkMode from './js/header/darkMode';
 import scrollArrow from './js/scrooll-arrow/scrollArrow';
-import inputSaver from './js/film-search/inputSaver'
+import inputSaver from './js/film-search/inputSaver';
+import language from './js/languages/language';
 
 loadingPage();

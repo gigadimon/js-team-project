@@ -1,6 +1,6 @@
 import { remove } from '../current-session/localStorageService';
 import { load, save, remove } from '../current-session/localStorageService';
-export { backdrop, closeModal };
+export { backdrop };
 import { getTrailer } from './treiler';
 
 let backdrop = document.querySelector('.backdrop');
@@ -17,8 +17,9 @@ const scrollBtn = document.querySelector('.back-to-top');
 backdrop.addEventListener('click', closeModal);
 modalIconClose.addEventListener('click', closeModal);
 
-function closeModal(e) {
+export default function closeModal(e) {
   e.preventDefault();
+  console.log(e.target);
   if (modal.classList.contains('is-hidden')) {
     if (e.target === backdrop || e.code === 'Escape') {
       treiler.classList.add('is-hidden');

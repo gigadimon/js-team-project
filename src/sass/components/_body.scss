@@ -32,7 +32,7 @@
     width: 32%;
   }
   &:nth-child(2n) {
-    @media (min-width: $min-tablet) and (max-width: $min-desktop) {
+    @media (min-width: $min-tablet) and (max-width: $max-tablet) {
       margin: 0 0 32px 0;
     }
   }

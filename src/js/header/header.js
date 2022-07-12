@@ -1,6 +1,8 @@
 import { watchedBtnCB, queueBtnCB } from '../my-library/callbacksForMyLibrery';
 import currentSession from '../current-session/currentSession';
 import currentLibrary from '../current-session/currentLibrary';
+
+import { openAuthModal } from '../auth/authModal';
 import renderMyLibrary from '../my-library/renderMyLibrary';
 
 const headerBoxRef = document.querySelector('.header__box');
@@ -20,6 +22,11 @@ function switchHeaderBgImage() {
 }
 
 export default function switchToLibrary() {
+  if (!localStorage.getItem('userEmail')) {
+    openAuthModal();
+    return;
+  }
+
   renderMyLibrary();
   homeBtnRef.addEventListener('click', switchToHome);
   homeBtnRef.classList.remove('current');
@@ -37,7 +44,7 @@ export default function switchToLibrary() {
 
   sessionStorage.setItem('my-lib', 'true');
 }
-function switchToHome() {
+export function switchToHome() {
   libBtnRef.addEventListener('click', switchToLibrary);
   homeBtnRef.classList.add('current');
   libBtnRef.classList.remove('current');
