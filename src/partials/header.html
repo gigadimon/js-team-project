@@ -8,22 +8,25 @@
         </svg>
         <span class="header__title">Filmoteka</span>
       </a>
-      <ul class="header__list">
-        <li class="header__nav">
-          <button
-            type="button"
-            class="header__btn home current"
-            id="lang__home"
-          >
-            Home
-          </button>
-        </li>
-        <li class="header__nav">
-          <button type="button" class="header__btn library" id="lang__library">
-            My library
-          </button>
-        </li>
-      </ul>
+      <div class="nav-wrapper">
+        <ul class="header__list">
+          <li class="header__nav">
+            <button type="button" class="header__btn home current" id="lang__home">Home</button>
+          </li>
+          <li class="header__nav">
+            <button type="button" class="header__btn library" id="lang__library">
+              My library
+            </button>
+          </li>
+          <li class="header__nav auth-btn__enter">
+            <button type="button" class="header__btn auth-btn">sign in</button>
+          </li>
+          <li class="header__nav auth-btn__leave visually-hidden">
+            <button type="button" class="header__btn auth-btn">sign out</button>
+          </li>
+        </ul>
+        <span class="login"></span>
+      </div>
     </div>
     <div class="header__box">
       <form class="header__form" action="#" id="header__form">
@@ -71,6 +74,10 @@
         </form>
       </div>
     </div>
+    <!-- <div class="auth-info-container">
+
+    </div> -->
+
     <div class="header__buttons visually-hidden">
       <button
         class="lib__btn watchedBtn current__libBtn neon"

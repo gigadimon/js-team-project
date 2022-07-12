@@ -17,7 +17,7 @@ const scrollBtn = document.querySelector('.back-to-top');
 backdrop.addEventListener('click', closeModal);
 modalIconClose.addEventListener('click', closeModal);
 
-function closeModal(e) {
+export default function closeModal(e) {
   e.preventDefault();
   if (modal.classList.contains('is-hidden')) {
     if (e.target === backdrop || e.code === 'Escape') {
