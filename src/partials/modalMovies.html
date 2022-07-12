@@ -11,7 +11,8 @@
     ></iframe>
   </div>
   <div class="modal-content">
-    <div class="modal-box-authors" id="cardMoveAuthors"></div>
+    <div class="modal-box-authors" id="cardMoveAuthors">
+    </div>
   </div>
 
   <div class="modal">
@@ -38,29 +39,33 @@
         <h2 class="modal__card-title">Film title</h2>
         <ul class="modal__card-list">
           <li class="modal__card-item">
-            <span class="modal__card-info">Vote/Votes</span>
+            <span class="modal__card-info lng__vote">Vote/Votes</span>
             <span class="modal__card-vote">10.0</span>
             <span>/</span>
             <span class="modal__card-votes">1206</span>
           </li>
           <li class="modal__card-item">
-            <span class="modal__card-info">Popularity</span>
+            <span class="modal__card-info lng__popular">Popularity</span>
             <span class="modal__card-popularity">100.2 </span>
           </li>
           <li class="modal__card-item">
-            <span class="modal__card-info">Original Title</span>
+            <span class="modal__card-info lng__title">Original Title</span>
             <span class="modal__card-original-title">Film Name</span>
           </li>
           <li class="modal__card-item">
-            <span class="modal__card-info">Genre</span>
+            <span class="modal__card-info lng__genre">Genre</span>
             <span class="modal__card-genre">Genre Name</span>
           </li>
           <li class="modal__authors">
-            <span class="modal__card-info">Authors</span>
-            <span><button class="" data-id=${id} id="showAuthors">show</button></span>
+            <span class="modal__card-info lng__authors">Authors</span>
+            <span
+              ><button class="lng__show" data-id="${id}" id="showAuthors">
+                show
+              </button></span
+            >
           </li>
         </ul>
-        <h3 class="modal__card-discription-title">About</h3>
+        <h3 class="modal__card-discription-title lng__about">About</h3>
         <p class="modal__card-discription">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit.
           Exercitationem, consequatur, delectus nam numquam quisquam omnis
@@ -68,10 +73,12 @@
           Perferendis dignissimos placeat odio magnam, rem minima?
         </p>
         <div class="btn__modal-add">
-          <button class="btn__modal-watched" type="button">
+          <button class="btn__modal-watched lng__addWatched" type="button">
             ADD TO WATCHED
           </button>
-          <button class="btn__modal-queue" type="button">ADD TO QUEUE</button>
+          <button class="btn__modal-queue lng__addQueue" type="button">
+            ADD TO QUEUE
+          </button>
         </div>
       </div>
     </div>

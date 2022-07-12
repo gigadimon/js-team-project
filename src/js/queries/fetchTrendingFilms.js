@@ -8,17 +8,22 @@ axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 export default async function fetchGetTrending(pageValue, lang) {
   loaderOn();
   try {
-    let pageLang = localStorage.getItem('lang');
-    if (pageLang === 'ua') {
-      lang = `uk`;
+    const lang = localStorage.getItem('lang');
+    let langURL;
+    lang === 'ua' ? (langURL = `uk-UA`) : (langURL = `en-US`);
+    let response;
+    if (langURL) {
+      response = await axios.get(
+        `/movie/popular?api_key=${API_KEY}&language=${langURL}&page=${pageValue}`
+      );
     } else {
-      lang = `en`;
+      response = await axios.get(
+        `/movie/popular?api_key=${API_KEY}&page=${pageValue}`
+      );
     }
-    const { data } = await axios.get(
-      `/movie/popular?api_key=${API_KEY}&language=${lang}&page=${pageValue}`
-    );
+
     const dataGenres = await fetchGenresList();
-    const { results, total_pages, page, total_results } = data;
+    const { results, total_pages, page, total_results } = response.data;
     return {
       results,
       totalPages: total_pages,
