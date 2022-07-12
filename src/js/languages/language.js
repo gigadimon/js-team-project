@@ -46,11 +46,13 @@ function switchLang(e) {
     localStorage.setItem('lang', LANG.UA);
     toggleSwitchLang.checked = true;
     ua();
+    window.location.reload();
   } else {
     document.documentElement.setAttribute('lang', LANG.EN);
     localStorage.setItem('lang', LANG.EN);
     toggleSwitchLang.checked = false;
     en();
+    window.location.reload();
   }
 }
 
