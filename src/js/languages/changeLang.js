@@ -1,16 +1,22 @@
 import { langMainArr } from './langData';
+import fetchGetTrending from '../queries/fetchTrendingFilms';
+import renderMovieCards from '../handlers/renderMovieCards';
 
 const langSwitcher = document.getElementById('lang-checkbox');
+const cardSection = document.querySelector('.body-container');
 
 window.addEventListener('load', onWindowLoad);
 langSwitcher.addEventListener('click', switchLanguage);
 
-function switchLanguage(event) {
+async function switchLanguage(event) {
   event.target.checked
     ? localStorage.setItem('lang', 'ua')
     : localStorage.setItem('lang', 'en');
   const lang = localStorage.getItem('lang');
   setContentLang(langMainArr, lang);
+  const { results, dataGenres } = await fetchGetTrending(1);
+  cardSection.innerHTML = '';
+  renderMovieCards({ results, dataGenres });
 }
 
 function onWindowLoad() {
