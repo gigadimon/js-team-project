@@ -1,6 +1,6 @@
 import { remove } from '../current-session/localStorageService';
 import { load, save, remove } from '../current-session/localStorageService';
-export { backdrop, closeModal };
+export { backdrop };
 import { getTrailer } from './treiler';
 
 let backdrop = document.querySelector('.backdrop');
