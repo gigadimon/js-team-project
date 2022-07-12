@@ -4,6 +4,11 @@ import { load, save, remove } from '../current-session/localStorageService';
 import { loaderOn, loaderOff } from '../loader/loader';
 import treiler from './treiler';
 
+import {
+  fetchMovieCreditsById,
+  URL_IMG,
+} from '../queries/fetchGenresList';
+
 import axios from 'axios';
 
 const API_KEY = 'ffda232ba1095b2db867c38e7745d8d7';
@@ -19,11 +24,15 @@ const refs = {
   original: document.querySelector('.modal__card-original-title'),
   genre: document.querySelector('.modal__card-genre'),
   discription: document.querySelector('.modal__card-discription'),
-  backdrop: document.querySelector('.backdrop')
+  backdrop: document.querySelector('.backdrop'),
+  cardMoveAuthors: document.getElementById('cardMoveAuthors'),
+  cardMoveDetail: document.querySelector('.modal'),
+  showAuthors: document.getElementById('showAuthors'),
 };
 const scrollBtn = document.querySelector('.back-to-top');
 
 function setDataCard({
+  id,
   title,
   vote_average,
   vote_count,
@@ -64,6 +73,7 @@ function setDataCard({
         ? `https://image.tmdb.org/t/p/w500/${poster_path}`
         : 'https://st.depositphotos.com/1653909/4590/i/600/depositphotos_45905265-stock-photo-movie-clapper.jpg'
     })`
+  console.log(refs);
 }
 
 let containerCardFilm = document.querySelector('.body-container');
@@ -98,6 +108,8 @@ function renderModalCard(ID) {
   let watchedList = load('watchedList');
   let queueList = load('queueList');
   let num = Number(ID);
+  refs.showAuthors.dataset.id = num;
+  console.log(refs.showAuthors.dataset);
 
   if (watchedList) {
     if (watchedList.some(item => item.id === num)) {
@@ -148,4 +160,46 @@ function addToQueue() {
   Notify.info('Movie added to Queue');
   addToQueueBtn.disabled = true;
   addToQueueBtn.textContent = 'Added';
+}
+
+//renderAuthors
+refs.cardMoveDetail.addEventListener('click', renderAuthors);
+refs.cardMoveAuthors.addEventListener('click', e => {
+  if (e.target.id === 'btnGoBack') {
+    hideAuthorsModal();
+  }
+});
+
+async function renderAuthors(e) {
+  if (e.target.id === 'showAuthors') {
+    console.log(true)
+    const movieId = e.target.dataset.id;
+    const { cast } = await fetchMovieCreditsById(movieId);
+    console.log(cast);
+    showAuthorsModal();
+    refs.cardMoveAuthors.innerHTML = renderAuthorsList(cast);
+  }
+}
+
+function renderAuthor({ profile_path, name, id }) {
+  const imgUrl = profile_path
+    ? URL_IMG + profile_path
+    : 'https://images.freeimages.com/images/large-previews/a96/business-man-avatar-vector-1236211.jpg';
+  return `<li class="author__item">
+               <img data-personid="${id}" class="author__img" src="${imgUrl}" alt="${name}" width="100" height="100%"/>
+               <p class="author__title">${name}</p>
+            </li>`;
+}
+function renderAuthorsList(authorsArr) {
+  const arrAuthors = authorsArr.map(author => renderAuthor(author)).join('');
+  return `<button type="button" class="btn-go-back" id="btnGoBack">Back to card</button><ul class="author__grid">${arrAuthors}</ul>`;
+}
+
+function showAuthorsModal() {
+  refs.cardMoveDetail.classList.add('hide-detale');
+  refs.cardMoveAuthors.classList.add('show-author');
+}
+function hideAuthorsModal() {
+  refs.cardMoveDetail.classList.remove('hide-detale');
+  refs.cardMoveAuthors.classList.remove('show-author');
 }

@@ -36,6 +36,6 @@ export default function makeMyLibraryCards({
   }</h2>
   <p class="film__text film__description">${genresList}</p>
   </li>
-  
+
   `;
 }
