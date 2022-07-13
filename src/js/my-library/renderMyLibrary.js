@@ -4,7 +4,14 @@ import { load, save, remove } from '../current-session/localStorageService';
 const cardSection = document.querySelector('.body-container');
 
 function noContentMessage() {
-  return (cardSection.innerHTML = `<p class="empty__container">...there is nothing here yet &#129335;</p>`);
+  const lang = localStorage.getItem('lang');
+  let emptyText;
+  if (lang) {
+    lang === 'ua'
+      ? (emptyText = '...тут ще нічого немає')
+      : (emptyText = '...there is nothing here yet');
+  }
+  cardSection.innerHTML = `<p class="empty__container">${emptyText}&#129335;</p>`;
 }
 
 export default function renderMyLibrary(results) {
