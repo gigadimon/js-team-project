@@ -204,14 +204,16 @@ async function renderAuthors(e) {
     const lang = localStorage.getItem('lang');
     if (lang) setContentLang(langAuthorModalArr, lang);
   }
+  window.addEventListener('keydown', closeModalEscKey);
+  refs.backdrop.addEventListener('click', backdropClick);
 }
 
 function renderAuthor({ profile_path, name, id }) {
   const imgUrl = profile_path
     ? URL_IMG + profile_path
-    : 'https://images.freeimages.com/images/large-previews/a96/business-man-avatar-vector-1236211.jpg';
+    : 'https://upload.wikimedia.org/wikipedia/commons/1/1d/No_image.JPG';
   return `<li class="author__item">
-               <img data-personid="${id}" class="author__img" src="${imgUrl}" alt="${name}" width="100" height="100%"/>
+               <img data-personid="${id}" class="author__img" src="${imgUrl}" alt="${name}" width="100" height="100"/>
                <p class="author__title">${name}</p>
             </li>`;
 }
@@ -229,4 +231,17 @@ function showAuthorsModal() {
 function hideAuthorsModal() {
   refs.cardMoveDetail.classList.remove('hide-detale');
   refs.cardMoveAuthors.classList.remove('show-author');
+}
+
+function closeModalEscKey(evt) {
+  if (evt.code === 'Escape') {
+    hideAuthorsModal();
+    window.removeEventListener('keydown', closeModalEscKey);
+  }
+}
+
+function backdropClick(e) {
+  if (e.currentTarget === e.target) {
+    hideAuthorsModal();
+  }
 }
