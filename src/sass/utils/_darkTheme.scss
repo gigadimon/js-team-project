@@ -1,4 +1,4 @@
-[data-theme='dark'] {
+[data-theme="dark"] {
   .main {
     background-color: #0d1117;
     // background-color: #c9d1d9;
@@ -110,5 +110,8 @@
   }
   .empty__container {
     color: $footer-background-color;
+  }
+  .lng__searchBy {
+    color: #fff;
   }
 }

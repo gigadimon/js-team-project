@@ -72,7 +72,7 @@ footer > div:not(:last-child) {
 }
 .heart div:after,
 .heart div:before {
-  content: ' ';
+  content: " ";
   position: absolute;
   display: block;
   width: 7px;
@@ -139,11 +139,7 @@ footer > div:not(:last-child) {
 }
 
 .footer__modal {
-  background: radial-gradient(
-    circle,
-    rgba(255, 245, 240, 1) 18%,
-    rgba(144, 165, 187, 0.9192051820728291) 100%
-  );
+  background: radial-gradient(circle, rgba(255, 245, 240, 1) 18%, rgba(144, 165, 187, 0.9192051820728291) 100%);
   // max-width: 80%;
   width: 350px;
   padding: 10px;
@@ -290,6 +286,7 @@ footer > div:not(:last-child) {
 .team__img {
   width: 250px;
   height: 260px;
+  object-fit: cover;
 
   border-radius: 8px;
   margin: 0 auto;
@@ -369,7 +366,7 @@ button.back-to-top:focus {
 
 button.back-to-top::before,
 button.back-to-top::after {
-  content: '';
+  content: "";
   display: block;
   // vertical-align: middle;
   border-bottom: solid 10px #ff6b08;

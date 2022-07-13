@@ -8,9 +8,7 @@
   background-position: center;
   background-size: cover;
 
-  @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
     background-image: url(../images/img/mob/header-bg-lines-mob-2x.png),
       linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
   }
@@ -22,9 +20,7 @@
     background-position: center;
     background-size: cover;
 
-    @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
       background-image: url(../images/img/tab/header-bg-lines-tab-2x.png),
         linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
     }
@@ -36,9 +32,7 @@
     background-position: center;
     background-size: cover;
 
-    @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
       background-image: url(../images/img/desktop/header-bg-lines-desk-2x.png),
         linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
     }
@@ -52,9 +46,7 @@
   background-position: center;
   background-size: cover;
 
-  @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/img/mob/header-bg-seats-mob-2x.png);
   }
@@ -65,13 +57,8 @@
     background-position: center;
     background-size: cover;
 
-    @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
-      background-image: linear-gradient(
-          rgba(0, 0, 0, 0.56),
-          rgba(0, 0, 0, 0.56)
-        ),
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/img/tab/header-bg-seats-tab-2x.png);
     }
   }
@@ -82,13 +69,8 @@
     background-position: center;
     background-size: cover;
 
-    @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
-      background-image: linear-gradient(
-          rgba(0, 0, 0, 0.56),
-          rgba(0, 0, 0, 0.56)
-        ),
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/img/desktop/header-bg-seats-desk-2x.png);
     }
   }
@@ -233,7 +215,7 @@
 
 .current::after {
   bottom: -3px;
-  content: '';
+  content: "";
   display: block;
   width: 100%;
   height: 4px;
@@ -341,7 +323,7 @@
 }
 .clearBtn:hover {
   color: $white-color;
-  border: 1px solid $white-color;
+  // border: 1px solid $white-color;
 }
 .neon:hover {
   background-color: #ff6b08;
@@ -374,7 +356,7 @@
 
   &:before,
   &:after {
-    content: '';
+    content: "";
     display: block;
     top: 50%;
     margin-top: -7px;
@@ -418,7 +400,7 @@
 .slider:before {
   background-color: #fff;
   bottom: 4px;
-  content: '';
+  content: "";
   height: 26px;
   left: 4px;
   position: absolute;
@@ -462,7 +444,7 @@ input:checked + .slider:before {
 
   &:before,
   &:after {
-    content: '';
+    content: "";
     display: block;
     top: 50%;
     margin-top: -7px;

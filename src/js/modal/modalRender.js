@@ -142,16 +142,16 @@ function renderModalCard(ID) {
     .finally(() => loaderOff());
 }
 
-function styleModalCardBox(x) {
-  if (x === 'ua') {
-    refs.voteTitle.style.width = '60px';
-    refs.popularity.style.marginLeft = '30px';
-    refs.original.style.marginLeft = '72px';
-  } else if (x === 'en') {
-    refs.popularity.style.marginLeft = '52px';
-    refs.original.style.marginLeft = '39px';
-  }
-}
+// function styleModalCardBox(x) {
+//   if (x === 'ua') {
+//     refs.voteTitle.style.width = '60px';
+//     refs.popularity.style.marginLeft = '30px';
+//     refs.original.style.marginLeft = '72px';
+//   } else if (x === 'en') {
+//     refs.popularity.style.marginLeft = '52px';
+//     refs.original.style.marginLeft = '39px';
+//   }
+// }
 // saving movies to local storage
 const addToWatchedBtn = document.querySelector('.btn__modal-watched');
 const addToQueueBtn = document.querySelector('.btn__modal-queue');

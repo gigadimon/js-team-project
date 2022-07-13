@@ -149,14 +149,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  // background-color: lightgray;
-  // border-radius: 5px;
 }
 .lng__searchBy {
+  color: $black-color;
   font-size: 18px;
   font-weight: 500;
-  background-color: lightgray;
-  border-radius: 10px;
 }
 
 .input--year {
