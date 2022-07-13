@@ -6,10 +6,12 @@
       </svg>
     </button>
     <div class="reg-form">
-      <h2 class="form-title">Registration</h2>
+      <h2 class="form-title lng__regTitle">Registration</h2>
       <form id="reg-form">
         <div class="reg-form__login">
-          <label class="login-label label" for="login">Enter your email:</label>
+          <label class="login-label label lng__regEmailLabel" for="login"
+            >Enter your email:</label
+          >
           <input
             class="login-input input"
             type="email"
@@ -18,7 +20,9 @@
           />
         </div>
         <div class="reg-form__password">
-          <label class="password-label label" for="password"
+          <label
+            class="password-label label lng__regPasswordLabel"
+            for="password"
             >Enter your password:
           </label>
           <input
@@ -29,18 +33,22 @@
           />
         </div>
 
-        <button class="sign-up neon lib__btn" type="submit">sign up</button>
+        <button class="sign-up neon lib__btn lng__signUp" type="submit">
+          sign up
+        </button>
       </form>
-      <span class="separator">or</span>
-      <button class="already-reg neon lib__btn">
+      <span class="separator lng__regSeparator">or</span>
+      <button class="already-reg neon lib__btn lng__alreadyReg">
         I already have an account
       </button>
     </div>
     <div class="auth-form">
-      <h2 class="form-title">Authorization</h2>
+      <h2 class="form-title auth__form-title lng__authTitle">Authorization</h2>
       <form id="auth-form">
         <div class="auth-form__login">
-          <label class="auth-login__label label" for="auth-login"
+          <label
+            class="auth-login__label label lng__authEmailLabel"
+            for="auth-login"
             >Enter your email:
           </label>
           <input
@@ -51,7 +59,9 @@
           />
         </div>
         <div class="auth-form__password">
-          <label class="auth-password__label label" for="auth-password"
+          <label
+            class="auth-password__label label lng__authPasswordLabel"
+            for="auth-password"
             >Enter your password:
           </label>
           <input
@@ -61,10 +71,14 @@
             id="auth-password"
           />
         </div>
-        <button class="sign-in neon lib__btn" type="submit">sign in</button>
+        <button class="sign-in neon lib__btn lng__signIn" type="submit">
+          sign in
+        </button>
       </form>
-      <span class="separator">or</span>
-      <button class="anyway-reg neon lib__btn">Create a new account</button>
+      <span class="separator lng__authSeparator">or</span>
+      <button class="anyway-reg neon lib__btn lng__anywayReg">
+        Create a new account
+      </button>
     </div>
   </div>
 </div>
