@@ -144,31 +144,34 @@ footer > div:not(:last-child) {
     rgba(255, 245, 240, 1) 18%,
     rgba(144, 165, 187, 0.9192051820728291) 100%
   );
-
+  // max-width: 80%;
   width: 350px;
   padding: 10px;
   border-radius: 6px;
   max-height: calc(100vh - 100px);
   overflow-y: auto;
   background-color: $footer-background-color;
-  position: absolute;
+  position: relative;
   top: 50%;
   left: 50%;
   opacity: 1;
   transition: $transition;
   transform: translate(-50%, -50%);
+
   // transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1),
   //   visibility 300ms cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 5px 5px 4px 3px rgba(0, 0, 0, 0.2);
-  z-index: 100;
+
   @media screen and (min-width: $min-tablet) {
     width: 700px;
     height: 530px;
+    max-height: 100%;
     padding: 10px;
   }
   @media screen and (min-width: $min-desktop) {
     width: 900px;
     height: 630px;
+    max-height: 100%;
     padding: 15px;
   }
 }
@@ -210,19 +213,25 @@ footer > div:not(:last-child) {
 .footer__close-btn {
   position: absolute;
   padding: 0;
-  top: 20px;
+  top: 25px;
   right: 10px;
-  width: 30px;
-  height: 30px;
+
+  width: 15px;
+  height: 15px;
   background-color: transparent;
   border: none;
   cursor: pointer;
-  display: flex;
+  display: block;
   align-items: center;
   justify-content: center;
   fill: #803507;
   &:hover {
     fill: $orange-color;
+  }
+  @media screen and (min-width: $min-tablet) {
+    top: 20px;
+    width: 30px;
+    height: 30px;
   }
 }
 
@@ -230,9 +239,12 @@ footer > div:not(:last-child) {
   margin-bottom: 25px;
   margin-top: 15px;
   text-align: center;
-  font-size: 24px;
+  font-size: 15px;
   letter-spacing: 1px;
   color: #803507;
+  @media screen and (min-width: $min-tablet) {
+    font-size: 24px;
+  }
 }
 
 .team__list {
