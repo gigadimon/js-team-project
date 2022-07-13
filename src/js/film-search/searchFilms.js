@@ -1,39 +1,11 @@
-import axios from 'axios';
 import renderMovieCards from '../handlers/renderMovieCards';
-import fetchGenresList from '../queries/fetchGenresList';
+import { fetchGetFilmName } from '../queries/queries';
 import createFilmListTrending from '../pagination/createFilmList';
 import Notiflix from 'notiflix';
 import Pagination from '../pagination/Pagination';
-import { loaderOn } from '../loader/loader';
 
-const API_KEY = 'ffda232ba1095b2db867c38e7745d8d7';
-axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 const cardSection = document.querySelector('.body-container');
 const searchSubmit = document.querySelector('.header__form');
-
-async function fetchGetFilmName(name, pageValue) {
-  loaderOn();
-
-  const lang = localStorage.getItem('lang');
-  let langURL;
-  lang === 'ua' ? (langURL = `uk-UA`) : (langURL = `en-US`);
-  let response;
-  if (langURL) {
-    response = await axios.get(
-      `/search/movie?api_key=${API_KEY}&language=${langURL}&query=${name}&include_adult=false&page=${pageValue}`
-    );
-  } else {
-    response = await axios.get(
-      `/search/movie?api_key=${API_KEY}&language=en-US&query=${name}&include_adult=false&page=${pageValue}`
-    );
-  }
-  // console.log(data)
-  const dataGenres = await fetchGenresList();
-  const { results, total_pages, page, total_results } = response.data;
-  saveSearch(name, page);
-
-  return { results, total_pages, page, total_results, dataGenres };
-}
 
 function totalResultsFilms(results) {
   if (results === 0) {
@@ -79,19 +51,19 @@ export default async function createFilmListSearch(name, p) {
   });
 }
 
-function saveSearch(input, page) {
+export function saveSearch(input, page) {
   const search = JSON.stringify({ input, page });
   localStorage.setItem('last-search', search);
 }
 
 searchSubmit.addEventListener('change', e => {
   e.preventDefault();
-  document.querySelector(".input--year").value = ""
-  document.getElementById('genres').value = ""
+  document.querySelector('.input--year').value = '';
+  document.getElementById('genres').value = '';
   const name = e.currentTarget.elements[0].value.trim();
   cardSection.innerHTML = '';
   if (name === '') {
-    createFilmListTrending()
+    createFilmListTrending();
   } else {
     createFilmListSearch(name, 1);
   }
@@ -99,8 +71,8 @@ searchSubmit.addEventListener('change', e => {
 
 searchSubmit.addEventListener('submit', e => {
   e.preventDefault();
-  document.querySelector(".input--year").value = ""
-  document.getElementById('genres').value = ""
+  document.querySelector('.input--year').value = '';
+  document.getElementById('genres').value = '';
   const name = e.currentTarget.elements[0].value.trim();
   if (name === '') {
     Notiflix.Notify.warning('An empty string cannot be a query');

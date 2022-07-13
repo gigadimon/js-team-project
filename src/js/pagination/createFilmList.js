@@ -1,9 +1,8 @@
 import renderMovieCards from '../handlers/renderMovieCards';
-import fetchGetTrending from '../queries/fetchTrendingFilms';
+import { fetchGetTrending } from '../queries/queries';
 import Pagination from './Pagination';
 
 const cardSection = document.querySelector('.body-container');
-
 
 export default async function createFilmListTrending() {
   if (localStorage.getItem('last-search')) {

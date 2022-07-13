@@ -1,16 +1,15 @@
 import closeModal, { backdrop } from './modal-close';
 import { Notify } from 'notiflix';
-import { load, save, remove } from '../current-session/localStorageService';
-import { loaderOn, loaderOff } from '../loader/loader';
+import { load } from '../current-session/localStorageService';
+import { loaderOff } from '../loader/loader';
 import { openAuthModal } from '../auth/authModal';
-import treiler from './treiler';
-import { fetchMovieCreditsById, URL_IMG } from '../queries/fetchGenresList';
+import {
+  fetchMovieCreditsById,
+  fetchGetMovieId,
+  URL_IMG,
+} from '../queries/queries';
 import setContentLang from '../languages/changeLang';
 import { langFilmModalArr, langAuthorModalArr } from '../languages/langData';
-import axios from 'axios';
-
-const API_KEY = 'ffda232ba1095b2db867c38e7745d8d7';
-axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
 const refs = {
   loader: document.querySelector('.lader_backdrop'),
@@ -30,11 +29,9 @@ const refs = {
 const scrollBtn = document.querySelector('.back-to-top');
 
 function setDataCard({
-  id,
   title,
   vote_average,
   vote_count,
-  // original_title,
   popularity,
   overview,
   poster_path,
@@ -57,7 +54,6 @@ function setDataCard({
 
   if (genres.length > 0) {
     let genreFilm = [];
-    let i = 0;
     for (let i = 0; i < genres.length; i += 1) {
       genreFilm.push(genres[i].name);
     }
@@ -93,23 +89,6 @@ async function onClickImg(e) {
       backdrop.classList.add('is-hidden-off');
     }
   }, 250);
-}
-
-async function fetchGetMovieId(MOVIE_ID) {
-  const lang = localStorage.getItem('lang');
-  let langURL;
-  lang === 'ua' ? (langURL = `uk-UA`) : (langURL = `en-US`);
-  let response;
-  loaderOn();
-  if (langURL) {
-    response = await axios.get(
-      `/movie/${MOVIE_ID}?api_key=${API_KEY}&language=${langURL}`
-    );
-  } else {
-    response = await axios.get(`/movie/${MOVIE_ID}?api_key=${API_KEY}`);
-  }
-  save('openFilm', response.data);
-  return response.data;
 }
 
 function renderModalCard(ID) {

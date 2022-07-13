@@ -1,5 +1,5 @@
 import { langMainArr } from './langData';
-import fetchGetTrending from '../queries/fetchTrendingFilms';
+import { fetchGetTrending } from '../queries/queries';
 import renderMovieCards from '../handlers/renderMovieCards';
 
 const langSwitcher = document.getElementById('lang-checkbox');
