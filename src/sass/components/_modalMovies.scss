@@ -189,17 +189,9 @@ iframe {
   color: #8c8c8c;
 }
 
-.modal__card-info-vote{
-  @media screen and(min-width:768px) {
-   width: 90px;
-  }
-}
-
 .modal__card-vote {
-
-  height: 17px;
   padding: 1px 10px;
-
+  // margin-left: 41px;
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
@@ -215,8 +207,6 @@ iframe {
 }
 
 .modal__card-votes {
-
-  height: 17px;
   padding: 1px 10px;
   font-weight: 500;
   font-size: 12px;
@@ -364,7 +354,7 @@ iframe {
     transition: 0.3s;
     margin-bottom: 7px;
     &:before {
-      content: "\2190";
+      content: '\2190';
       position: absolute;
       color: inherit;
       font-size: 16px;
@@ -437,7 +427,8 @@ iframe {
       text-align: center;
     }
     &:hover {
-      -webkit-box-shadow: 0px 10px 13px -4px #000, 0px 0px 4px 2px rgba(255, 107, 8, 0);
+      -webkit-box-shadow: 0px 10px 13px -4px #000,
+        0px 0px 4px 2px rgba(255, 107, 8, 0);
       box-shadow: 0px 10px 13px -4px #000, 0px 0px 4px 2px rgba(255, 107, 8, 0);
       img {
         opacity: 0.3;

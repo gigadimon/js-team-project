@@ -11,7 +11,7 @@ import {
 import setContentLang from '../languages/changeLang';
 import { langFilmModalArr, langAuthorModalArr } from '../languages/langData';
 
-export const refs = {
+const refs = {
   loader: document.querySelector('.lader_backdrop'),
   poster: document.querySelector('.modal__card-poster'),
   title: document.querySelector('.modal__card-title'),
@@ -142,17 +142,15 @@ function renderModalCard(ID) {
     .finally(() => loaderOff());
 }
 
-export function styleModalCardBox(x){
-if(x === 'ua'){
-  refs.voteTitle.style.width = '100px'
-  refs.popularity.style.marginLeft = '30px'
-  refs.original.style.marginLeft = '72px'
-} else if ( x === 'en'){
-  refs.voteTitle.style.width = '100px'
-  refs.popularity.style.marginLeft = '52px'
-  refs.original.style.marginLeft = '39px'
-}
-
+function styleModalCardBox(x) {
+  if (x === 'ua') {
+    refs.voteTitle.style.width = '60px';
+    refs.popularity.style.marginLeft = '30px';
+    refs.original.style.marginLeft = '72px';
+  } else if (x === 'en') {
+    refs.popularity.style.marginLeft = '52px';
+    refs.original.style.marginLeft = '39px';
+  }
 }
 // saving movies to local storage
 const addToWatchedBtn = document.querySelector('.btn__modal-watched');

@@ -297,13 +297,13 @@
   align-items: center;
   justify-content: center;
   padding: 0;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .lib__btn {
   width: 130px;
-  height: 44px;
-  margin-top: 40px;
+  height: 40px;
+  margin-top: 20px;
 
   text-transform: uppercase;
   border-radius: 5px;
@@ -327,7 +327,6 @@
 
 .lib__btn:hover {
   color: $white-color;
-  border: 0;
 }
 
 .queueBtn,

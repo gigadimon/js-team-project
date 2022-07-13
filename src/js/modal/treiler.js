@@ -23,14 +23,14 @@ export function getTrailer() {
   const openFilm = JSON.parse(localStorage.getItem('openFilm'));
   if (openFilm) {
     fetchGetMovieTreiler(openFilm.id)
-      .then(data => treilerMovie(data) )
+      .then(data => treilerMovie(data))
       .then(response => setAttributeYouTubeFrame(response));
   }
 }
 
 function treilerMovie(x) {
   for (const key of x) {
-    if (key.type === 'Trailer') {
+    if (key.name === 'Official Trailer') {
       return key.key;
     }
   }

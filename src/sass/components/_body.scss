@@ -187,7 +187,6 @@
 
 .input--year::placeholder {
   color: $white-color;
-
 }
 .genreList__select {
   border: none;
@@ -195,10 +194,8 @@
   width: 130px;
   height: 25px;
   text-align: center;
-  margin-left:10px;
-  margin-right: 5px;
-  
-  background-color: #ff001b;
+  margin-left: 10px;
+  background-color: $orange-color;
 
   @media (min-width: $min-tablet) {
     // margin-right: 10px;
