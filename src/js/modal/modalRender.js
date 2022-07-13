@@ -5,7 +5,8 @@ import { loaderOn, loaderOff } from '../loader/loader';
 import { openAuthModal } from '../auth/authModal';
 import treiler from './treiler';
 import { fetchMovieCreditsById, URL_IMG } from '../queries/fetchGenresList';
-
+import setContentLang from '../languages/changeLang';
+import { langFilmModalArr, langAuthorModalArr } from '../languages/langData';
 import axios from 'axios';
 
 const API_KEY = 'ffda232ba1095b2db867c38e7745d8d7';
@@ -33,7 +34,7 @@ function setDataCard({
   title,
   vote_average,
   vote_count,
-  original_title,
+  // original_title,
   popularity,
   overview,
   poster_path,
@@ -50,7 +51,7 @@ function setDataCard({
     (refs.title.textContent = title),
     (refs.vote.textContent = vote_average),
     (refs.votes.textContent = vote_count);
-  refs.original.textContent = original_title;
+  refs.original.textContent = title;
   refs.popularity.textContent = popularity;
   refs.discription.textContent = overview;
 
@@ -70,7 +71,6 @@ function setDataCard({
         ? `https://image.tmdb.org/t/p/w500/${poster_path}`
         : 'https://st.depositphotos.com/1653909/4590/i/600/depositphotos_45905265-stock-photo-movie-clapper.jpg'
     })`;
-  console.log(refs);
 }
 
 let containerCardFilm = document.querySelector('.body-container');
@@ -81,6 +81,7 @@ async function onClickImg(e) {
   if (e.target.nodeName !== 'IMG') {
     return;
   }
+
   scrollBtn.classList.remove('show');
   document.addEventListener('keydown', closeModal);
   let movieId = e.target.getAttribute('data-id');
@@ -95,10 +96,20 @@ async function onClickImg(e) {
 }
 
 async function fetchGetMovieId(MOVIE_ID) {
+  const lang = localStorage.getItem('lang');
+  let langURL;
+  lang === 'ua' ? (langURL = `uk-UA`) : (langURL = `en-US`);
+  let response;
   loaderOn();
-  const { data } = await axios.get(`/movie/${MOVIE_ID}?api_key=${API_KEY}`);
-  save('openFilm', data);
-  return data;
+  if (langURL) {
+    response = await axios.get(
+      `/movie/${MOVIE_ID}?api_key=${API_KEY}&language=${langURL}`
+    );
+  } else {
+    response = await axios.get(`/movie/${MOVIE_ID}?api_key=${API_KEY}`);
+  }
+  save('openFilm', response.data);
+  return response.data;
 }
 
 function renderModalCard(ID) {
@@ -106,7 +117,6 @@ function renderModalCard(ID) {
   let queueList = load('queueList');
   let num = Number(ID);
   refs.showAuthors.dataset.id = num;
-  console.log(refs.showAuthors.dataset);
 
   if (watchedList) {
     if (watchedList.some(item => item.id === num)) {
@@ -128,6 +138,9 @@ function renderModalCard(ID) {
     addToQueueBtn.textContent = 'Add to Queue';
     addToQueueBtn.disabled = false;
   }
+
+  const lang = localStorage.getItem('lang');
+  if (lang) setContentLang(langFilmModalArr, lang);
 
   return fetchGetMovieId(ID)
     .then(data => setDataCard(data))
@@ -186,9 +199,10 @@ async function renderAuthors(e) {
   if (e.target.id === 'showAuthors') {
     const movieId = e.target.dataset.id;
     const { cast } = await fetchMovieCreditsById(movieId);
-    console.log(cast);
     showAuthorsModal();
     refs.cardMoveAuthors.innerHTML = renderAuthorsList(cast);
+    const lang = localStorage.getItem('lang');
+    if (lang) setContentLang(langAuthorModalArr, lang);
   }
   window.addEventListener('keydown', closeModalEscKey);
   refs.backdrop.addEventListener('click', backdropClick);
@@ -209,7 +223,9 @@ function renderAuthor({ profile_path, name, id }) {
 }
 function renderAuthorsList(authorsArr) {
   const arrAuthors = authorsArr.map(author => renderAuthor(author)).join('');
-  return `<button type="button" class="btn-go-back" id="btnGoBack">Back to card</button><ul class="author__grid">${arrAuthors}</ul>`;
+  return `<button type="button" class="btn-go-back lng__goBack" id="btnGoBack">
+        Back to card
+      </button><ul class="author__grid">${arrAuthors}</ul>`;
 }
 
 function showAuthorsModal() {

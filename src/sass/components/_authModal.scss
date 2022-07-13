@@ -60,12 +60,11 @@
   background-color: #fff;
 }
 
-.reg-form.move {
+.reg-form.move,
+.auth-form.move {
   transform: translate(0, 0);
 }
-.auth-form.move {
-  transform: translate(0, 100%);
-}
+
 // #reg-form,
 // #auth-form {
 //   display: inline;
