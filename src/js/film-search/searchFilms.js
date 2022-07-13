@@ -13,12 +13,23 @@ const searchSubmit = document.querySelector('.header__form');
 
 async function fetchGetFilmName(name, pageValue) {
   loaderOn();
-  const { data } = await axios.get(
-    `/search/movie?api_key=${API_KEY}&language=en-US&query=${name}&page=${pageValue}`
-  );
-  
+
+  const lang = localStorage.getItem('lang');
+  let langURL;
+  lang === 'ua' ? (langURL = `uk-UA`) : (langURL = `en-US`);
+  let response;
+  if (langURL) {
+    response = await axios.get(
+      `/search/movie?api_key=${API_KEY}&language=${langURL}&query=${name}&include_adult=false&page=${pageValue}`
+    );
+  } else {
+    response = await axios.get(
+      `/search/movie?api_key=${API_KEY}&language=en-US&query=${name}&include_adult=false&page=${pageValue}`
+    );
+  }
+  // console.log(data)
   const dataGenres = await fetchGenresList();
-  const { results, total_pages, page, total_results } = data;
+  const { results, total_pages, page, total_results } = response.data;
   saveSearch(name, page);
 
   return { results, total_pages, page, total_results, dataGenres };

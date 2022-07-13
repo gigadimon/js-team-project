@@ -5,7 +5,7 @@ import { loaderOff } from '../loader/loader';
 const cardSection = document.querySelector('.body-container');
 
 export default function renderMovieCards({ results, dataGenres }) {
-  loaderOff()
+  loaderOff();
   results.map(movie => {
     const filmGenres = getFilmGenresNameArray(movie, dataGenres);
     cardSection.insertAdjacentHTML(
