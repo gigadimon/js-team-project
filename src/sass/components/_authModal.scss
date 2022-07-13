@@ -19,7 +19,7 @@
 
   background-color: #fff;
   color: #000000;
-  border-radius: 16px;
+  border-radius: 6px;
   -webkit-box-shadow: 0px 0px 34px 17px rgba(255, 107, 8, 0.42);
   -moz-box-shadow: 0px 0px 34px 17px rgba(255, 107, 8, 0.42);
   box-shadow: 0px 0px 34px 17px rgba(255, 107, 8, 0.42);
@@ -49,11 +49,7 @@
 }
 .reg-form {
   background: rgb(255, 107, 8);
-  background: radial-gradient(
-    circle,
-    rgba(255, 107, 8, 0.9108018207282913) 0%,
-    rgba(255, 151, 31, 1) 100%
-  );
+  background: radial-gradient(circle, rgba(255, 107, 8, 0.9108018207282913) 0%, rgba(255, 151, 31, 1) 100%);
 }
 
 .auth-form {
@@ -99,6 +95,12 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+.modal__btn-close-icon {
+  fill: #ff6b08;
+  &:hover {
+    fill: $white-color;
+  }
 }
 
 .reg-form__login,
@@ -201,4 +203,8 @@
 
   border: none;
   // border-radius: 16px;
+}
+
+.auth-btn__enter {
+  margin: 0;
 }

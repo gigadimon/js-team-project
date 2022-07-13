@@ -172,7 +172,7 @@ const langFilmModalArr = [
   {
     selector: 'vote',
     en: 'Vote/Votes',
-    ua: 'Рейтинг/Кількість голосів',
+    ua: 'Рейтинг/Голосів',
   },
   {
     selector: 'popular',
