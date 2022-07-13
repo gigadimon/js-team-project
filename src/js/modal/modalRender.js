@@ -212,7 +212,7 @@ function renderAuthor({ profile_path, name, id }) {
   const imgUrl = profile_path
     ? URL_IMG + profile_path
     : 'https://upload.wikimedia.org/wikipedia/commons/1/1d/No_image.JPG';
-  if(profile_path === null) {
+  if(!profile_path) {
     profile_path = 'https://upload.wikimedia.org/wikipedia/commons/1/1d/No_image.JPG';
   }
   console.log(profile_path);
