@@ -4,6 +4,9 @@ body {
   font-family: $fonts;
   background-color: #ffffff;
   font-family: 'Roboto', sans-serif;
+  &.scroll-hidden {
+    overflow: hidden;
+  }
 }
 
 *,
