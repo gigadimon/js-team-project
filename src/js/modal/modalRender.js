@@ -184,7 +184,6 @@ refs.cardMoveAuthors.addEventListener('click', e => {
 
 async function renderAuthors(e) {
   if (e.target.id === 'showAuthors') {
-    console.log(true);
     const movieId = e.target.dataset.id;
     const { cast } = await fetchMovieCreditsById(movieId);
     console.log(cast);
@@ -199,6 +198,10 @@ function renderAuthor({ profile_path, name, id }) {
   const imgUrl = profile_path
     ? URL_IMG + profile_path
     : 'https://upload.wikimedia.org/wikipedia/commons/1/1d/No_image.JPG';
+  if(profile_path === null) {
+    profile_path = 'https://upload.wikimedia.org/wikipedia/commons/1/1d/No_image.JPG';
+  }
+  console.log(profile_path);
   return `<li class="author__item">
                <img data-personid="${id}" class="author__img" src="${imgUrl}" alt="${name}" width="100" height="100"/>
                <p class="author__title">${name}</p>
