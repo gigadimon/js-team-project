@@ -189,9 +189,17 @@ iframe {
   color: #8c8c8c;
 }
 
+.modal__card-info-vote{
+  @media screen and(min-width:768px) {
+   width: 90px;
+  }
+}
+
 .modal__card-vote {
+
+  height: 17px;
   padding: 1px 10px;
-  // margin-left: 41px;
+
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
@@ -207,6 +215,8 @@ iframe {
 }
 
 .modal__card-votes {
+
+  height: 17px;
   padding: 1px 10px;
   font-weight: 500;
   font-size: 12px;

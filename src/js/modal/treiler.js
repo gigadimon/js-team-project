@@ -30,7 +30,7 @@ export function getTrailer() {
 
 function treilerMovie(x) {
   for (const key of x) {
-    if (key.name === 'Official Trailer') {
+    if (key.type === 'Trailer') {
       return key.key;
     }
   }
