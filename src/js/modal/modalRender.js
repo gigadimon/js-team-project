@@ -195,7 +195,6 @@ function renderAuthor({ profile_path, name, id }) {
     profile_path =
       'https://upload.wikimedia.org/wikipedia/commons/1/1d/No_image.JPG';
   }
-  console.log(profile_path);
   return `<li class="author__item">
                <img data-personid="${id}" class="author__img" src="${imgUrl}" alt="${name}" width="100" height="100"/>
                <p class="author__title">${name}</p>
