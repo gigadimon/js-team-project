@@ -11,18 +11,24 @@
       <div class="nav-wrapper">
         <ul class="header__list">
           <li class="header__nav">
-            <button type="button" class="header__btn home current" id="lang__home">Home</button>
+            <button type="button" class="header__btn home current lng__home">
+              Home
+            </button>
           </li>
           <li class="header__nav">
-            <button type="button" class="header__btn library" id="lang__library">
+            <button type="button" class="header__btn library lng__library">
               My library
             </button>
           </li>
           <li class="header__nav auth-btn__enter">
-            <button type="button" class="header__btn auth-btn">sign in</button>
+            <button type="button" class="header__btn auth-btn lng__mainSignIn">
+              sign in
+            </button>
           </li>
           <li class="header__nav auth-btn__leave visually-hidden">
-            <button type="button" class="header__btn auth-btn">sign out</button>
+            <button type="button" class="header__btn auth-btn lng__signOut">
+              sign out
+            </button>
           </li>
         </ul>
         <span class="login"></span>
@@ -31,7 +37,7 @@
     <div class="header__box">
       <form class="header__form" action="#" id="header__form">
         <input
-          class="header__input"
+          class="header__input lng__mainInput"
           type="text"
           placeholder="Movie search"
           name="searchQuery"
@@ -43,23 +49,18 @@
           </svg>
         </button>
       </form>
-      
-      
     </div>
     <!-- <div class="auth-info-container">
 
     </div> -->
 
     <div class="header__buttons visually-hidden">
-      <button
-        class="lib__btn watchedBtn current__libBtn neon"
-        id="lang__watched"
-      >
+      <button class="lib__btn watchedBtn current__libBtn neon lng__watched">
         watched
       </button>
-      <button class="lib__btn queueBtn neon" id="lang__queue">queue</button>
+      <button class="lib__btn queueBtn neon lng__queue">queue</button>
       <br />
-      <button class="lib__btn clearBtn neon" id="lang__clear">clear</button>
+      <button class="lib__btn clearBtn neon lng__clear">clear</button>
     </div>
     <div class="checkbox-group-wrapper">
       <div class="theme-switch-wrapper">
@@ -68,7 +69,7 @@
           <div class="slider round"></div>
         </label>
       </div>
-      <div class="lang__switch--wrapper">
+      <div class="lang__switch--wrapper" id="lang-switcher">
         <label class="lang__switch" for="lang-checkbox">
           <input type="checkbox" id="lang-checkbox" />
           <div class="slider round"></div>

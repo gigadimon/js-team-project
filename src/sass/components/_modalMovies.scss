@@ -191,7 +191,6 @@ iframe {
 .modal__card-vote {
   padding: 1px 9px;
   margin-left: 41px;
-
   font-weight: 500;
   font-size: 12px;
   line-height: 14px;
@@ -291,7 +290,7 @@ iframe {
     border: 0;
     color: #fff;
     // box-shadow: 5px -5px 3px rgb(229, 80, 50, 1);
-    transition: $transition;
+    transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   @media screen and(min-width:768px) {
@@ -322,6 +321,8 @@ iframe {
     background-color: #ff6b01;
     border: 0;
     color: #fff;
+    transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
     // box-shadow: 5px -5px 3px rgb(229, 80, 50, 1);
   }
 
@@ -336,18 +337,18 @@ iframe {
 
 
 .modal-box-authors {
-  width: 100%;
-  height: 100%;
   opacity: 0;
   z-index: -1;
   background-color: #fff;
   border-radius: 4px;
-  padding: 20px;
   font-weight: 500;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  display: block;
   overflow: hidden;
   transform: rotateY(180deg);
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(-50%, -50%);
   .btn-go-back {
     font-size: 12px;
     font-weight: 500;
@@ -360,7 +361,7 @@ iframe {
     transition: 0.3s;
     margin-bottom: 7px;
     &:before {
-      content: '\2190';
+      content: "\2190";
       position: absolute;
       color: inherit;
       font-size: 16px;
@@ -386,6 +387,7 @@ iframe {
   z-index: -1;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   transform: rotateY(-180deg);
+  left: 100%;
 }
 
 .show-author {
@@ -410,13 +412,9 @@ iframe {
   flex-direction: row;
   width: 100%;
   li {
-    width: 15.333%;
     margin: 0 1em 1em 0;
     position: relative;
     cursor: pointer;
-    &:nth-child(6n) {
-      margin-right: 0;
-    }
     img {
       opacity: 1;
       display: block;
@@ -436,8 +434,7 @@ iframe {
       text-align: center;
     }
     &:hover {
-      -webkit-box-shadow: 0px 10px 13px -4px #000,
-        0px 0px 4px 2px rgba(255, 107, 8, 0);
+      -webkit-box-shadow: 0px 10px 13px -4px #000, 0px 0px 4px 2px rgba(255, 107, 8, 0);
       box-shadow: 0px 10px 13px -4px #000, 0px 0px 4px 2px rgba(255, 107, 8, 0);
       img {
         opacity: 0.3;
@@ -456,7 +453,7 @@ iframe {
   font-size: 12px;
   width: 100%;
   height: 100%;
-  background-color: #0003;
+  // background-color: #0003;
   position: relative;
   top: 0;
   overflow: hidden;
@@ -464,20 +461,65 @@ iframe {
 }
 
 @media screen and (min-width: 320px) {
-  .modal-content {
-    min-width: 280px;
+  .modal-content, .show-author {
+    width: 280px;
+  }
+  .author__grid {
+    li {
+      width: 46.5%;
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+  }
+  .modal {
+    max-height: calc(100vh - 100px);
+    overflow: auto;
+    .modal__card-discription {
+      height: auto;
+    }
   }
 }
 
 @media screen and (min-width: 768px) {
-  .modal-content {
+  .modal-content, .show-author {
     width: 704px;
+  }
+  .author__grid {
+    li {
+      width: 18%;
+      &:nth-child(2n) {
+        margin-right: 1em;
+      }
+      &:nth-child(5n) {
+        margin-right: 0;
+      }
+    }
+  }
+  .modal {
+    max-height: 100%;
+    height: auto;
+    overflow: visible;
+    .modal__card-discription {
+      height: 40px;
+    }
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .modal-content {
+  .modal-content, .show-author {
     width: 814px;
     min-height: 578px;
+  }
+  .author__grid {
+    li {
+      width: 14.92%;
+      &:nth-child(5n) {
+        margin-right: 1em;
+      }
+      &:nth-child(6n) {
+        margin-right: 0;
+      }
+    }
   }
 }

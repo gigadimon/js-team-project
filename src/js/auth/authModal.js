@@ -2,6 +2,8 @@ import './authentication';
 import './registration';
 import switchToLibrary, { switchToHome } from '../header/header';
 import closeFilmModal from '../modal/modal-close';
+import setContentLang from '../languages/changeLang';
+import { langAuthModalArr } from '../languages/langData';
 
 const overlay = document.querySelector('.auth-overlay');
 const authBtn = document.querySelector('.auth-btn__enter');
@@ -24,6 +26,9 @@ export function closeModal() {
 }
 
 export function openAuthModal() {
+  const lang = localStorage.getItem('lang');
+  if (lang) setContentLang(langAuthModalArr, lang);
+
   document.removeEventListener('keydown', closeFilmModal);
   overlay.classList.remove('visually-hidden');
 

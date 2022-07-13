@@ -1,8 +1,21 @@
-[data-theme="dark"] {
+[data-theme='dark'] {
   .main {
     background-color: #0d1117;
     // background-color: #c9d1d9;
     // background-color: #040f18;
+  }
+  .auth-form {
+    background-color: #0d1117;
+  }
+  .auth__form-title,
+  .auth-login__label,
+  .auth-password__label,
+  .separator {
+    color: #fff;
+  }
+
+  .auth-modal__btn-close {
+    fill: #fff;
   }
 
   .film__wrap {

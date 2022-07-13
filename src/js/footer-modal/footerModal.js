@@ -1,3 +1,6 @@
+import setContentLang from '../languages/changeLang';
+import { langFooterModalArr } from '../languages/langData';
+
 const btnLink = document.querySelector('.footer__modal-btn');
 const btnHeart = document.querySelector('.footer__modal-btn--heart');
 const modalClouseBtn = document.querySelector('.footer__close-btn');
@@ -11,6 +14,10 @@ modalClouseBtn.addEventListener('click', onCloseFooterModal);
 
 function onOpenFooterModal(event) {
   event.preventDefault();
+
+  const lang = localStorage.getItem('lang');
+  if (lang) setContentLang(langFooterModalArr, lang);
+
   scrollOnModal.classList.add('scroll-hidden');
   footerBackdrop.classList.remove('is-hidden');
   footerBackdrop.addEventListener('click', onClickFooterBackdrop);
