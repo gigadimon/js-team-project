@@ -108,3 +108,14 @@ let dateDropdown = document.getElementById('date-dropdown');
     dateDropdown.add(dateOption);      
     currentYear -= 1;    
   }
+
+  const clearFilter = document.querySelector('.clear-filter-btn');
+  clearFilter.addEventListener('click', () => {
+    
+    document.querySelector('.header__input').value = '';
+    document.getElementById('genres').value = '';
+    document.querySelector('.input--year').value = '';
+    cardSection.innerHTML = '';
+    createFilmListTrending();
+  }
+  );

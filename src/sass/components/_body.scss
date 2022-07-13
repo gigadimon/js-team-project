@@ -153,16 +153,18 @@
   // border-radius: 5px;
 }
 .lng__searchBy {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 500;
+  width: 100%;
+  
   background-color: lightgray;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 .input--year {
   border: none;
   border-radius: 5px;
-  width: 70px;
+  width: 60px;
   height: 25px;
   text-align: center;
   margin-left: 10px;
@@ -185,18 +187,20 @@
   cursor: pointer;
 }
 
-.input--year::placeholder {
-  color: $white-color;
+// .input--year::placeholder {
+//   color: $white-color;
 
-}
+// }
 .genreList__select {
+  font-size: 15px;
   border: none;
   border-radius: 5px;
-  width: 130px;
+  width: 117px;
   height: 25px;
   text-align: center;
   margin-left:10px;
-  margin-right: 5px;
+  
+  
   
   background-color: #ff001b;
 
@@ -213,3 +217,15 @@
 // .lng__choose {
 //   color: $white-color;
 // }
+
+.clear-filter-btn {
+  background-color: lightgray;
+  font-size: 15px;
+  border: none;
+  border-radius: 6px;
+  width: 60%;
+  height: 25px;
+  margin-left: 10px;
+  cursor: pointer;
+
+}
