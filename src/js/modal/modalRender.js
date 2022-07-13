@@ -16,6 +16,7 @@ const refs = {
   loader: document.querySelector('.lader_backdrop'),
   poster: document.querySelector('.modal__card-poster'),
   title: document.querySelector('.modal__card-title'),
+  voteTitle:document.querySelector('.modal__card-info-vote'),
   vote: document.querySelector('.modal__card-vote'),
   votes: document.querySelector('.modal__card-votes'),
   popularity: document.querySelector('.modal__card-popularity'),
@@ -100,6 +101,8 @@ async function fetchGetMovieId(MOVIE_ID) {
   let langURL;
   lang === 'ua' ? (langURL = `uk-UA`) : (langURL = `en-US`);
   let response;
+  
+  styleModalCardBox(lang);
   loaderOn();
   if (langURL) {
     response = await axios.get(
@@ -147,6 +150,16 @@ function renderModalCard(ID) {
     .finally(() => loaderOff());
 }
 
+function styleModalCardBox(x){
+if(x === 'ua'){
+  refs.voteTitle.style.width = '60px'
+  refs.popularity.style.marginLeft = '30px'
+  refs.original.style.marginLeft = '72px'
+} else if ( x === 'en'){
+  refs.popularity.style.marginLeft = '52px'
+  refs.original.style.marginLeft = '39px'
+}
+}
 // saving movies to local storage
 const addToWatchedBtn = document.querySelector('.btn__modal-watched');
 const addToQueueBtn = document.querySelector('.btn__modal-queue');
