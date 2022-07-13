@@ -15,7 +15,7 @@ export const refs = {
   loader: document.querySelector('.lader_backdrop'),
   poster: document.querySelector('.modal__card-poster'),
   title: document.querySelector('.modal__card-title'),
-  voteTitle:document.querySelector('.modal__card-info-vote'),
+  voteTitle: document.querySelector('.modal__card-info-vote'),
   vote: document.querySelector('.modal__card-vote'),
   votes: document.querySelector('.modal__card-votes'),
   popularity: document.querySelector('.modal__card-popularity'),
@@ -98,29 +98,44 @@ function renderModalCard(ID) {
   let num = Number(ID);
   refs.showAuthors.dataset.id = num;
 
+  const lang = localStorage.getItem('lang');
+  if (lang) setContentLang(langFilmModalArr, lang);
+
   if (watchedList) {
     if (watchedList.some(item => item.id === num)) {
       addToWatchedBtn.disabled = true;
-      addToWatchedBtn.textContent = 'Added';
+
+      const lang = localStorage.getItem('lang');
+      lang && lang === 'ua'
+        ? (addToWatchedBtn.textContent = 'Додано')
+        : (addToWatchedBtn.textContent = 'Added');
     }
   }
 
   if (queueList) {
     if (queueList.some(item => item.id === num)) {
       addToQueueBtn.disabled = true;
-      addToQueueBtn.textContent = 'Added';
+      const lang = localStorage.getItem('lang');
+      lang && lang === 'ua'
+        ? (addToQueueBtn.textContent = 'Додано')
+        : (addToQueueBtn.textContent = 'Added');
     }
   }
 
   if (!localStorage.getItem('userEmail')) {
-    addToWatchedBtn.textContent = 'Add to Watched';
-    addToWatchedBtn.disabled = false;
-    addToQueueBtn.textContent = 'Add to Queue';
-    addToQueueBtn.disabled = false;
+    const lang = localStorage.getItem('lang');
+    if (lang && lang === 'ua') {
+      addToWatchedBtn.textContent = 'Додати до Переглянутих';
+      addToWatchedBtn.disabled = false;
+      addToQueueBtn.textContent = 'Додати до Черги';
+      addToQueueBtn.disabled = false;
+    } else {
+      addToWatchedBtn.textContent = 'Add to Watched';
+      addToWatchedBtn.disabled = false;
+      addToQueueBtn.textContent = 'Add to Queue';
+      addToQueueBtn.disabled = false;
+    }
   }
-
-  const lang = localStorage.getItem('lang');
-  if (lang) setContentLang(langFilmModalArr, lang);
 
   return fetchGetMovieId(ID)
     .then(data => setDataCard(data))
@@ -137,6 +152,7 @@ if(x === 'ua'){
   refs.popularity.style.marginLeft = '52px'
   refs.original.style.marginLeft = '39px'
 }
+
 }
 // saving movies to local storage
 const addToWatchedBtn = document.querySelector('.btn__modal-watched');
@@ -155,9 +171,14 @@ function addToWatched() {
   }
   watchedList.push(openFilm);
   localStorage.setItem('watchedList', JSON.stringify(watchedList));
-  Notify.info('Movie added to Watched');
-  addToWatchedBtn.disabled = true;
-  addToWatchedBtn.textContent = 'Added';
+  const lang = localStorage.getItem('lang');
+  if (lang && lang === 'ua') {
+    Notify.info('Фільм додано до Переглянуті');
+    addToWatchedBtn.textContent = 'Додано';
+  } else {
+    Notify.info('Movie added to Watched');
+    addToWatchedBtn.textContent = 'Added';
+  }
 }
 
 addToQueueBtn.addEventListener('click', addToQueue);
@@ -173,9 +194,15 @@ function addToQueue() {
   }
   queueList.push(openFilm);
   localStorage.setItem('queueList', JSON.stringify(queueList));
-  Notify.info('Movie added to Queue');
-  addToQueueBtn.disabled = true;
-  addToQueueBtn.textContent = 'Added';
+
+  const lang = localStorage.getItem('lang');
+  if (lang && lang === 'ua') {
+    Notify.info('Фільм додано до Черги');
+    addToQueueBtn.textContent = 'Додано';
+  } else {
+    Notify.info('Movie added to Queue');
+    addToQueueBtn.textContent = 'Added';
+  }
 }
 
 //renderAuthors
