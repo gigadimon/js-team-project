@@ -18,16 +18,12 @@ const filter = document.querySelector('.filter_conteiner');
 libBtnRef.addEventListener('click', switchToLibrary);
 
 function switchHeaderBgImage() {
-  headerRef.classList.add('header__library');
-  if(headerRef.classList.contains('header__library')){
-    filter.classList.add('is-hidden')
-  }
-}
-
-function offClassHeaderLibrary(){
-  headerRef.classList.remove('header__library');
-  if(!headerRef.classList.contains('header__library')){
-    filter.classList.remove('is-hidden')
+  if (sessionStorage.getItem('my-lib')) {
+    filter.classList.add('is-hidden');
+    headerRef.classList.add('header__library');
+  } else {
+    filter.classList.remove('is-hidden');
+    headerRef.classList.remove('header__library');
   }
 }
 
@@ -54,13 +50,12 @@ export default function switchToLibrary() {
   sessionStorage.setItem('my-lib', 'true');
   switchHeaderBgImage();
 }
+
 export function switchToHome() {
   libBtnRef.addEventListener('click', switchToLibrary);
   homeBtnRef.classList.add('current');
   libBtnRef.classList.remove('current');
   homeBtnRef.removeEventListener('click', switchToHome);
-  offClassHeaderLibrary();
-
 
   headerButtons.classList.add('visually-hidden');
   headerBoxRef.classList.remove('visually-hidden');
