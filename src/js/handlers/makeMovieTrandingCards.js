@@ -3,18 +3,10 @@ export default function makeMovieTrandingCards(
     id,
     name,
     title,
-    genre_ids,
-    media_type,
-    original_name,
-    original_title,
-    popularity,
     release_date,
     poster_path,
     first_air_date,
-    backdrop_path,
-    overview,
     vote_average,
-    vote_count,
   } = movie,
   filmGenres
 ) {
