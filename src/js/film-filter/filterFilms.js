@@ -44,7 +44,7 @@ export function saveFilter(someUrl, page) {
   localStorage.setItem('last-filter', filter);
 }
 
-function auditYear(year) {
+export function auditYear(year) {
   if (year === '') {
     return '';
   } else if (Date.parse(year) < Date.parse(1850)) {
@@ -56,7 +56,7 @@ function auditYear(year) {
   }
 }
 
-function auditGenre(genre) {
+export function auditGenre(genre) {
   if (genre === '') {
     return '';
   } else {
@@ -64,7 +64,7 @@ function auditGenre(genre) {
   }
 }
 
-function auditFilter(year, someUrl) {
+export function auditFilter(year, someUrl) {
   if (year !== '') {
     if (Date.parse(year) < Date.parse(1800)) {
       Notiflix.Notify.warning(

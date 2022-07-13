@@ -19,7 +19,7 @@
 
   background-color: #fff;
   color: #000000;
-  border-radius: 16px;
+  border-radius: 6px;
   -webkit-box-shadow: 0px 0px 34px 17px rgba(255, 107, 8, 0.42);
   -moz-box-shadow: 0px 0px 34px 17px rgba(255, 107, 8, 0.42);
   box-shadow: 0px 0px 34px 17px rgba(255, 107, 8, 0.42);
@@ -201,4 +201,8 @@
 
   border: none;
   // border-radius: 16px;
+}
+
+.auth-btn__enter {
+  margin: 0;
 }

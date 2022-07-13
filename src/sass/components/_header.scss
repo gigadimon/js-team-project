@@ -180,16 +180,16 @@
   display: flex;
 }
 
-.header__nav:not(:last-child) {
-  margin-right: 20px;
-}
+// .header__nav:not(:last-child) {
+//   margin-right: 20px;
+// }
 .header__nav:not(:nth-last-child(2)) {
   margin-right: 0;
 }
 
 .header__nav:last-child,
 .header__nav:nth-last-child(2) {
-  margin-left: 20px;
+  margin-left: 5px;
 }
 
 .login {
@@ -205,7 +205,7 @@
   color: $white-color;
   background-color: transparent;
   border: none;
-  font-size: 12px;
+  font-size: calc(10px + 2 * (100vw / 1024));
   font-weight: 500;
   line-height: 1.16;
   letter-spacing: 0.03em;
@@ -222,13 +222,13 @@
   align-items: center;
   justify-content: center;
 
-  line-height: 1;
+  line-height: 16px;
 
-  border: 2px solid #fff;
-  border-radius: 16px;
+  border: 1px solid #fff;
+  border-radius: 5px;
 }
 .auth-btn:hover {
-  border: 2px solid $red-color;
+  border: 1px solid $red-color;
 }
 
 .current::after {
@@ -492,8 +492,6 @@ input:checked + .slider:before {
 .lang__switch input {
   display: none;
 }
-
-
 
 .checkbox-group-wrapper {
   display: flex;

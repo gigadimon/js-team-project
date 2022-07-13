@@ -1,6 +1,5 @@
 import './authentication';
 import './registration';
-import switchToLibrary, { switchToHome } from '../header/header';
 import closeFilmModal from '../modal/modal-close';
 import setContentLang from '../languages/changeLang';
 import { langAuthModalArr } from '../languages/langData';

@@ -13,12 +13,18 @@ const headerButtons = document.querySelector('.header__buttons');
 const watchedBtn = document.querySelector('.watchedBtn');
 const queueBtn = document.querySelector('.queueBtn');
 const logo = document.querySelector('.header__logo');
-
+const filter = document.querySelector('.filter_conteiner');
 // homeBtnRef.addEventListener('click', switchToHome);
 libBtnRef.addEventListener('click', switchToLibrary);
 
 function switchHeaderBgImage() {
-  headerRef.classList.toggle('header__library');
+  if (sessionStorage.getItem('my-lib')) {
+    filter.classList.add('is-hidden');
+    headerRef.classList.add('header__library');
+  } else {
+    filter.classList.remove('is-hidden');
+    headerRef.classList.remove('header__library');
+  }
 }
 
 export default function switchToLibrary() {
@@ -32,7 +38,6 @@ export default function switchToLibrary() {
   homeBtnRef.classList.remove('current');
   libBtnRef.classList.add('current');
   libBtnRef.removeEventListener('click', switchToLibrary);
-  switchHeaderBgImage();
 
   headerButtons.classList.remove('visually-hidden');
   headerBoxRef.classList.add('visually-hidden');
@@ -43,13 +48,14 @@ export default function switchToLibrary() {
   queueBtn.addEventListener('click', queueBtnCB);
 
   sessionStorage.setItem('my-lib', 'true');
+  switchHeaderBgImage();
 }
+
 export function switchToHome() {
   libBtnRef.addEventListener('click', switchToLibrary);
   homeBtnRef.classList.add('current');
   libBtnRef.classList.remove('current');
   homeBtnRef.removeEventListener('click', switchToHome);
-  switchHeaderBgImage();
 
   headerButtons.classList.add('visually-hidden');
   headerBoxRef.classList.remove('visually-hidden');
@@ -60,10 +66,11 @@ export function switchToHome() {
   queueBtn.removeEventListener('click', queueBtnCB);
 
   sessionStorage.removeItem('my-lib');
+  switchHeaderBgImage();
 }
 
 logo.addEventListener('click', () => {
-    if (localStorage.getItem('last-search')) {
+  if (localStorage.getItem('last-search')) {
     localStorage.removeItem('last-search');
   } else if (localStorage.getItem('last-filter')) {
     localStorage.removeItem('last-filter');

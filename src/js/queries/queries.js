@@ -3,7 +3,7 @@ import { save } from '../current-session/localStorageService';
 import { loaderOn } from '../loader/loader';
 import { saveSearch } from '../film-search/searchFilms';
 import { saveFilter } from '../film-filter/filterFilms';
-
+import {refs, styleModalCardBox} from '../modal/modalRender';
 const API_KEY = 'ffda232ba1095b2db867c38e7745d8d7';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
@@ -41,6 +41,7 @@ export async function fetchGetMovieId(MOVIE_ID) {
   let langURL;
   lang === 'ua' ? (langURL = `uk-UA`) : (langURL = `en-US`);
   let response;
+  styleModalCardBox(lang)
   loaderOn();
   if (langURL) {
     response = await axios.get(

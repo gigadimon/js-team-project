@@ -7,7 +7,7 @@
     padding-right: 32px;
     display: flex;
     flex-wrap: wrap;
-    padding-top: 60px;
+    padding-top: 15px;
   }
 }
 
@@ -140,33 +140,38 @@
 // filter conteiner style
 
 .filter_conteiner {
-  margin-top: 10px;
+  padding-top: 20px;
   display: flex;
   align-items: baseline;
   justify-content: center;
-  
 }
-.filter_box{
+.filter_box {
   display: flex;
-  justify-content: center; 
-  align-items:center;
+  justify-content: center;
+  align-items: center;
+  // background-color: lightgray;
+  // border-radius: 5px;
+}
+.lng__searchBy {
+  font-size: 18px;
+  font-weight: 500;
   background-color: lightgray;
   border-radius: 10px;
 }
 
 .input--year {
- 
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   width: 70px;
-  height: 20px;
+  height: 25px;
   text-align: center;
+  margin-left: 10px;
+  // color: $white-color;
+  background-color: $orange-color;
 
-  
-  background-color: #ff001b;
   @media (min-width: $min-tablet) {
-    width: 90px;
-    height: 25px;
+    // width: 90px;
+    // height: 25px;
   }
 
   &:focus,
@@ -175,22 +180,29 @@
   }
 }
 
-.input--year::placeholder{
-  color:black;
+.genreList__select {
+  color: $white-color;
+  cursor: pointer;
+}
+
+.input--year::placeholder {
+  color: $white-color;
+
 }
 .genreList__select {
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   width: 130px;
-  height: 20px;
+  height: 25px;
   text-align: center;
   margin-left:10px;
-  
+  margin-right: 5px;
   
   background-color: #ff001b;
+
   @media (min-width: $min-tablet) {
-    margin-right: 10px;
-    height: 25px;
+    // margin-right: 10px;
+    // height: 25px;
   }
 
   &:focus,
@@ -198,3 +210,6 @@
     cursor: pointer;
   }
 }
+// .lng__choose {
+//   color: $white-color;
+// }
