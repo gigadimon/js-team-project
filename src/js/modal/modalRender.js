@@ -129,10 +129,11 @@ function renderModalCard(ID) {
 
 export function styleModalCardBox(x){
 if(x === 'ua'){
-  refs.voteTitle.style.width = '60px'
+  refs.voteTitle.style.width = '100px'
   refs.popularity.style.marginLeft = '30px'
   refs.original.style.marginLeft = '72px'
 } else if ( x === 'en'){
+  refs.voteTitle.style.width = '100px'
   refs.popularity.style.marginLeft = '52px'
   refs.original.style.marginLeft = '39px'
 }
