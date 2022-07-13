@@ -11,7 +11,7 @@ import {
 import setContentLang from '../languages/changeLang';
 import { langFilmModalArr, langAuthorModalArr } from '../languages/langData';
 
-const refs = {
+export const refs = {
   loader: document.querySelector('.lader_backdrop'),
   poster: document.querySelector('.modal__card-poster'),
   title: document.querySelector('.modal__card-title'),
@@ -127,7 +127,7 @@ function renderModalCard(ID) {
     .finally(() => loaderOff());
 }
 
-function styleModalCardBox(x){
+export function styleModalCardBox(x){
 if(x === 'ua'){
   refs.voteTitle.style.width = '60px'
   refs.popularity.style.marginLeft = '30px'
