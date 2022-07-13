@@ -24,7 +24,7 @@ async function fetchWithErrorHandling(url = '', config = {}) {
   galleryNotEmpty();
   return response.ok
     ? await response.json()
-    : Promise.reject(new Error('Not found'));
+    : Promise.reject(response.text() || response.status);
 }
 
 export function fetchMovieCreditsById(id) {
