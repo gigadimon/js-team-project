@@ -188,6 +188,12 @@ iframe {
   color: #8c8c8c;
 }
 
+.modal__card-info-vote{
+  @media screen and(min-width:768px) {
+   width: 90px;
+  }
+}
+
 .modal__card-vote {
   height: 17px;
   padding: 1px 9px;
