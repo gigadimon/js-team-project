@@ -7,6 +7,7 @@ const langMainArr = [
   },
   {
     selector: 'yearInput',
+    placeholder: true,
     en: 'Year',
     ua: 'Рік',
   },
