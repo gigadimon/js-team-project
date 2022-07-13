@@ -136,3 +136,65 @@
     font-size: 14px;
   }
 }
+
+// filter conteiner style
+
+.filter_conteiner {
+  margin-top: 10px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  
+}
+.filter_box{
+  display: flex;
+  justify-content: center; 
+  align-items:center;
+  background-color: lightgray;
+  border-radius: 10px;
+}
+
+.input--year {
+ 
+  border: none;
+  border-radius: 10px;
+  width: 70px;
+  height: 20px;
+  text-align: center;
+
+  
+  background-color: #ff001b;
+  @media (min-width: $min-tablet) {
+    width: 90px;
+    height: 25px;
+  }
+
+  &:focus,
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.input--year::placeholder{
+  color:black;
+}
+.genreList__select {
+  border: none;
+  border-radius: 10px;
+  width: 130px;
+  height: 20px;
+  text-align: center;
+  margin-left:10px;
+  
+  
+  background-color: #ff001b;
+  @media (min-width: $min-tablet) {
+    margin-right: 10px;
+    height: 25px;
+  }
+
+  &:focus,
+  &:hover {
+    cursor: pointer;
+  }
+}
