@@ -1,6 +1,7 @@
 import axios from 'axios';
 import renderMovieCards from '../handlers/renderMovieCards';
 import fetchGenresList from '../queries/fetchGenresList';
+import createFilmListTrending from '../pagination/createFilmList';
 import Notiflix from 'notiflix';
 import Pagination from '../pagination/Pagination';
 import { loaderOn } from '../loader/loader';
@@ -12,6 +13,7 @@ const searchSubmit = document.querySelector('.header__form');
 
 async function fetchGetFilmName(name, pageValue) {
   loaderOn();
+
   const lang = localStorage.getItem('lang');
   let langURL;
   lang === 'ua' ? (langURL = `uk-UA`) : (langURL = `en-US`);
@@ -46,6 +48,10 @@ function totalResultsFilms(results) {
 }
 
 export default async function createFilmListSearch(name, p) {
+  if (localStorage.getItem('last-filter')) {
+    localStorage.removeItem('last-filter');
+  }
+
   const {
     results,
     total_pages: totalPages,
@@ -78,8 +84,23 @@ function saveSearch(input, page) {
   localStorage.setItem('last-search', search);
 }
 
+searchSubmit.addEventListener('change', e => {
+  e.preventDefault();
+  document.querySelector(".input--year").value = ""
+  document.getElementById('genres').value = ""
+  const name = e.currentTarget.elements[0].value.trim();
+  cardSection.innerHTML = '';
+  if (name === '') {
+    createFilmListTrending()
+  } else {
+    createFilmListSearch(name, 1);
+  }
+});
+
 searchSubmit.addEventListener('submit', e => {
   e.preventDefault();
+  document.querySelector(".input--year").value = ""
+  document.getElementById('genres').value = ""
   const name = e.currentTarget.elements[0].value.trim();
   if (name === '') {
     Notiflix.Notify.warning('An empty string cannot be a query');

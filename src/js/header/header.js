@@ -63,11 +63,10 @@ export function switchToHome() {
 }
 
 logo.addEventListener('click', () => {
-  if (localStorage.getItem('last-search')) {
+    if (localStorage.getItem('last-search')) {
     localStorage.removeItem('last-search');
-  }
-  if (sessionStorage.getItem('input-value')) {
-    sessionStorage.removeItem('input-value');
+  } else if (localStorage.getItem('last-filter')) {
+    localStorage.removeItem('last-filter');
   }
   switchToHome();
 });

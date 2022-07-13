@@ -8,8 +8,7 @@ import footer from './js/footer-modal/footerModal';
 import makeMyLibraryCards from './js/my-library/makeMyLibraryCards';
 import darkMode from './js/header/darkMode';
 import scrollArrow from './js/scrooll-arrow/scrollArrow';
+import language from './js/languages/language';
 import inputSaver from './js/film-search/inputSaver';
-
-import './js/languages/changeLang';
 
 loadingPage();
