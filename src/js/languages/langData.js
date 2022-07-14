@@ -11,6 +11,16 @@ const langMainArr = [
     ua: 'Пошук фільмів',
   },
   {
+    selector: 'searchBy',
+    en: 'Serch by',
+    ua: 'Пошуrк по',
+  },
+  {
+    selector: 'clearBtn',
+    en: 'Reset',
+    ua: 'Скинути',
+  },
+  {
     selector: 'yearInput',
     en: 'Year',
     ua: 'Роком',

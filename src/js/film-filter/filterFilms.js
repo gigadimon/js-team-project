@@ -96,14 +96,26 @@ filter.addEventListener('change', () => {
   auditFilter(year, someUrl);
 });
 
-let dateDropdown = document.getElementById('date-dropdown');
 
-let currentYear = new Date().getFullYear();
-let earliestYear = 1874;
-while (currentYear >= earliestYear) {
-  let dateOption = document.createElement('option');
-  dateOption.text = currentYear;
-  dateOption.value = currentYear;
-  dateDropdown.add(dateOption);
-  currentYear -= 1;
-}
+let dateDropdown = document.getElementById('date-dropdown'); 
+       
+  let currentYear = new Date().getFullYear();    
+  let earliestYear = 1874;     
+  while (currentYear >= earliestYear) {      
+    let dateOption = document.createElement('option');          
+    dateOption.text = currentYear;      
+    dateOption.value = currentYear;        
+    dateDropdown.add(dateOption);      
+    currentYear -= 1;    
+  }
+
+  const clearFilter = document.querySelector('.clear-filter-btn');
+  clearFilter.addEventListener('click', () => {
+    
+    document.querySelector('.header__input').value = '';
+    document.getElementById('genres').value = '';
+    document.querySelector('.input--year').value = '';
+    cardSection.innerHTML = '';
+    createFilmListTrending();
+  }
+  );
