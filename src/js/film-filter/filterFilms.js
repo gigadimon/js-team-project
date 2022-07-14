@@ -66,25 +66,11 @@ export function auditGenre(genre) {
 }
 
 export function auditFilter(year, someUrl) {
-  // if (year !== '') {
-  //   if (Date.parse(year) < Date.parse(1800)) {
-  //     Notiflix.Notify.warning(
-  //       'The year is too old, the search is carried out starting from 1850'
-  //     );
-  //   } else if (Date.parse(year) > new Date()) {
-  //     Notiflix.Notify.warning(
-  //       'Unfortunately, future movies are not available yet, try again in a few years'
-  //     );
-  //   } else {
-  //     createFilmListFilter(someUrl, 1);
-  //   }
-  // } else {
   if (someUrl === '') {
     createFilmListTrending();
   } else {
     createFilmListFilter(someUrl, 1);
   }
-  // }
 }
 
 filter.addEventListener('change', () => {
@@ -96,26 +82,14 @@ filter.addEventListener('change', () => {
   auditFilter(year, someUrl);
 });
 
+let dateDropdown = document.getElementById('date-dropdown');
 
-let dateDropdown = document.getElementById('date-dropdown'); 
-       
-  let currentYear = new Date().getFullYear();    
-  let earliestYear = 1874;     
-  while (currentYear >= earliestYear) {      
-    let dateOption = document.createElement('option');          
-    dateOption.text = currentYear;      
-    dateOption.value = currentYear;        
-    dateDropdown.add(dateOption);      
-    currentYear -= 1;    
-  }
-
-  const clearFilter = document.querySelector('.clear-filter-btn');
-  clearFilter.addEventListener('click', () => {
-    
-    document.querySelector('.header__input').value = '';
-    document.getElementById('genres').value = '';
-    document.querySelector('.input--year').value = '';
-    cardSection.innerHTML = '';
-    createFilmListTrending();
-  }
-  );
+let currentYear = new Date().getFullYear();
+let earliestYear = 1874;
+while (currentYear >= earliestYear) {
+  let dateOption = document.createElement('option');
+  dateOption.text = currentYear;
+  dateOption.value = currentYear;
+  dateDropdown.add(dateOption);
+  currentYear -= 1;
+}

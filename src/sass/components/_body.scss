@@ -146,20 +146,17 @@
   align-items: center;
 }
 .lng__searchBy {
-  font-size: 15px;
   padding: 2px 4px;
+  font-size: 16px;
   font-weight: 500;
-  width: 100%;
-  
   background-color: lightgray;
-  border-radius: 8px;
-
+  border-radius: 4px;
 }
 
 .input--year {
   border: none;
   border-radius: 5px;
-  width: 60px;
+  width: 70px;
   height: 25px;
   text-align: center;
   margin-left: 10px;
@@ -178,41 +175,23 @@
   cursor: pointer;
 }
 
-
+.input--year::placeholder {
+  color: $white-color;
+}
 .genreList__select {
-  font-size: 15px;
   border: none;
   border-radius: 5px;
-  width: 117px;
+  width: 130px;
   height: 25px;
   text-align: center;
-  margin-left:10px;
-  
-  background-color: #ff001b;
-
-  @media (min-width: $min-tablet) {
-    // margin-right: 10px;
-    // height: 25px;
-  }
-
+  margin-left: 10px;
+  background-color: $orange-color;
 
   &:focus,
   &:hover {
     cursor: pointer;
   }
 }
-
-
-.clear-filter-btn {
-  background-color: lightgray;
-  font-size: 15px;
-  border: none;
-  border-radius: 6px;
-  width: 60%;
-  height: 25px;
-  margin-left: 10px;
-  cursor: pointer;
-
 
 #film__btn--delete {
   @media (max-width: $max-tablet) {

@@ -40,13 +40,13 @@ export function enterToAccount(userData) {
 }
 
 export function handleLeaveFromAccount() {
+  switchToHome();
   leaveBtn.classList.add('visually-hidden');
   loginName.innerHTML = '';
 
   authBtn.classList.remove('visually-hidden');
 
   localStorage.removeItem('userEmail');
-  switchToHome();
 }
 
 function switchForm() {

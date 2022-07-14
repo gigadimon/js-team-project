@@ -11,6 +11,7 @@ export default async function createFilmListTrending() {
     localStorage.removeItem('last-filter');
   }
   const { results, totalPages, page, dataGenres } = await fetchGetTrending(1);
+  cardSection.innerHTML = '';
   renderMovieCards({ results, dataGenres });
 
   document.querySelector('.pagination').innerHTML = '<ul></ul>';
