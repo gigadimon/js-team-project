@@ -22,7 +22,6 @@
   cursor: pointer;
   border-radius: 3px;
   transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-  // box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   @media (min-width: $min-tablet) {
     width: calc(49% - 15px);
     margin: 0 32px 32px 0;
@@ -58,10 +57,10 @@
   display: none;
   opacity: 0;
   position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 35px;
-  height: 35px;
+  top: 0;
+  right: 0;
+  width: 45px;
+  height: 45px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -76,13 +75,9 @@
   margin-bottom: 10px;
   aspect-ratio: 2 / 3;
   object-fit: cover;
-  // max-height: 398px;
-  @media (min-width: 350px) {
-    // max-height: 455px;
-  }
+
   @media (min-width: $min-tablet) {
     margin-bottom: 8px;
-    // height: 455px;
   }
   @media (min-width: $min-desktop) {
     max-height: 574px;
@@ -149,14 +144,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  // background-color: lightgray;
-  // border-radius: 5px;
 }
 .lng__searchBy {
-  font-size: 18px;
+  padding: 2px 4px;
+  font-size: 16px;
   font-weight: 500;
   background-color: lightgray;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 .input--year {
@@ -166,13 +160,9 @@
   height: 25px;
   text-align: center;
   margin-left: 10px;
-  // color: $white-color;
-  background-color: $orange-color;
 
-  @media (min-width: $min-tablet) {
-    // width: 90px;
-    // height: 25px;
-  }
+  background-color: $orange-color;
+  color: $white-color;
 
   &:focus,
   &:hover {
@@ -197,16 +187,15 @@
   margin-left: 10px;
   background-color: $orange-color;
 
-  @media (min-width: $min-tablet) {
-    // margin-right: 10px;
-    // height: 25px;
-  }
-
   &:focus,
   &:hover {
     cursor: pointer;
   }
 }
-// .lng__choose {
-//   color: $white-color;
-// }
+
+#film__btn--delete {
+  @media (max-width: $max-tablet) {
+    display: block;
+    opacity: 1;
+  }
+}

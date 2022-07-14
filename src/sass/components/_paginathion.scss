@@ -3,9 +3,14 @@
   max-width: max-content;
   margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
   background: #fff;
   margin-bottom: 20px;
+
+  @media (max-width: $min-tablet) {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
 }
 .pagination ul li {
   color: #000;

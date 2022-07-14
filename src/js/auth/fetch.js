@@ -1,4 +1,4 @@
-import Notiflix, { Notify } from 'notiflix';
+import { Notify } from 'notiflix';
 
 export default class Fetch {
   static API_KEY = 'AIzaSyBsgyw5msQwc2HX8RiFdzRf-qSWVnfNLJA';
@@ -66,8 +66,28 @@ function addToLocalStorage(data) {
 }
 
 function handleError(data) {
-  const failure = [...data.error.message.split('_').join(' ')]
-    .map((el, i) => (i === 0 ? el : el.toLowerCase()))
-    .join('');
-  Notify.failure(`${failure}. Please enter correct data`);
+  const lang = localStorage.getItem('lang');
+  if (data.error.message === 'EMAIL_NOT_FOUND') {
+    lang === 'ua'
+      ? Notify.failure(
+          `Email не зареєстрований. Будь ласка, введіть зареєстровані дані`
+        )
+      : Notify.failure(`Email not registered. Please enter registered data`);
+  } else if (data.error.message === 'INVALID_PASSWORD') {
+    lang === 'ua'
+      ? Notify.failure(`Неправильний пароль. Будь ласка, введіть коректні дані`)
+      : Notify.failure(`Invalid password. Please enter correct data`);
+  } else if (data.error.message === 'INVALID_EMAIL') {
+    lang === 'ua'
+      ? Notify.failure(`Невалідний email. Будь ласка, введіть коректні дані`)
+      : Notify.failure(`Invalid email. Please enter correct data`);
+  } else if (data.error.message === 'EMAIL_EXISTS') {
+    lang === 'ua'
+      ? Notify.failure(
+          `Email вже зареєстрований. Будь ласка, увійдіть до свого акаунту чи зареєструйте новий`
+        )
+      : Notify.failure(
+          `Email already registered. Please login to your account or register a new one`
+        );
+  }
 }

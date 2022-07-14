@@ -10,6 +10,7 @@ export default function makeMovieTrandingCards(
   } = movie,
   filmGenres
 ) {
+  const lang = localStorage.getItem('lang');
   return `
   <li class="film__wrap">
   <img class="film__img" src="${
@@ -21,7 +22,11 @@ export default function makeMovieTrandingCards(
     first_air_date ? first_air_date?.slice(0, 4) : release_date?.slice(0, 4)
   }<span class="film__rating">${vote_average}</span></h2>
   <p class="film__text film__description">${
-    filmGenres?.length ? filmGenres.join(', ') : 'Other'
+    filmGenres?.length
+      ? filmGenres.join(', ')
+      : lang === 'ua'
+      ? 'Інше'
+      : 'Other'
   }</p>
   </li>
   `;

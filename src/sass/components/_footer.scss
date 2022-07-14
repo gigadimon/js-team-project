@@ -125,15 +125,10 @@ footer > div:not(:last-child) {
   background-color: rgba(0, 0, 0, 0.2);
   position: fixed;
   top: 0;
-  // transition: opacity 750ms cubic-bezier(0.4, 0, 0.2, 1),
-  //   visibility 750ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &.is-hidden {
     .footer__modal {
       opacity: 0;
-      // transform: scale(0.6) rotate(160deg) translateY(500px);
-      // transition: transform 750ms cubic-bezier(0.4, 0, 0.2, 1);
-      // transition: $transition;
     }
   }
 }
@@ -144,8 +139,7 @@ footer > div:not(:last-child) {
     rgba(255, 245, 240, 1) 18%,
     rgba(144, 165, 187, 0.9192051820728291) 100%
   );
-  // max-width: 80%;
-  width: 350px;
+  max-width: 90vw;
   padding: 10px;
   border-radius: 6px;
   max-height: calc(100vh - 100px);
@@ -158,27 +152,21 @@ footer > div:not(:last-child) {
   transition: $transition;
   transform: translate(-50%, -50%);
 
-  // transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1),
-  //   visibility 300ms cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 5px 5px 4px 3px rgba(0, 0, 0, 0.2);
 
   @media screen and (min-width: $min-tablet) {
-    width: 700px;
+    max-width: 700px;
     height: 530px;
     max-height: 100%;
     padding: 10px;
   }
   @media screen and (min-width: $min-desktop) {
-    width: 900px;
+    max-width: 900px;
     height: 630px;
-    max-height: 100%;
+    max-height: 90vh;
     padding: 15px;
   }
 }
-
-// .footer__modal::-webkit-scrollbar {
-//   width: 1.1em;
-// }
 
 ::-webkit-scrollbar-track {
   background: #fb7c6c;
@@ -190,7 +178,6 @@ footer > div:not(:last-child) {
 }
 
 ::-webkit-scrollbar-thumb {
-  // background-color: rgba(255, 193, 128, 1);
   background-color: #803507;
   border: 0.25 em solid #d8ab90;
   border-radius: 100vw;
@@ -204,10 +191,6 @@ footer > div:not(:last-child) {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
-}
-
-.scroll-hidden {
-  overflow: hidden;
 }
 
 .footer__close-btn {
@@ -258,8 +241,6 @@ footer > div:not(:last-child) {
 }
 
 .team__item {
-  // margin: 15px;
-  // padding: 10px 15px;
   flex-basis: calc((100% - 10px) / 5);
   text-align: center;
 }
@@ -371,7 +352,6 @@ button.back-to-top::before,
 button.back-to-top::after {
   content: '';
   display: block;
-  // vertical-align: middle;
   border-bottom: solid 10px #ff6b08;
   border-left: solid 10px transparent;
   line-height: 0;

@@ -1,4 +1,3 @@
-import Notiflix, { Notify } from 'notiflix';
 import { closeModal } from './authModal';
 import switchToLibrary, { switchToHome } from '../header/header';
 
@@ -31,7 +30,6 @@ window.addEventListener('load', () => {
 leaveBtn.addEventListener('click', handleLeaveFromAccount);
 
 export function enterToAccount(userData) {
-  Notify.success('Вы успешно вошли в аккаунт');
   loginName.innerHTML = userData.email;
   localStorage.setItem('userEmail', userData.email);
   leaveBtn.classList.remove('visually-hidden');
