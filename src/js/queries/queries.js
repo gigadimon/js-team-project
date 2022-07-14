@@ -130,3 +130,10 @@ export async function fetchGetTrending(pageValue, lang) {
     console.log(error);
   }
 }
+
+export async function fetchGetMovieTreiler(MOVIE_ID) {
+  const { data } = await axios.get(
+    `/movie/${MOVIE_ID}/videos?api_key=${API_KEY}`
+  );
+  return data.results;
+}

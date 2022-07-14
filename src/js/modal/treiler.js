@@ -1,4 +1,5 @@
 import { loaderOff, loaderOn } from '../loader/loader';
+import { fetchGetMovieTreiler } from '../queries/queries';
 import { backdrop } from './modal-close';
 const btnTreilerYouTube = document.querySelector('.btn__trailer');
 const modal = document.querySelector('.modal');
@@ -35,13 +36,6 @@ function treilerMovie(x) {
 
 function setAttributeYouTubeFrame(youTubeKey) {
   youTubePlayer.src = `https://www.youtube.com/embed/${youTubeKey}`;
-}
-
-async function fetchGetMovieTreiler(MOVIE_ID) {
-  const { data } = await axios.get(
-    `/movie/${MOVIE_ID}/videos?api_key=${API_KEY}`
-  );
-  return data.results;
 }
 
 btnTreilerYouTube.addEventListener('click', openTreiler);
