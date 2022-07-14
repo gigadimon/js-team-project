@@ -1,5 +1,10 @@
 const langMainArr = [
   {
+    selector: 'searchBy',
+    en: 'Search by',
+    ua: 'Пошук за',
+  },
+  {
     selector: 'mainInput',
     placeholder: true,
     en: 'Movie search',
@@ -18,7 +23,7 @@ const langMainArr = [
   {
     selector: 'yearInput',
     en: 'Year',
-    ua: 'Рік',
+    ua: 'Роком',
   },
   {
     selector: 'home',
@@ -42,8 +47,8 @@ const langMainArr = [
   },
   {
     selector: 'choose',
-    en: 'Choose genre',
-    ua: 'Оберіть жанр',
+    en: 'Genre',
+    ua: 'Жанрами',
   },
   {
     selector: 'action',

@@ -9,6 +9,5 @@ import makeMyLibraryCards from './js/my-library/makeMyLibraryCards';
 import darkMode from './js/header/darkMode';
 import scrollArrow from './js/scrooll-arrow/scrollArrow';
 import './js/languages/changeLang';
-// import inputSaver from './js/film-search/inputSaver';
 
 loadingPage();

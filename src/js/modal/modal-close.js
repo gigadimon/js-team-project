@@ -1,5 +1,4 @@
 import { remove } from '../current-session/localStorageService';
-import { load, save, remove } from '../current-session/localStorageService';
 export { backdrop };
 import { getTrailer } from './treiler';
 

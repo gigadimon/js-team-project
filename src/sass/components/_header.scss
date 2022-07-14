@@ -1,7 +1,6 @@
 .header {
   position: relative;
   height: 230px;
-  // background-color: #545454;
   background-image: url(../images/img/mob/header-bg-lines-mob-1x.png),
     linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
   background-repeat: no-repeat;
@@ -132,7 +131,6 @@
   display: flex;
   align-items: center;
   text-align: center;
-  // transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover {
     transform: scale(1.05);
     transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -160,15 +158,10 @@
 
 .header__title {
   display: none;
-  // transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   @media screen and (min-width: $min-tablet) {
     display: block;
     margin-left: 10px;
   }
-  // &:hover {
-  //   color: $orange-color;
-  //   transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-  // }
 }
 
 .nav-wrapper {
@@ -180,9 +173,6 @@
   display: flex;
 }
 
-// .header__nav:not(:last-child) {
-//   margin-right: 20px;
-// }
 .header__nav:not(:nth-last-child(2)) {
   margin-right: 0;
 }
@@ -211,7 +201,6 @@
   letter-spacing: 0.03em;
   cursor: pointer;
   text-transform: uppercase;
-  // transition: 300ms;
   &:hover {
     color: $red-color;
     transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -245,12 +234,11 @@
 }
 
 .header__form {
-  // width: 100%;
+
   position: relative;
   height: 20px;
   margin: 30px auto 30px;
   border-bottom: 0.5px solid $white-color;
-  // transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover,
   &:focus {
     transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -297,13 +285,13 @@
   align-items: center;
   justify-content: center;
   padding: 0;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .lib__btn {
   width: 130px;
-  height: 44px;
-  margin-top: 40px;
+  height: 40px;
+  margin-top: 20px;
 
   text-transform: uppercase;
   border-radius: 5px;
@@ -327,7 +315,6 @@
 
 .lib__btn:hover {
   color: $white-color;
-  border: 0;
 }
 
 .queueBtn,
@@ -346,7 +333,6 @@
 }
 .neon:hover {
   background-color: #ff6b08;
-  // box-shadow: 10px 10px 100px 6px rgba(255, 3, 3, 1);
   box-shadow: 10px 10px 100px 20px rgb(229, 80, 50, 1);
 }
 

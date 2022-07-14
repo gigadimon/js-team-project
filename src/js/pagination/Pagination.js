@@ -50,20 +50,6 @@ export default class Pagination {
       }
     }
 
-    // if (this.currentPage === this.total) {
-    //   beforePage = beforePage - 2;
-    // }
-    // } else if (this.currentPage === this.total - 1) {
-    //   beforePage = beforePage - 1;
-    // }
-
-    // if (this.currentPage === 1) {
-    //   afterPage = afterPage + 2;
-    // }
-    // } else if (this.currentPage === 2) {
-    //   afterPage = afterPage + 1;
-    // }
-
     for (var plength = beforePage; plength <= afterPage; plength++) {
       if (plength > this.total) {
         continue;

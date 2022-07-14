@@ -18,22 +18,31 @@ overlay.addEventListener('mousedown', event => {
 });
 
 export function closeModal() {
-  document.addEventListener('keydown', closeFilmModal);
-  overlay.classList.add('visually-hidden');
+  document.querySelector('body').style.overflow = 'visible';
 
+  if (localStorage.getItem('openFilm')) {
+    document.addEventListener('keydown', closeFilmModal);
+  }
+
+  overlay.classList.add('visually-hidden');
   document.removeEventListener('keydown', handleKeyListener);
 }
 
 export function openAuthModal() {
+  document.querySelector('body').style.overflow = 'hidden';
   const lang = localStorage.getItem('lang');
   if (lang) setContentLang(langAuthModalArr, lang);
 
-  document.removeEventListener('keydown', closeFilmModal);
+  if (localStorage.getItem('openFilm')) {
+    document.removeEventListener('keydown', closeFilmModal);
+  }
   overlay.classList.remove('visually-hidden');
 
   document.addEventListener('keydown', handleKeyListener);
 }
 
 function handleKeyListener(event) {
-  event.code === 'Escape' && closeModal();
+  if (event.code === 'Escape') {
+    closeModal();
+  }
 }

@@ -11,7 +11,7 @@ import {
 import setContentLang from '../languages/changeLang';
 import { langFilmModalArr, langAuthorModalArr } from '../languages/langData';
 
-export const refs = {
+const refs = {
   loader: document.querySelector('.lader_backdrop'),
   poster: document.querySelector('.modal__card-poster'),
   title: document.querySelector('.modal__card-title'),
@@ -78,18 +78,19 @@ async function onClickImg(e) {
   if (e.target.nodeName !== 'IMG') {
     return;
   }
-
-  scrollBtn.classList.remove('show');
-  document.addEventListener('keydown', closeModal);
-  let movieId = e.target.getAttribute('data-id');
-  await renderModalCard(movieId);
-  setTimeout(() => {
-    if (refs.loader.classList.contains('is-hidden')) {
-      document.body.style.overflow = 'hidden';
-      backdrop.classList.remove('is-hidden');
-      backdrop.classList.add('is-hidden-off');
-    }
-  }, 250);
+  if (e.target.classList.contains('film__img')) {
+    scrollBtn.classList.remove('show');
+    document.addEventListener('keydown', closeModal);
+    let movieId = e.target.getAttribute('data-id');
+    await renderModalCard(movieId);
+    setTimeout(() => {
+      if (refs.loader.classList.contains('is-hidden')) {
+        document.body.style.overflow = 'hidden';
+        backdrop.classList.remove('is-hidden');
+        backdrop.classList.add('is-hidden-off');
+      }
+    }, 250);
+  }
 }
 
 function renderModalCard(ID) {
@@ -142,18 +143,6 @@ function renderModalCard(ID) {
     .finally(() => loaderOff());
 }
 
-export function styleModalCardBox(x){
-if(x === 'ua'){
-  refs.voteTitle.style.width = '100px'
-  refs.popularity.style.marginLeft = '30px'
-  refs.original.style.marginLeft = '72px'
-} else if ( x === 'en'){
-  refs.voteTitle.style.width = '100px'
-  refs.popularity.style.marginLeft = '52px'
-  refs.original.style.marginLeft = '39px'
-}
-
-}
 // saving movies to local storage
 const addToWatchedBtn = document.querySelector('.btn__modal-watched');
 const addToQueueBtn = document.querySelector('.btn__modal-queue');
@@ -173,11 +162,13 @@ function addToWatched() {
   localStorage.setItem('watchedList', JSON.stringify(watchedList));
   const lang = localStorage.getItem('lang');
   if (lang && lang === 'ua') {
-    Notify.info('Фільм додано до Переглянуті');
+    Notify.info('Фільм додано до Переглянутих');
     addToWatchedBtn.textContent = 'Додано';
+    addToWatchedBtn.disabled = true;
   } else {
     Notify.info('Movie added to Watched');
     addToWatchedBtn.textContent = 'Added';
+    addToWatchedBtn.disabled = true;
   }
 }
 
@@ -199,9 +190,11 @@ function addToQueue() {
   if (lang && lang === 'ua') {
     Notify.info('Фільм додано до Черги');
     addToQueueBtn.textContent = 'Додано';
+    addToQueueBtn.disabled = true;
   } else {
     Notify.info('Movie added to Queue');
     addToQueueBtn.textContent = 'Added';
+    addToQueueBtn.disabled = true;
   }
 }
 

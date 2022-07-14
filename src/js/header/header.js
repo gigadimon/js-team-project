@@ -1,11 +1,11 @@
 import { watchedBtnCB, queueBtnCB } from '../my-library/callbacksForMyLibrery';
 import currentSession from '../current-session/currentSession';
 import currentLibrary from '../current-session/currentLibrary';
-
 import { openAuthModal } from '../auth/authModal';
-import renderMyLibrary from '../my-library/renderMyLibrary';
+import noContentMessage from '../my-library/renderMyLibrary';
 
 const headerBoxRef = document.querySelector('.header__box');
+const filter = document.querySelector('.filter_conteiner');
 const homeBtnRef = document.querySelector('.home');
 const libBtnRef = document.querySelector('.library');
 const headerRef = document.querySelector('.header');
@@ -13,8 +13,7 @@ const headerButtons = document.querySelector('.header__buttons');
 const watchedBtn = document.querySelector('.watchedBtn');
 const queueBtn = document.querySelector('.queueBtn');
 const logo = document.querySelector('.header__logo');
-const filter = document.querySelector('.filter_conteiner');
-// homeBtnRef.addEventListener('click', switchToHome);
+
 libBtnRef.addEventListener('click', switchToLibrary);
 
 function switchHeaderBgImage() {
@@ -33,7 +32,6 @@ export default function switchToLibrary() {
     return;
   }
 
-  renderMyLibrary();
   homeBtnRef.addEventListener('click', switchToHome);
   homeBtnRef.classList.remove('current');
   libBtnRef.classList.add('current');
@@ -49,8 +47,15 @@ export default function switchToLibrary() {
 
   sessionStorage.setItem('my-lib', 'true');
   switchHeaderBgImage();
+  if (
+    (localStorage.getItem('current-my-lyb') === 'q' &&
+      !localStorage.getItem('queueList')) ||
+    (localStorage.getItem('current-my-lyb') === 'w' &&
+      !localStorage.getItem('watchedList'))
+  ) {
+    noContentMessage();
+  }
 }
-
 export function switchToHome() {
   libBtnRef.addEventListener('click', switchToLibrary);
   homeBtnRef.classList.add('current');
@@ -75,5 +80,4 @@ logo.addEventListener('click', () => {
   } else if (localStorage.getItem('last-filter')) {
     localStorage.removeItem('last-filter');
   }
-  switchToHome();
 });

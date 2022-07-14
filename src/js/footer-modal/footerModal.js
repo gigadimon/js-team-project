@@ -5,7 +5,6 @@ const btnLink = document.querySelector('.footer__modal-btn');
 const btnHeart = document.querySelector('.footer__modal-btn--heart');
 const modalClouseBtn = document.querySelector('.footer__close-btn');
 const footerBackdrop = document.querySelector('.footer__backdrop');
-const footerModal = document.querySelector('.footer__modal');
 const scrollOnModal = document.querySelector('body');
 
 btnLink.addEventListener('click', onOpenFooterModal);
@@ -14,21 +13,20 @@ modalClouseBtn.addEventListener('click', onCloseFooterModal);
 
 function onOpenFooterModal(event) {
   event.preventDefault();
-
+  scrollOnModal.style.overflow = 'hidden';
   const lang = localStorage.getItem('lang');
   if (lang) setContentLang(langFooterModalArr, lang);
 
-  scrollOnModal.classList.add('scroll-hidden');
   footerBackdrop.classList.remove('is-hidden');
   footerBackdrop.addEventListener('click', onClickFooterBackdrop);
   window.addEventListener('keydown', onEscPress);
 }
 
-function onCloseFooterModal(event) {
+function onCloseFooterModal() {
   footerBackdrop.classList.add('is-hidden');
   window.removeEventListener('keydown', onEscPress);
   footerBackdrop.removeEventListener('click', onClickFooterBackdrop);
-  scrollOnModal.classList.remove('scroll-hidden');
+  scrollOnModal.style.overflow = 'visible';
 }
 
 function onClickFooterBackdrop(event) {

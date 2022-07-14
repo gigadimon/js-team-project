@@ -1,12 +1,9 @@
-import axios from 'axios';
 import { loaderOff, loaderOn } from '../loader/loader';
 import { backdrop } from './modal-close';
 const btnTreilerYouTube = document.querySelector('.btn__trailer');
 const modal = document.querySelector('.modal');
 const treiler = document.querySelector('.video-treiler');
 const youTubePlayer = document.querySelector('iframe');
-const API_KEY = 'ffda232ba1095b2db867c38e7745d8d7';
-axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
 let containerCardFilm = document.querySelector('.body-container');
 containerCardFilm.addEventListener('click', onClickImg);
@@ -23,14 +20,14 @@ export function getTrailer() {
   const openFilm = JSON.parse(localStorage.getItem('openFilm'));
   if (openFilm) {
     fetchGetMovieTreiler(openFilm.id)
-      .then(data => treilerMovie(data) )
+      .then(data => treilerMovie(data))
       .then(response => setAttributeYouTubeFrame(response));
   }
 }
 
 function treilerMovie(x) {
   for (const key of x) {
-    if (key.type === 'Trailer') {
+    if (key.name === 'Official Trailer') {
       return key.key;
     }
   }
