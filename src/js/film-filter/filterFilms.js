@@ -1,7 +1,6 @@
 import renderMovieCards from '../handlers/renderMovieCards';
 import { fetchGetFilterFilms } from '../queries/queries';
 import createFilmListTrending from '../pagination/createFilmList';
-import Notiflix from 'notiflix';
 import Pagination from '../pagination/Pagination';
 
 const cardSection = document.querySelector('.body-container');

@@ -1,6 +1,6 @@
 import { loaderOff, loaderOn } from '../loader/loader';
-import { fetchGetMovieTreiler } from '../queries/queries';
 import { backdrop } from './modal-close';
+import { fetchGetMovieTreiler } from '../queries/queries';
 const btnTreilerYouTube = document.querySelector('.btn__trailer');
 const modal = document.querySelector('.modal');
 const treiler = document.querySelector('.video-treiler');
